@@ -32,6 +32,7 @@ class SaleOrderLine(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
+        raise UserError(_(str(vals_list)))
         if isinstance(vals_list, list) :
             copia_list = vals_list[:]
             i = 0
