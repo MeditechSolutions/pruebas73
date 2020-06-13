@@ -17,7 +17,7 @@ class SaleOrderLine(models.Model):
         so_line_estarbien = self.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'no')
         
         usuario = self.env.user
-        project = self.env['project.project'].sudo().search([('user_id','=',usuario.id)], order='create_date desc' limit=1)
+        project = self.env['project.project'].sudo().search([('user_id','=',usuario.id)], order='create_date desc', limit=1)
         for so_line in so_line_estarbien :
             if not project :
                 if not so_line.project_id :
