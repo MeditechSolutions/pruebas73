@@ -51,6 +51,6 @@ class SaleOrderLine(models.Model):
                 if producto.type == 'service' and producto.service_tracking == 'no' :
                     copia[0]['product_uom_qty'] = 1
                     copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
-            vals_list = len(copia)==1 and copia[0] else copia
+            vals_list = len(copia)==1 and copia[0] or copia
         return super(SaleOrderLine, self).create(vals_list)
     #################################################
