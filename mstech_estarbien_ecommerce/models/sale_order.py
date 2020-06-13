@@ -45,12 +45,12 @@ class SaleOrderLine(models.Model):
                 i = i + 1
             vals_list = copia_list[:]
         else :
-            copia = dict(vals_list)
+            copia = [vals_list]
             if vals_list.get('product_uom_qty', 0) > 1 :
-                producto = self.env['product.product'].browse(vals_list['product_id'])
+                producto = self.env['product.template'].browse(vals_list['product_template_id'])
                 if producto.type == 'service' and producto.service_tracking == 'no' :
-                    copia[i]['product_uom_qty'] = 1
-                    copia.extend([copia[i]]*(vals_list.get('product_uom_qty', 0)-1))
-            vals_list = dict(copia)
+                    copia[0]['product_uom_qty'] = 1
+                    copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
+            vals_list = len(copia)==1 and copia[0] else copia
         return super(SaleOrderLine, self).create(vals_list)
     #################################################
