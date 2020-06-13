@@ -30,31 +30,30 @@ class SaleOrderLine(models.Model):
             if not so_line.task_id :
                 so_line._timesheet_create_task(project=project)
     
-    @api.model_create_multi
-    def create(self, vals_list):
-        #raise UserError(_(str(vals_list)))
-        if isinstance(vals_list, list) :
-            copia_list = vals_list[:]
-            i = 0
-            for vals in vals_list :
-                if vals.get('product_uom_qty', 0) > 1 :
-                    producto = self.env['product.template'].browse(vals['product_template_id'])
-                    if producto.type == 'service' and producto.service_tracking == 'no' :
-                        copia_list[i]['product_uom_qty'] = 1
-                        copia_list.extend([copia_list[i]]*(vals.get('product_uom_qty', 0)-1))
-                i = i + 1
-            raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copia_list)))
-            vals_list = copia_list[:]
-        else :
-            copia = [vals_list]
-            if vals_list.get('product_uom_qty', 0) > 1 :
-                producto = self.env['product.template'].browse(vals_list['product_template_id'])
-                if producto.type == 'service' and producto.service_tracking == 'no' :
-                    copia[0]['product_uom_qty'] = 1
-                    copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
-            raise UserError(_(str(vals_list) + '\n*********************************\n' + str(copia)))
-            vals_list = len(copia)==1 and copia[0] or copia
-        #if copiado != vals_list :
-        #    raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
-        return super(SaleOrderLine, self).create(vals_list)
-    #################################################
+    #@api.model_create_multi
+    #def create(self, vals_list):
+    #    #raise UserError(_(str(vals_list)))
+    #    if isinstance(vals_list, list) :
+    #        copia_list = vals_list[:]
+    #        i = 0
+    #        for vals in vals_list :
+    #            if vals.get('product_uom_qty', 0) > 1 :
+    #                producto = self.env['product.template'].browse(vals['product_template_id'])
+    #                if producto.type == 'service' and producto.service_tracking == 'no' :
+    #                    copia_list[i]['product_uom_qty'] = 1
+    #                    copia_list.extend([copia_list[i]]*(vals.get('product_uom_qty', 0)-1))
+    #            i = i + 1
+    #        raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copia_list)))
+    #        vals_list = copia_list[:]
+    #    else :
+    #        copia = [vals_list]
+    #        if vals_list.get('product_uom_qty', 0) > 1 :
+    #            producto = self.env['product.template'].browse(vals_list['product_template_id'])
+    #            if producto.type == 'service' and producto.service_tracking == 'no' :
+    #                copia[0]['product_uom_qty'] = 1
+    #                copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
+    #        raise UserError(_(str(vals_list) + '\n*********************************\n' + str(copia)))
+    #        vals_list = len(copia)==1 and copia[0] or copia
+    #    #if copiado != vals_list :
+    #    #    raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
+    #    return super(SaleOrderLine, self).create(vals_list)
