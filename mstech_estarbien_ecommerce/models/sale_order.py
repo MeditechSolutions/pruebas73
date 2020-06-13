@@ -36,12 +36,12 @@ class SaleOrderLine(models.Model):
             copia_list = vals_list[:]
             i = 0
             for vals in vals_list :
-                i = i + 1
                 if vals.get('product_uom_qty', 0) > 1 :
                     producto = self.env['product.product'].browse(vals['product_id'])
                     if producto.type == 'service' and producto.service_tracking == 'no' :
                         copia_list[i]['product_uom_qty'] = 1
                         copia_list.extend([copia_list[i]]*(vals.get('product_uom_qty', 0)-1))
+                i = i + 1
             vals_list = copia_list[:]
         else :
             copia = dict(vals_list)
