@@ -55,6 +55,7 @@ class SaleOrderLine(models.Model):
                     copia[0]['product_uom_qty'] = 1
                     copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
             vals_list = len(copia)==1 and copia[0] or copia
-        raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
+        if copiado != vals_list :
+            raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
         return super(SaleOrderLine, self).create(vals_list)
     #################################################
