@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Códigos de Modalidad de Traslado -->
+        <record id="view_einvoice_18_tree" model="ir.ui.view">
+            <field name="name">Códigos de Modalidad de Traslado</field>
+            <field name="model">einvoice.18</field>
+            <field name="arch" type="xml">
+                <tree string="Códigos de Tipo de Afectación del IGV">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_einvoice_18_form" model="ir.ui.view">
+            <field name="name">Códigos de Modalidad de Traslado</field>
+            <field name="model">einvoice.18</field>
+            <field name="arch" type="xml">
+                <form string="Códigos de Modalidad de Traslado">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="einvoice_18_action">
+            <field name="name">Códigos de Modalidad de Traslado</field>
+            <field name="res_model">einvoice.18</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Códigos de Motivo de Traslado -->    
+        <record id="view_einvoice_20_tree" model="ir.ui.view">
+            <field name="name">Códigos de Motivo de Traslado</field>
+            <field name="model">einvoice.20</field>
+            <field name="arch" type="xml">
+                <tree string="Códigos de Motivo de Traslado">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_einvoice_20_form" model="ir.ui.view">
+            <field name="name">Códigos de Motivo de Traslado</field>
+            <field name="model">einvoice.20</field>
+            <field name="arch" type="xml">
+                <form string="Códigos de Motivo de Traslado">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="einvoice_20_action">
+            <field name="name">Códigos de Motivo de Traslado</field>
+            <field name="res_model">einvoice.20</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Menu -->
+        <menuitem name="Catálogo 18 - Códigos de Modalidad de Traslado" id="einvoice_18_menu" parent="mouse_einvoice_base.einvoice_configuration_menu" action="einvoice_18_action" sequence="18"/>
+        <menuitem name="Catálogo 20 - Códigos de Motivo de Traslado" id="einvoice_20_menu" parent="mouse_einvoice_base.einvoice_configuration_menu" action="einvoice_20_action" sequence="20"/>
+    </data>
+</odoo>
