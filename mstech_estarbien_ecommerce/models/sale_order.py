@@ -33,9 +33,7 @@ class SaleOrderLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         #raise UserError(_(str(vals_list)))
-        copiado = False
         if isinstance(vals_list, list) :
-            copiado = vals_list[:]
             copia_list = vals_list[:]
             i = 0
             for vals in vals_list :
@@ -45,17 +43,18 @@ class SaleOrderLine(models.Model):
                         copia_list[i]['product_uom_qty'] = 1
                         copia_list.extend([copia_list[i]]*(vals.get('product_uom_qty', 0)-1))
                 i = i + 1
+            raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copia_list)))
             vals_list = copia_list[:]
         else :
-            copiado = dict(vals_list)
             copia = [vals_list]
             if vals_list.get('product_uom_qty', 0) > 1 :
                 producto = self.env['product.template'].browse(vals_list['product_template_id'])
                 if producto.type == 'service' and producto.service_tracking == 'no' :
                     copia[0]['product_uom_qty'] = 1
                     copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
+            raise UserError(_(str(vals_list) + '\n*********************************\n' + str(copia)))
             vals_list = len(copia)==1 and copia[0] or copia
-        if copiado != vals_list :
-            raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
+        #if copiado != vals_list :
+        #    raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
         return super(SaleOrderLine, self).create(vals_list)
     #################################################
