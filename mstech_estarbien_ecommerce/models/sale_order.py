@@ -3,6 +3,21 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError, Warning
 
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+    
+    def _action_confirm(self) :
+        """ On SO confirmation, some lines should generate a task or a project. """
+        for record in self.order_line.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'no' and sol.product_uom_qty > 1) :
+            cantidad = record.product_uom_qty - 1
+            while cantidad > 0 :
+                linea = record.copy({'order_id': record.order_id.id})
+                linea.product_uom_qty = 1
+                cantidad = cantidad - 1
+            record.product_uom_qty = 1
+        result = super(SaleOrder, self)._action_confirm()
+        return result
+
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
     
