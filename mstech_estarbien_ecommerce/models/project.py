@@ -15,7 +15,7 @@ class ProjectTask(models.Model) :
                 if self.paciente_id.id != values.get('paciente_id') :
                     seguidor = self.message_follower_ids.filtered(lambda r: r.partner_id == self.paciente_id)
                     if seguidor :
-                        valor.append((2, seguidor.id, 0))
+                        valor.append((2, int(seguidor.id), 0))
             if values.get('paciente_id') and not self.message_follower_ids.filtered(lambda r: r.partner_id == values.get('paciente_id')) :
                 if valor and valor[0][1] == values.get('paciente_id') :
                     valor = []
