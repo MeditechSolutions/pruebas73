@@ -16,8 +16,11 @@ class ProjectTask(models.Model) :
                     seguidor = self.message_follower_ids.filtered(lambda r: r.partner_id == self.paciente_id)
                     if seguidor :
                         valor.append((2, seguidor.id, 0))
-            if values.get('paciente_id') and not self.message_follower_ids.filtered(lambda r: r.partner_id == self.paciente_id) :
-                valor.append((4, values.get('paciente_id'), 0))
+            if values.get('paciente_id') and not self.message_follower_ids.filtered(lambda r: r.partner_id == values.get('paciente_id')) :
+                if valor and valor[0][1] == values.get('paciente_id') :
+                    valor = []
+                else :
+                    valor.append((4, values.get('paciente_id'), 0))
             if valor :
                 values.update({'message_follower_ids': valor})
         res = super(ProjectTask, self).write(values)
