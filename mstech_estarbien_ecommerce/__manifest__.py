@@ -7,7 +7,10 @@
     'summary': "Integración pryecto - ventas para el ecommerce de Estarbien",
     'version': '13.0.1.0.0',
     'depends': [
-        'sale_timesheet'
+        'sale_timesheet',
+    ],
+    'data': [
+        'views/project_views.xml',
     ],
     'installable': True,
     'sequence': 1,

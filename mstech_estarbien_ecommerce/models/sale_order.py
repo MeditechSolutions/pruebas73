@@ -3,12 +3,12 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError, Warning
 
-class SaleOrder(models.Model):
+class SaleOrder(models.Model) :
     _inherit = 'sale.order'
     
     def _action_confirm(self) :
         """ On SO confirmation, some lines should generate a task or a project. """
-        for record in self.order_line.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'no' and sol.product_uom_qty > 1) :
+        for record in self.order_line.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'estarbien' and sol.product_uom_qty > 1) :
             cantidad = record.product_uom_qty - 1
             while cantidad > 0 :
                 linea = record.copy({'order_id': record.order_id.id})
@@ -18,8 +18,8 @@ class SaleOrder(models.Model):
         result = super(SaleOrder, self)._action_confirm()
         return result
 
-class SaleOrderLine(models.Model):
-    _inherit = "sale.order.line"
+class SaleOrderLine(models.Model) :
+    _inherit = 'sale.order.line'
     
     def _timesheet_service_generation(self):
         """ For service lines, create the task or the project. If already exists, it simply links
@@ -29,7 +29,7 @@ class SaleOrderLine(models.Model):
             implied if so line of generated task has been modified, we may regenerate it.
         """
         super(SaleOrderLine, self)._timesheet_service_generation()
-        so_line_estarbien = self.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'no')
+        so_line_estarbien = self.filtered(lambda sol: sol.is_service and sol.product_id.service_tracking == 'estarbien')
         
         usuario = self.env.user
         project = self.env['project.project'].sudo().search([('user_id','=',usuario.id)], order='create_date desc', limit=1)
@@ -44,31 +44,6 @@ class SaleOrderLine(models.Model):
                 so_line.project_id = project
             if not so_line.task_id :
                 so_line._timesheet_create_task(project=project)
-    
-    #@api.model_create_multi
-    #def create(self, vals_list):
-    #    #raise UserError(_(str(vals_list)))
-    #    if isinstance(vals_list, list) :
-    #        copia_list = vals_list[:]
-    #        i = 0
-    #        for vals in vals_list :
-    #            if vals.get('product_uom_qty', 0) > 1 :
-    #                producto = self.env['product.template'].browse(vals['product_template_id'])
-    #                if producto.type == 'service' and producto.service_tracking == 'no' :
-    #                    copia_list[i]['product_uom_qty'] = 1
-    #                    copia_list.extend([copia_list[i]]*(vals.get('product_uom_qty', 0)-1))
-    #            i = i + 1
-    #        raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copia_list)))
-    #        vals_list = copia_list[:]
-    #    else :
-    #        copia = [vals_list]
-    #        if vals_list.get('product_uom_qty', 0) > 1 :
-    #            producto = self.env['product.template'].browse(vals_list['product_template_id'])
-    #            if producto.type == 'service' and producto.service_tracking == 'no' :
-    #                copia[0]['product_uom_qty'] = 1
-    #                copia.extend([copia[0]]*(vals_list.get('product_uom_qty', 0)-1))
-    #        raise UserError(_(str(vals_list) + '\n*********************************\n' + str(copia)))
-    #        vals_list = len(copia)==1 and copia[0] or copia
-    #    #if copiado != vals_list :
-    #    #    raise UserError(_(str(vals_list) + '\n---------------------------------\n' + str(copiado)))
-    #    return super(SaleOrderLine, self).create(vals_list)
+            # Portal for the client
+            if so_line.order_id.partner_id not in so_line.task_id.message_follower_ids.partner_id :
+                so_line.task_id.write({'message_follower_ids': [(0, 0, {'res_id':so_line.task_id.id,'res_model':'project.task', 'partner_id':so_line.order_id.partner_id.id})]})
