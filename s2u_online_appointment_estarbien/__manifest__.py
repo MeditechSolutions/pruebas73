@@ -13,7 +13,6 @@ S2U Online Appointment Extension
     'depends' : [
         's2u_online_appointment',
         'basic_hms',
-        'sinerkia_jitsi_meet'
     ],
     'data': [
         'data/calendar_data.xml',
