@@ -13,6 +13,7 @@
     'data': [
         'data/project_data.xml',
         'security/estarbien_security.xml',
+        'security/ir.model.access.csv',
         'views/project_views.xml',
         'views/medical_patient_views.xml',
     ],
