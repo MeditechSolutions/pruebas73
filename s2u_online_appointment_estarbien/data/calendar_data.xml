@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="calendar_event_type_s2u_online_appointment" model="calendar.event.type">
+            <field name="name">Cita en línea</field>
+        </record>
+        
+        <record id="menu_s2u_online_appointment" model="website.menu">
+            <field name="name">Cita en línea</field>
+            <field name="url">/online-appointment</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">55</field>
+        </record>
+    </data>
+</odoo>

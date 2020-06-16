@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="make_appointment" inherit_id="s2u_online_appointment.make_appointment" name="Online Appointment Extend">
+            <xpath expr="/t/t/div/div/div/form/div/div[3]" position="attributes">
+                <attribute name="hidden">true</attribute>
+            </xpath>
+            <xpath expr="/t/t/div/div/div/form/div/div[4]" position="attributes">
+                <attribute name="hidden">true</attribute>
+            </xpath>
+            <xpath expr="/t/t/div/div/div/form/div/div[2]" position="after">
+                <t t-if="external_appointment_option_id">
+                    <div class="form-group col-xl-6">
+                        <label class="control-label" for="appointment_option">Subject</label>
+                        <div>
+                            <select id="appointment_option_id" disabled="True" required="True" name="appointment_option_id" class="form-control">
+                                <option value="">Select</option>
+                                <t t-foreach="appointment_options" t-as="ao">
+                                    <option t-att-value="ao.id" t-att-selected="ao.id == appointment_option_id">
+                                        <t t-esc="ao.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <label class="control-label" for="appointee_id">With</label>
+                        <div>
+                            <select id="appointee_id" disabled="True" required="True" name="appointee_id" class="form-control">
+                                <option value="">Select</option>
+                                <t t-foreach="appointees" t-as="o">
+                                    <option t-att-value="o.id" t-att-selected="o.id == appointee_id">
+                                        <t t-esc="o.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="form-group col-xl-6">
+                        <label class="control-label" for="appointment_option">Subject</label>
+                        <div>
+                            <select id="appointment_option_id" required="True" name="appointment_option_id" class="form-control">
+                                <option value="">Select</option>
+                                <t t-foreach="appointment_options" t-as="ao">
+                                    <option t-att-value="ao.id" t-att-selected="ao.id == appointment_option_id">
+                                        <t t-esc="ao.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <label class="control-label" for="appointee_id">With</label>
+                        <div>
+                            <select id="appointee_id" required="True" name="appointee_id" class="form-control">
+                                <option value="">Select</option>
+                                <t t-foreach="appointees" t-as="o">
+                                    <option t-att-value="o.id" t-att-selected="o.id == appointee_id">
+                                        <t t-esc="o.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+        
+        <template id="thanks" inherit_id="s2u_online_appointment.thanks" name="Appointment Scheduled Extend">
+            <xpath expr="/t/t/div/div[2]/div[2]/div/div" position="inside">
+                <t t-set="proyecto" t-value="request.env['project.project'].search([('user_id','=',request.env.user.id)]) or []"/>
+                <p t-if="proyecto"><a href="/web#action=367&model=project.project&view_type=kanban">Regresa a tu proyecto</a></p>
+            </xpath>
+        </template>
+    </data>
+</odoo>
