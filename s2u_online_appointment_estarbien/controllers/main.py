@@ -114,7 +114,7 @@ class OnlineAppointmentCustom(OnlineAppointment) :
                        'start': start_datetime.strftime("%Y-%m-%d %H:%M:%S"),
                        'stop': (start_datetime + datetime.timedelta(minutes=round(option.duration * 60))).strftime("%Y-%m-%d %H:%M:%S"),
                        'duration': option.duration,
-                       'categ_ids': [(6, 0, request.env.ref('s2u_online_appointment_extra.calendar_event_type_s2u_online_appointment').ids)],
+                       'categ_ids': [(6, 0, request.env.ref('s2u_online_appointment_estarbien.calendar_event_type_s2u_online_appointment').ids)],
                        'partner_ids': [(6, 0, partner_ids)]}
         # set detaching = True, we do not want to send a mail to the attendees
         appointment = request.env['calendar.event'].sudo().with_context(detaching=True).create(appointment)
