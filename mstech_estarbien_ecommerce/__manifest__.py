@@ -8,6 +8,7 @@
     'version': '13.0.1.0.0',
     'depends': [
         'sale_timesheet',
+        'basic_hms',
     ],
     'data': [
         'views/project_views.xml',
