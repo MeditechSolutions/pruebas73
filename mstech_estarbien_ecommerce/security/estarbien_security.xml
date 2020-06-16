@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="grupo_estarbien" model="res.groups">
+            <field name="name">Paciente - Estarbien</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+        
+        <record model="ir.rule" id="paciente_estarbien">
+            <field name="name">Paciente Estarbien - Solo contacto propio</field>
+            <field name="model_id" search="[('model','=','stock.picking')]" model="ir.model"/>
+            <field name="domain_force">[('id','=',user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_estarbien'), 0)]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</odoo>
