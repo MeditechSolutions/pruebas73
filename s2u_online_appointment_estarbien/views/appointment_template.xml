@@ -71,7 +71,7 @@
         <template id="thanks" inherit_id="s2u_online_appointment.thanks" name="Appointment Scheduled Extend">
             <xpath expr="/t/t/div/div[2]/div[2]/div/div" position="inside">
                 <t t-set="proyecto" t-value="request.env['project.project'].search([('user_id','=',request.env.user.id)]) or []"/>
-                <p t-if="proyecto"><a href="/web#action=367&model=project.project&view_type=kanban">Regresa a tu proyecto</a></p>
+                <p t-if="proyecto"><a href="/web#action=367&amp;model=project.project&amp;view_type=kanban">Regresa a tu proyecto</a></p>
             </xpath>
         </template>
     </data>
