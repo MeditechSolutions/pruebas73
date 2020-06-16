@@ -13,4 +13,4 @@ class MedicalPatientProtocolo(models.Model) :
 class medical_patient(models.Model) :
     _inherit = 'medical.patient'
     
-    protocolo_id = fields.Many2one(comodel_name='medicina.paciente.perfil',string='Perfil')
+    protocolo_id = fields.Many2one(comodel_name='medicina.paciente.protocolo',string='Perfil')
