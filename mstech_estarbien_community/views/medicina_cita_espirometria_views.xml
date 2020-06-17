@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_espirometria" model="ir.ui.view">
+            <field name="name">medicina.cita.form.espirometria</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="66"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="odontograma" string="Espirometría" attrs="{'invisible': [('tipo_cita','!=','espirometria')]}"/>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

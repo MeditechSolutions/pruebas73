@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_oftalmologia" model="ir.ui.view">
+            <field name="name">medicina.cita.form.oftalmologia</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="52"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="evaluacion_oftalmologica" string="Evaluación oftalmológica" attrs="{'invisible': [('tipo_cita','!=','oftalmologia')]}">
+                        <group name="evaluacion_oftalmologica_antecedentes" string="Antecedentes" col="3">
+                            <group name="evaluacion_oftalmologica_antecedentes_left">
+                                <field name="oftalmologia_hipertension_arterial" string="HTA"/>
+                                <field name="oftalmologia_diabetes" string="Diabetes"/>
+                                <field name="oftalmologia_hipertension_ocular"/>
+                            </group>
+                            <group name="evaluacion_oftalmologica_antecedentes_center">
+                                <field name="oftalmologia_glaucoma"/>
+                                <field name="oftalmologia_traumatismo" string="Traumatismo"/>
+                                <field name="oftalmologia_soldadura" string="Soldadura"/>
+                            </group>
+                            <group name="evaluacion_oftalmologica_antecedentes_right">
+                                <field name="oftalmologia_sustancias_quimicas" string="Sustancias químicas"/>
+                                <field name="oftalmologia_radiaciones" string="Radiaciones"/>
+                                <field name="oftalmologia_antecedentes_otros" string="Otros"/>
+                            </group>
+                        </group>
+                        <group name="evaluacion_oftalmologica_agudeza_visual" string="Agudeza visual">
+                            <table name="evaluacion_oftalmologica_agudeza_visual" style="width:100%">
+                                <thead name="evaluacion_oftalmologica_agudeza_visual">
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_header">
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_1" style="width:20%"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2" style="width:20%"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_3" style="width:20%"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_4" style="width:20%"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_5" style="width:20%"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_header_1">
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_1_1"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_1_2" style="text-align:center" colspan="2">
+                                            SIN CORRECCIÓN
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_1_3" style="text-align:center" colspan="2">
+                                            CON CORRECCIÓN
+                                        </th>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_header_2">
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2_1"/>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2_2" style="text-align:center">
+                                            OJO DERECHO
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2_3" style="text-align:center">
+                                            OJO IZQUIERDO
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2_4" style="text-align:center">
+                                            OJO DERECHO
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_agudeza_visual_header_2_5" style="text-align:center">
+                                            OJO IZQUIERDO
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="evaluacion_oftalmologica_agudeza_visual">
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_cerca">
+                                        <td name="evaluacion_oftalmologica_agudeza_visual_cerca_label" style="font-weight:bold">
+                                            VISIÓN DE CERCA
+                                        </td>
+                                        <td name="oftalmologia_agudeza_cerca_sin_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_cerca_sin_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_cerca_sin_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_cerca_sin_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_cerca_sin_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_cerca_sin_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_cerca_con_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_cerca_con_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_cerca_con_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_cerca_con_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_cerca_con_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_cerca_con_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_lejos">
+                                        <td name="evaluacion_oftalmologica_agudeza_visual_lejos_label" style="font-weight:bold">
+                                            VISIÓN DE LEJOS
+                                        </td>
+                                        <td name="oftalmologia_agudeza_lejos_sin_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_lejos_sin_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_lejos_sin_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_lejos_sin_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_lejos_sin_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_lejos_sin_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_lejos_con_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_lejos_con_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_lejos_con_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_lejos_con_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_lejos_con_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_lejos_con_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_agudeza_visual_agujero">
+                                        <td name="evaluacion_oftalmologica_agudeza_visual_agujero_label" style="font-weight:bold">
+                                            AGUEJRO ESTENOPEICO
+                                        </td>
+                                        <td name="oftalmologia_agudeza_agujero_sin_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_agujero_sin_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_agujero_sin_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_agujero_sin_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_agujero_sin_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_agujero_sin_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_agujero_con_correccion_derecho" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_agujero_con_correccion_derecho" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_agujero_con_correccion_derecho"/>
+                                            </div>
+                                        </td>
+                                        <td name="oftalmologia_agudeza_agujero_con_correccion_izquierdo" style="text-align:center">
+                                            <div name="oftalmologia_agudeza_agujero_con_correccion_izquierdo" class="o_row">
+                                                20 / <field name="oftalmologia_agudeza_agujero_con_correccion_izquierdo"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="evaluacion_oftalmologica_lentes" string="Lentes">
+                            <field name="oftalmologia_corrector_ocular_presente" string="Acudió con correctores oculares"/>
+                            <field name="oftalmologia_corrector_ocular_utiliza" string="Utiliza correctores oculares"/>
+                            <field name="oftalmologia_ambliopia" string="Amblíope"/>
+                        </group>
+                        <group name="evaluacion_oftalmologica_anexos" string="Anexos">
+                            <table name="evaluacion_oftalmologica_anexos" style="width:100%">
+                                <thead name="evaluacion_oftalmologica_anexos">
+                                    <tr name="evaluacion_oftalmologica_anexos_header">
+                                        <th name="evaluacion_oftalmologica_anexos_header_1" style="width:15%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_2" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_3" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_4" style="width:15%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_5" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_6" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_7" style="width:15%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_8" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_9" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_10" style="width:15%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_11" style="width:5%"/>
+                                        <th name="evaluacion_oftalmologica_anexos_header_12" style="width:5%"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_anexos">
+                                        <th name="evaluacion_oftalmologica_anexos_1"/>
+                                        <th name="evaluacion_oftalmologica_anexos_2">
+                                            OD
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_3">
+                                            OI
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_4"/>
+                                        <th name="evaluacion_oftalmologica_anexos_5">
+                                            OD
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_6">
+                                            OI
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_7"/>
+                                        <th name="evaluacion_oftalmologica_anexos_8">
+                                            OD
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_9">
+                                            OI
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_10"/>
+                                        <th name="evaluacion_oftalmologica_anexos_11">
+                                            OD
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_anexos_12">
+                                            OI
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="evaluacion_oftalmologica_anexos">
+                                    <tr name="evaluacion_oftalmologica_anexos_1">
+                                        <td name="oftalmologia_ptosis_label" style="font-weight:bold">
+                                            Ptosis
+                                        </td>
+                                        <td name="oftalmologia_ptosis_derecho">
+                                            <field name="oftalmologia_ptosis_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_ptosis_izquierdo">
+                                            <field name="oftalmologia_ptosis_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_pterigium_label" style="font-weight:bold">
+                                            Pterigium
+                                        </td>
+                                        <td name="oftalmologia_pterigium_derecho">
+                                            <field name="oftalmologia_pterigium_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_pterigium_izquierdo">
+                                            <field name="oftalmologia_pterigium_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_blefaritis_label" style="font-weight:bold">
+                                            Blefaritis
+                                        </td>
+                                        <td name="oftalmologia_blefaritis_derecho">
+                                            <field name="oftalmologia_blefaritis_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_blefaritis_izquierdo">
+                                            <field name="oftalmologia_blefaritis_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_chalazion_label" style="font-weight:bold">
+                                            Chalazion
+                                        </td>
+                                        <td name="oftalmologia_chalazion_derecho">
+                                            <field name="oftalmologia_chalazion_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_chalazion_izquierdo">
+                                            <field name="oftalmologia_chalazion_izquierdo"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_anexos_2">
+                                        <td name="oftalmologia_dermatocalasia_label" style="font-weight:bold">
+                                            Dermatocalasia
+                                        </td>
+                                        <td name="oftalmologia_dermatocalasia_derecho">
+                                            <field name="oftalmologia_dermatocalasia_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_dermatocalasia_izquierdo">
+                                            <field name="oftalmologia_dermatocalasia_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_estrabismo_label" style="font-weight:bold">
+                                            Estrabismo
+                                        </td>
+                                        <td name="oftalmologia_estrabismo_derecho">
+                                            <field name="oftalmologia_estrabismo_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_estrabismo_izquierdo">
+                                            <field name="oftalmologia_estrabismo_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_conjuntivitis_label" style="font-weight:bold">
+                                            Conjuntivitis
+                                        </td>
+                                        <td name="oftalmologia_conjuntivitis_derecho">
+                                            <field name="oftalmologia_conjuntivitis_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_conjuntivitis_izquierdo">
+                                            <field name="oftalmologia_conjuntivitis_izquierdo"/>
+                                        </td>
+                                        <td name="oftalmologia_otros_anexos_label" style="font-weight:bold">
+                                            Otros
+                                        </td>
+                                        <td name="oftalmologia_otros_anexos_derecho">
+                                            <field name="oftalmologia_otros_anexos_derecho"/>
+                                        </td>
+                                        <td name="oftalmologia_otros_anexos_izquierdo">
+                                            <field name="oftalmologia_otros_anexos_izquierdo"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="evaluacion_oftalmologica_campimetria" string="Campimetría por confrontación">
+                            <field name="oftalmologia_campimetria_derecho" string="Ojo derecho"/>
+                            <field name="oftalmologia_campimetria_izquierdo" string="Ojo izquierdo"/>
+                        </group>
+                        <group name="evaluacion_oftalmologica_tonometria" col="3">
+                            <group name="antecedentes_medicos_cardiologicos_left" string="Tonometría"/>
+                            <group name="antecedentes_medicos_cardiologicos_center">
+                                <label name="oftalmologia_tonometria_derecho_label" for="oftalmologia_tonometria_derecho" string="Ojo derecho"/>
+                                <div name="oftalmologia_tonometria_derecho" class="o_row">
+                                    <field name="oftalmologia_tonometria_derecho"/> mmHg
+                                </div>
+                            </group>
+                            <group name="antecedentes_medicos_cardiologicos_right">
+                                <label name="oftalmologia_tonometria_izquierdo_label" for="oftalmologia_tonometria_izquierdo" string="Ojo izquierdo"/>
+                                <div name="oftalmologia_tonometria_izquierdo" class="o_row">
+                                    <field name="oftalmologia_tonometria_izquierdo"/> mmHg
+                                </div>
+                            </group>
+                        </group>
+                        <group name="evaluacion_oftalmologica_ojo">
+                            <field name="oftalmologia_vision_profundidad"/>
+                            <field name="oftalmologia_fondo_ojo"/>
+                            <field name="oftalmologia_estereopsis" string="Estereopsis"/>
+                        </group>
+                        <group name="evaluacion_oftalmologica_vision_colores" string="Visión de colores">
+                            <field name="oftalmologia_colores_derecho" string="Ojo derecho"/>
+                            <field name="oftalmologia_colores_izquierdo" string="Ojo izquierdo"/>
+                            <field name="oftalmologia_vision_nocturna"/>
+                        </group>
+                        <group name="evaluacion_oftalmologica_refraccion" string="Refracción">
+                            <table name="evaluacion_oftalmologica_refraccion" style="width:100%">
+                                <thead name="evaluacion_oftalmologica_refraccion">
+                                    <tr name="evaluacion_oftalmologica_refraccion_header">
+                                        <th name="evaluacion_oftalmologica_refraccion_header_1" style="width:16%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_2" style="width:16%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_3" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_4" style="width:11%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_5" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_6" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_7" style="width:11%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_8" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_9" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_10" style="width:11%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_11" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_12" style="width:3%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_13" style="width:11%"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_header_14" style="width:3%"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_refraccion">
+                                        <th name="evaluacion_oftalmologica_refraccion_1" colspan="2"/>
+                                        <th name="evaluacion_oftalmologica_refraccion_2" style="text-align:center" colspan="3">
+                                            ESFERA
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_refraccion_3" style="text-align:center" colspan="3">
+                                            CILÍNDRICO
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_refraccion_4" style="text-align:center" colspan="3">
+                                            EJE
+                                        </th>
+                                        <th name="evaluacion_oftalmologica_refraccion_5" style="text-align:center" colspan="3">
+                                            DIST. PUP.
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="evaluacion_oftalmologica_refraccion">
+                                    <tr name="evaluacion_oftalmologica_refraccion_lejos_derecho">
+                                        <td name="evaluacion_oftalmologica_refraccion_lejos_label" style="font-weight:bold;vertical-align:center" rowspan="2">
+                                            LEJOS
+                                        </td>
+                                        <td name="evaluacion_oftalmologica_refraccion_lejos_derecho_label" style="font-weight:bold">
+                                            OJO DERECHO
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_esfera_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_esfera" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_derecho_esfera"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_esfera_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_cilindrico_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_cilindrico" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_derecho_cilindrico"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_cilindrico_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_eje_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_eje" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_derecho_eje"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_eje_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_pupila_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_pupila" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_derecho_pupila"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_derecho_pupila_right"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_refraccion_lejos_izquierdo">
+                                        <td name="evaluacion_oftalmologica_refraccion_lejos_izquierdo_label" style="font-weight:bold">
+                                            OJO IZQUIERDO
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_esfera_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_esfera" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_izquierdo_esfera"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_esfera_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_cilindrico_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_cilindrico" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_izquierdo_cilindrico"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_cilindrico_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_eje_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_eje" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_izquierdo_eje"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_eje_right"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_pupila_left"/>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_pupila" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_lejos_izquierdo_pupila"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_lejos_izquierdo_pupila_right"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_refraccion_cerca_derecho">
+                                        <td name="evaluacion_oftalmologica_refraccion_cerca_label" style="font-weight:bold;vertical-align:center" rowspan="2">
+                                            CERCA
+                                        </td>
+                                        <td name="evaluacion_oftalmologica_refraccion_cerca_derecho_label" style="font-weight:bold">
+                                            OJO DERECHO
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_esfera_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_esfera" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_derecho_esfera"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_esfera_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_cilindrico_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_cilindrico" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_derecho_cilindrico"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_cilindrico_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_eje_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_eje" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_derecho_eje"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_eje_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_pupila_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_pupila" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_derecho_pupila"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_derecho_pupila_right"/>
+                                    </tr>
+                                    <tr name="evaluacion_oftalmologica_refraccion_cerca_izquierdo">
+                                        <td name="evaluacion_oftalmologica_refraccion_cerca_izquierdo_label" style="font-weight:bold">
+                                            OJO IZQUIERDO
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_esfera_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_esfera" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_izquierdo_esfera"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_esfera_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_cilindrico_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_cilindrico" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_izquierdo_cilindrico"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_cilindrico_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_eje_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_eje" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_izquierdo_eje"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_eje_right"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_pupila_left"/>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_pupila" style="text-align:center">
+                                            <field name="oftalmologia_refraccion_cerca_izquierdo_pupila"/>
+                                        </td>
+                                        <td name="oftalmologia_refraccion_cerca_izquierdo_pupila_right"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="evaluacion_oftalmologica_reflejo_examen">
+                            <group name="evaluacion_oftalmologica_reflejo_examen_left">
+                                <table name="evaluacion_oftalmologica_reflejo_examen_left" style="width:100%">
+                                    <thead name="evaluacion_oftalmologica_reflejo_examen_left">
+                                        <tr name="evaluacion_oftalmologica_reflejo_examen_left">
+                                            <th name="evaluacion_oftalmologica_reflejo_examen_left_1" style="width:45%"/>
+                                            <th name="evaluacion_oftalmologica_reflejo_examen_left_2" style="width:35%"/>
+                                            <th name="evaluacion_oftalmologica_reflejo_examen_left_3" style="width:20%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="evaluacion_oftalmologica_reflejo_examen_left">
+                                        <tr name="evaluacion_oftalmologica_reflejo_pupila_derecho">
+                                            <td name="evaluacion_oftalmologica_reflejo_pupila" style="font-weight:bold;vertical-align:center" rowspan="2">
+                                                REFLEJOS PUPILARES
+                                            </td>
+                                            <td name="evaluacion_oftalmologica_reflejo_pupila_derecho" style="font-weight:bold">
+                                                OJO DERECHO
+                                            </td>
+                                            <td name="oftalmologia_reflejo_pupila_derecho">
+                                                <field name="oftalmologia_reflejo_pupila_derecho"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="evaluacion_oftalmologica_reflejo_pupila_izquierdo">
+                                            <td name="evaluacion_oftalmologica_reflejo_pupila_izquierdo" style="font-weight:bold">
+                                                OJO IZQUIERDO
+                                            </td>
+                                            <td name="oftalmologia_reflejo_pupila_izquierdo">
+                                                <field name="oftalmologia_reflejo_pupila_izquierdo"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="evaluacion_oftalmologica_examen_externo_derecho">
+                                            <td name="evaluacion_oftalmologica_examen_externo" style="font-weight:bold;vertical-align:center" rowspan="2">
+                                                EXAMEN EXTERNO
+                                            </td>
+                                            <td name="evaluacion_oftalmologica_examen_externo_derecho" style="font-weight:bold">
+                                                OJO DERECHO
+                                            </td>
+                                            <td name="oftalmologia_examen_externo_derecho">
+                                                <field name="oftalmologia_examen_externo_derecho"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="evaluacion_oftalmologica_examen_externo_izquierdo">
+                                            <td name="evaluacion_oftalmologica_examen_externo_izquierdo" style="font-weight:bold">
+                                                OJO IZQUIERDO
+                                            </td>
+                                            <td name="oftalmologia_examen_externo_izquierdo">
+                                                <field name="oftalmologia_examen_externo_izquierdo"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                        <separator/>
+                        <group name="evaluacion_oftalmologica_adjunto">
+                            <group name="evaluacion_oftalmologica_adjunto_left">
+                                <field invisible="1" name="archivo_adjunto_oftalmologico_1_filename"/>
+                                <field filename="archivo_adjunto_oftalmologico_1_filename" name="archivo_adjunto_oftalmologico_1" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_oftalmologico_2_filename"/>
+                                <field filename="archivo_adjunto_oftalmologico_2_filename" name="archivo_adjunto_oftalmologico_2" string="Archivo"/>
+                            </group>
+                        </group>
+                        <group name="evaluacion_oftalmologica_cie_10">
+                            <field name="cie_10_oftalmologia_tipo_diagnostico" string="Tipo de diagnóstico" widget="radio" options="{'horizontal':True}"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

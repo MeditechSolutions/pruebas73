@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medicina_cita,medicina.cita,model_medicina_cita,base.group_user,1,0,0,0
+access_medicina_cita_manager,medicina.cita.manager,model_medicina_cita,base.group_erp_manager,1,1,1,0
+access_medicina_cita_diagnostico,medicina.cita.diagnostico,model_medicina_cita_diagnostico,base.group_user,1,0,0,0
+access_medicina_cita_diagnostico_manager,medicina.cita.diagnostico.manager,model_medicina_cita_diagnostico,base.group_erp_manager,1,1,1,0
+access_medicina_paciente_perfil,medicina.paciente.perfil,model_medicina_paciente_perfil,base.group_user,1,0,0,0
+access_medicina_paciente_perfil_manager,medicina.paciente.perfil.manager,model_medicina_paciente_perfil,base.group_erp_manager,1,1,1,0
+access_medicina_filiacion,medicina.filiacion,model_medicina_filiacion,base.group_user,1,0,0,0
+access_medicina_filiacion_manager,medicina.filiacion.manager,model_medicina_filiacion,base.group_erp_manager,1,1,1,0

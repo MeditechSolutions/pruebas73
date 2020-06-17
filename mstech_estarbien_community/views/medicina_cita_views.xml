@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	    <record id="view_medicina_cita_form" model="ir.ui.view">
+            <field name="name">medicina.cita.form</field>
+            <field name="model">medicina.cita</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="Medicina">
+                        <div name="name" class="oe_title" invisible="1">
+                            <h1 name="name">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group name="datos_cita">
+                            <group name="datos_cita_left">
+                                <field name="tipo_cita" string="Tipo de cita" invisible="1"/>
+                                <field name="fecha_cita" string="Fecha de la cita"/>
+                                <field name="paciente_id" string="Paciente"/>
+                            </group>
+                            <group name="datos_cita_right">
+                                <field name="atencion_inicio" string="Inicio de la atención"/>
+                                <field name="atencion_fin" string="Fin de la atención"/>
+                            </group>
+                        </group>
+                        <group name="datos_paciente">
+                            <group name="datos_paciente_left">
+                                <field name="fecha_cita"/><!-- TODO -->
+                                <field name="paciente_apellidos_nombres"/><!-- TODO -->
+                                <field name="paciente_dni" attrs="{'invisible': [['tipo_cita','=','electrocardiograma']]}"/><!-- Altura -->
+                                <field name="paciente_dni" string="Código" attrs="{'invisible': [('tipo_cita','!=','electrocardiograma')]}"/><!-- EKG -->
+                                <field name="paciente_edad"/><!-- Medicina,EKG -->
+                                <field name="paciente_sexo"/><!-- Medicina,Altura -->
+                                <field name="paciente_perfil_id"/><!-- Medicina,Altura -->
+                            </group>
+                            <group name="datos_paciente_right">
+                                <field name="paciente_empresa_id"/><!-- Medicina,Altura -->
+                                <field name="paciente_cargo"/><!-- Medicina,EKG -->
+                                <!-- field name area_trabajo Altura,EKG -->
+                                <!-- field name experiencia Altura -->
+                                <field name="altura_certificacion_tipo" string="Tipo de Certificación" widget="radio" options="{'horizontal':True}"/><!-- Altura -->
+                                <field name="tipo_examen_salud_ocupacional" widget="radio" options="{'horizontal':True}"/><!-- EKG -->
+                            </group>
+                        </group>
+                        <!--
+                        -->
+                        <group name="control_medico">
+                            <group name="control_medico_left">
+                                <field name="auditor"/>
+                                <field name="responsable"/>
+                                <field name="medico"/>
+                            </group>
+                            <group name="control_medico_right">
+                                <field name="auditado"/>
+                                <field name="revisado"/>
+                                <field name="evaluador" attrs="{'invisible': [('tipo_cita','!=','electrocardiograma')]}"/>
+                            </group>
+                        </group>
+                        <notebook name="medicina_ocupacional"/>
+                        <group name="cita_diagnostico">
+                            <group name="cita_diagnostico_bilateral" colspan="2" string="Diagnóstico" attrs="{'invisible':[('audiometria_bilateral','=',False)]}">
+                                <field
+                                    name="diagnostico_ids"
+                                    nolabel="1"
+                                    widget="section_and_note_one2many"
+                                    mode="tree,kanban"
+                                    context="{'default_cita_id': active_id, 'default_tipo_diagnostico_oido': 'bilateral'}">
+                                    <form>
+                                        <sheet string="Diagnóstico de la cita">
+                                            <group>
+                                                <group>
+                                                    <field name="cita_id" invisible="1"/>
+                                                    <field name="tipo_diagnostico_oido" invisible="1"/>
+                                                    <field name="codigo_cie_10"/>
+                                                    <field name="descripcion"/>
+                                                    <field name="recomendaciones"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                    <tree string="Diagnóstico de la cita" editable="bottom">
+                                        <control>
+                                            <create string="Agregar una línea"/>
+                                        </control>
+                                        <field name="cita_id" invisible="1"/>
+                                        <field name="tipo_diagnostico_oido" invisible="1"/>
+                                        <field name="codigo_cie_10" string="CIE-10"/>
+                                        <field name="descripcion" string="Descripción"/>
+                                        <field name="recomendaciones" string="Recomendaciones"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="cita_diagnostico_oido_izquierdo" string="Diagnóstico oído izquierdo" attrs="{'invisible':[('audiometria_bilateral','=',True)]}">
+                                <field
+                                    name="diagnostico_oido_izquierdo_ids"
+                                    nolabel="1"
+                                    widget="section_and_note_one2many"
+                                    mode="tree,kanban"
+                                    context="{'default_cita_id': active_id, 'default_tipo_diagnostico_oido': 'izquierdo'}">
+                                    <form>
+                                        <sheet string="Diagnóstico de la cita">
+                                            <group>
+                                                <group>
+                                                    <field name="cita_id" invisible="1"/>
+                                                    <field name="tipo_diagnostico_oido" invisible="1"/>
+                                                    <field name="codigo_cie_10"/>
+                                                    <field name="descripcion"/>
+                                                    <field name="recomendaciones"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                    <tree string="Diagnóstico de la cita" editable="bottom">
+                                        <control>
+                                            <create string="Agregar una línea"/>
+                                        </control>
+                                        <field name="cita_id" invisible="1"/>
+                                        <field name="tipo_diagnostico_oido" invisible="1"/>
+                                        <field name="codigo_cie_10" string="CIE-10"/>
+                                        <field name="descripcion" string="Descripción"/>
+                                        <field name="recomendaciones" string="Recomendaciones"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="cita_diagnostico_oido_derecho" string="Diagnóstico oído derecho" attrs="{'invisible':[('audiometria_bilateral','=',True)]}">
+                                <field
+                                    name="diagnostico_oido_derecho_ids"
+                                    nolabel="1"
+                                    widget="section_and_note_one2many"
+                                    mode="tree,kanban"
+                                    context="{'default_cita_id': active_id, 'default_tipo_diagnostico_oido': 'derecho'}">
+                                    <form>
+                                        <sheet string="Diagnóstico del oído derecho">
+                                            <group>
+                                                <group>
+                                                    <field name="cita_id" invisible="1"/>
+                                                    <field name="tipo_diagnostico_oido" invisible="1"/>
+                                                    <field name="codigo_cie_10"/>
+                                                    <field name="descripcion"/>
+                                                    <field name="recomendaciones"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                    <tree string="Diagnóstico del oído derecho" editable="bottom">
+                                        <control>
+                                            <create string="Agregar una línea"/>
+                                        </control>
+                                        <field name="cita_id" invisible="1"/>
+                                        <field name="tipo_diagnostico_oido" invisible="1"/>
+                                        <field name="codigo_cie_10" string="CIE-10"/>
+                                        <field name="descripcion" string="Descripción"/>
+                                        <field name="recomendaciones" string="Recomendaciones"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group name="cita_historial" string="Historial">
+                            <field name="audiometria_bilateral" invisible="1"/>
+                            <field name="historial_paciente" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+        
+		<record id="view_medicina_cita_tree" model="ir.ui.view">
+            <field name="name">medicina.cita.tree</field>
+            <field name="model">medicina.cita</field>
+            <field name="arch" type="xml">
+                <tree string="Cita">
+                    <field name="tipo_cita" string="Tipo de cita"/>
+                    <field name="fecha_cita" string="Fecha de la cita"/>
+                    <field name="paciente_id" string="Paciente"/>
+                </tree>
+            </field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_medicina">
+		    <field name="name">Cita - Medicina</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'medicina'}</field>
+            <field name="domain">[('tipo_cita','=','medicina')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_dermatologia">
+		    <field name="name">Cita - Dermatología</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="context">{'default_tipo_cita':'dermatologia'}</field>
+            <field name="domain">[('tipo_cita','=','dermatologia')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_grandes_alturas">
+		    <field name="name">Cita - Anexo N°16 A</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'grandes_alturas'}</field>
+            <field name="domain">[('tipo_cita','=','grandes_alturas')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_altura">
+		    <field name="name">Cita - Certificación de altura</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'altura'}</field>
+            <field name="domain">[('tipo_cita','=','altura')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_confinados">
+		    <field name="name">Cita - Trabajo en espacios confinados</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'confinados'}</field>
+            <field name="domain">[('tipo_cita','=','confinados')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_electrocardiograma">
+		    <field name="name">Cita - Electrocardiograma</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'electrocardiograma'}</field>
+            <field name="domain">[('tipo_cita','=','electrocardiograma')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_oftalmologia">
+		    <field name="name">Cita - Oftalmología</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'oftalmologia'}</field>
+            <field name="domain">[('tipo_cita','=','oftalmologia')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_audiometria">
+		    <field name="name">Cita - Audiometría</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'audiometria'}</field>
+            <field name="domain">[('tipo_cita','=','audiometria')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_psicologia">
+		    <field name="name">Cita - Psicología</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'psicologia'}</field>
+            <field name="domain">[('tipo_cita','=','psicologia')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_odontograma">
+		    <field name="name">Cita - Odontograma</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'odontograma'}</field>
+            <field name="domain">[('tipo_cita','=','odontograma')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_musculo_esqueletico">
+		    <field name="name">Cita - Músculo-esquelético</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'musculo_esqueletico'}</field>
+            <field name="domain">[('tipo_cita','=','musculo_esqueletico')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_radiologia">
+		    <field name="name">Cita - Informe de tórax</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'radiologia'}</field>
+            <field name="domain">[('tipo_cita','=','radiologia')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_espirometria">
+		    <field name="name">Cita - Espirometría</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'espirometria'}</field>
+            <field name="domain">[('tipo_cita','=','espirometria')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_tsr">
+		    <field name="name">Cita - Test de Sintomático Respiratorio</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'tsr'}</field>
+            <field name="domain">[('tipo_cita','=','tsr')]</field>
+	    </record>
+        
+	    <record model="ir.actions.act_window" id="medicina_cita_action_laboratorio">
+		    <field name="name">Cita - Laboratorio</field>
+		    <field name="res_model">medicina.cita</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="context">{'default_tipo_cita':'laboratorio'}</field>
+            <field name="domain">[('tipo_cita','=','laboratorio')]</field>
+	    </record>
+        
+        <menuitem name="Ocupacional" id="medicina_ocupacional" parent="basic_hms.main_menu_hospital_management" sequence="1"/>
+        <menuitem name="Medicina" id="medicina_ocupacional_medicina" parent="medicina_ocupacional" action="medicina_cita_action_medicina" sequence="10"/>
+        <menuitem name="Dermatología" id="medicina_ocupacional_dermatologia" parent="medicina_ocupacional" action="medicina_cita_action_dermatologia" sequence="12"/>
+        <menuitem name="Anexo N°16 A" id="medicina_ocupacional_grandes_alturas" parent="medicina_ocupacional" action="medicina_cita_action_grandes_alturas" sequence="14"/>
+        <menuitem name="Trabajo en altura" id="medicina_ocupacional_altura" parent="medicina_ocupacional" action="medicina_cita_action_altura" sequence="16"/>
+        <menuitem name="Trabajo en espacios confinados" id="medicina_ocupacional_confinados" parent="medicina_ocupacional" action="medicina_cita_action_confinados" sequence="18"/>
+        <menuitem name="Electrocardiograma" id="medicina_ocupacional_electrocardiograma" parent="medicina_ocupacional" action="medicina_cita_action_electrocardiograma" sequence="20"/>
+        <menuitem name="Oftalmología" id="medicina_ocupacional_oftalmologia" parent="medicina_ocupacional" action="medicina_cita_action_oftalmologia" sequence="22"/>
+        <menuitem name="Audiometría" id="medicina_ocupacional_audiometria" parent="medicina_ocupacional" action="medicina_cita_action_audiometria" sequence="24"/>
+        <menuitem name="Psicología" id="medicina_ocupacional_psicologia" parent="medicina_ocupacional" action="medicina_cita_action_psicologia" sequence="26"/>
+        <menuitem name="Odontología" id="medicina_ocupacional_odontograma" parent="medicina_ocupacional" action="medicina_cita_action_odontograma" sequence="28"/>
+        <menuitem name="Músculo-esquelético" id="medicina_ocupacional_musculo_esqueletico" parent="medicina_ocupacional" action="medicina_cita_action_musculo_esqueletico" sequence="30"/>
+        <menuitem name="Radiología" id="medicina_ocupacional_radiologia" parent="medicina_ocupacional" action="medicina_cita_action_radiologia" sequence="32"/>
+        <menuitem name="Espirometría" id="medicina_ocupacional_espirometria" parent="medicina_ocupacional" action="medicina_cita_action_espirometria" sequence="34"/>
+        <menuitem name="Test de Sintomático Respiratorio" id="medicina_ocupacional_tsr" parent="medicina_ocupacional" action="medicina_cita_action_tsr" sequence="36"/>
+        <menuitem name="Laboratorio" id="medicina_ocupacional_laboratorio" parent="medicina_ocupacional" action="medicina_cita_action_laboratorio" sequence="38"/>
+</odoo>

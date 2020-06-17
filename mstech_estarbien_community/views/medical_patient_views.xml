@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="medical_patients_form_view" model="ir.ui.view">
+            <field name="name">medical.patients.form.view.mstech_estarbien</field>
+            <field name="model">medical.patient</field>
+            <field name="inherit_id" ref="basic_hms.medical_patients_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='marital_status']" position="after">
+                    <field name="perfil_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

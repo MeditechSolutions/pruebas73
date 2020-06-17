@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_electrocardiograma" model="ir.ui.view">
+            <field name="name">medicina.cita.form.electrocardiograma</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="50"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="informe_cardiologico" string="Informe cardiológico" attrs="{'invisible': [('tipo_cita','!=','electrocardiograma')]}">
+                        <group name="antecedentes_medicos_cardiologicos" string="Antecedentes médicos cardiológicos" col="3">
+                            <group name="antecedentes_medicos_cardiologicos_left">
+                                <field name="ekg_soplo_cardiaco"/>
+                                <field name="ekg_presion_alta"/>
+                                <field name="ekg_dolor_precordial_antecedentes" string="Dolor precordial"/>
+                                <field name="ekg_infarto_agudo_miocardio" string="IMAs"/>
+                                <field name="ekg_obesidad"/>
+                            </group>
+                            <group name="antecedentes_medicos_cardiologicos_center">
+                                <field name="ekg_cansancio_rapido"/>
+                                <field name="ekg_mareos"/>
+                                <field name="ekg_palpitaciones"/>
+                                <field name="ekg_perdida_de_conciencia"/>
+                                <field name="ekg_tabaquismo"/>
+                            </group>
+                            <group name="antecedentes_medicos_cardiologicos_right">
+                                <field name="ekg_diabetes"/>
+                                <field name="ekg_dislipidemias"/>
+                                <field name="ekg_varices_miembros_inferiores" string="Várices en mm. ii."/>
+                                <field name="ekg_antecedentes_familiares" string="Antec. fam."/>
+                                <field name="ekg_otros_antecedentes_cardiologicos" string="Otros"/>
+                            </group>
+                        </group>
+                        <group name="informe_cardiologico_sintomas" string="Síntomas actuales" col="3">
+                            <group name="informe_cardiologico_sintomas_left">
+                                <field name="ekg_asintomatico"/>
+                                <field name="ekg_dolor_precordial_sintomas_actuales" string="Dolor precordial"/>
+                                <field name="ekg_palpitaciones_sintomas_actuales" string="Palpitaciones"/>
+                            </group>
+                            <group name="informe_cardiologico_sintomas_center">
+                                <field name="ekg_lipotimias"/>
+                                <field name="ekg_dinitrofenol" string="DNP"/>
+                                <field name="ekg_mareos_sintomas_actuales" string="Mareos"/>
+                            </group>
+                            <group name="informe_cardiologico_sintomas_right">
+                                <field name="ekg_claudicacion_intermitente" string="Claudicación int."/>
+                                <field name="ekg_otros_sintomas_cardiologicos" string="Otros"/>
+                            </group>
+                        </group>
+                        <group name="informe_cardiologico_examen_fisico" string="Examen físico preferencial">
+                            <group name="informe_cardiologico_examen_fisico_left">
+                                <label name="ekg_presion_arterial_preferencial_label" for="ekg_presion_arterial_preferencial" string="Presión arterial"/>
+                                <div name="ekg_presion_arterial_preferencial" class="o_row">
+                                    <field name="ekg_presion_arterial_preferencial"/> mmHg
+                                </div>
+                                <label name="ekg_examen_corazon_label" for="ekg_examen_corazon" string="Examen del corazón"/>
+                                <div name="ekg_examen_corazon" class="o_row">
+                                    <field name="ekg_examen_corazon"/>
+                                </div>
+                                <label name="ekg_otros_hallazgos_corazon_label" for="ekg_otros_hallazgos_corazon" string="Otros hallazgos"/>
+                                <div name="ekg_otros_hallazgos_corazon" class="o_row">
+                                    <field name="ekg_otros_hallazgos_corazon"/>
+                                </div>
+                            </group>
+                            <group name="informe_cardiologico_examen_fisico_right">
+                                <label name="ekg_frecuencia_cardiaca_preferencial_label" for="ekg_frecuencia_cardiaca_preferencial" string="Frecuencia cardiaca"/>
+                                <div name="ekg_frecuencia_cardiaca_preferencial" class="o_row">
+                                    <field name="ekg_frecuencia_cardiaca_preferencial"/> lat/min
+                                </div>
+                            </group>
+                        </group>
+                        <group name="informe_cardiologico_interpretacion_ekg_1" string="Signos en interpretación EKG" col="3">
+                            <group name="informe_cardiologico_interpretacion_ekg_1_left">
+                                <field name="ekg_presion_arterial" string="P.A."/>
+                            </group>
+                            <group name="informe_cardiologico_interpretacion_ekg_1_center">
+                                <label name="ekg_frecuencia_cardiaca_label" for="ekg_frecuencia_cardiaca" string="F.C."/>
+                                <div name="ekg_frecuencia_cardiaca" class="o_row">
+                                    <field name="ekg_frecuencia_cardiaca"/> x'
+                                </div>
+                            </group>
+                            <group name="informe_cardiologico_interpretacion_ekg_1_right">
+                                <field name="ekg_choque_punta" string="Choque de la punta"/>
+                            </group>
+                        </group>
+                        <group name="informe_cardiologico_interpretacion_ekg_2">
+                            <group name="informe_cardiologico_interpretacion_ekg_2_left">
+                                <field name="ekg_ritmo" string="Ritmo"/>
+                                <field name="ekg_intervalo_qrs" string="Int. QRS"/>
+                                <field name="ekg_onda_p" string="Onda P"/>
+                                <field name="ekg_onda_r" string="Onda R"/>
+                                <field name="ekg_onda_t" string="Onda T"/>
+                                <field name="ekg_segmento_st" string="Segm. ST"/>
+                            </group>
+                            <group name="informe_cardiologico_interpretacion_ekg_2_right">
+                                <field name="ekg_intervalo_pr" string="Int. PR"/>
+                                <field name="ekg_intervalo_qt" string="Int. QT"/>
+                                <field name="ekg_onda_q" string="Onda Q"/>
+                                <field name="ekg_onda_s" string="Onda S"/>
+                                <field name="ekg_onda_u" string="Onda U"/>
+                                <field name="ekg_eje_qrs" string="Eje QRS"/>
+                            </group>
+                        </group>
+                        <group name="informe_cardiologico_tipo_diagnostico">
+                            <field name="ekg_diagnostico" nolabel="1" widget="radio" options="{'horizontal':True}"/>
+                        </group>
+                        <group name="informe_cardiologico_aptitud">
+                            <table name="informe_cardiologico_aptitud" style="width:100%">
+                                <thead name="informe_cardiologico_aptitud">
+                                    <tr name="informe_cardiologico_aptitud">
+                                        <th name="informe_cardiologico_aptitud_1" style="width:50%"/>
+                                        <th name="informe_cardiologico_aptitud_2" style="width:50%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="informe_cardiologico_aptitud">
+                                    <tr name="informe_cardiologico_aptitud_1">
+                                        <td name="ekg_aptitud_trabajo_forzado_label" class="o_td_label">
+                                            <label name="ekg_aptitud_trabajo_forzado_label" for="ekg_aptitud_trabajo_forzado" string="Aptitud para trabajo forzado"/>
+                                        </td>
+                                        <td name="ekg_aptitud_trabajo_forzado">
+                                            <field name="ekg_aptitud_trabajo_forzado" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_cardiologico_aptitud_2">
+                                        <td name="ekg_aptitud_trabajo_altura_label" class="o_td_label">
+                                            <label name="ekg_aptitud_trabajo_altura_label" for="ekg_aptitud_trabajo_altura" string="Aptitud para trabajos en altura mayor a 2500m"/>
+                                        </td>
+                                        <td name="ekg_aptitud_trabajo_altura">
+                                            <field name="ekg_aptitud_trabajo_altura" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="informe_cardiologico_adjunto">
+                            <group name="informe_cardiologico_adjunto_left">
+                                <field invisible="1" name="archivo_adjunto_cardiologico_filename"/>
+                                <field filename="archivo_adjunto_cardiologico_filename" name="archivo_adjunto_cardiologico" string="Archivo adjunto (PDF)"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

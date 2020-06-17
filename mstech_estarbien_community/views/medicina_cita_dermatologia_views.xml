@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_dermatologia" model="ir.ui.view">
+            <field name="name">medicina.cita.form.dermatologia</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="42"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="dermatologia_piel_tamizaje" string="Piel y tamizaje" attrs="{'invisible': [('tipo_cita','!=','dermatologia')]}">
+                        <group name="dermatologia_frankenstein">
+                        </group>
+                        <group name="dermatologia_tamizaje_observaciones" string="Observaciones">
+                            <field name="dermatologia_tamizaje_observaciones" nolabel="1"/>
+                        </group>
+                        <group name="dermatologia_fototipo_piel">
+                            <table name="dermatologia_fototipo_piel" style="width:100%">
+                                <thead name="dermatologia_fototipo_piel">
+                                    <tr name="dermatologia_fototipo_piel_header">
+                                        <th name="dermatologia_fototipo_piel_header_1" style="width:15%"/>
+                                        <th name="dermatologia_fototipo_piel_header_2" style="width:10%"/>
+                                        <th name="dermatologia_fototipo_piel_header_3" style="width:25%"/>
+                                        <th name="dermatologia_fototipo_piel_header_4" style="width:30%"/>
+                                        <th name="dermatologia_fototipo_piel_header_5" style="width:20%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="dermatologia_fototipo_piel">
+                                    <tr name="dermatologia_fototipo_piel_1">
+                                        <td name="dermatologia_fototipo_piel_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_fototipo_piel_label" for="dermatologia_fototipo_piel" string="Tipo de fototipo de piel"/>
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel" colspan="3">
+                                            <field name="dermatologia_fototipo_piel" widget="radio" options="{'horizontal': True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_fototipo_piel_2">
+                                        <td name="dermatologia_fototipo_piel_2_fototipo_label">
+                                            FOTOTIPO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_2_fototipo" style="text-align:center">
+                                            I - II
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_2_riesgo">
+                                            (RIESGO ALTO Y EXTREMO)
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_2_fps_label" style="text-align:right">
+                                            FPS RECOMENDADO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_2_fps" style="text-align:center;font-weight:bold">
+                                            +90
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_fototipo_piel_3">
+                                        <td name="dermatologia_fototipo_piel_3_fototipo_label">
+                                            FOTOTIPO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_3_fototipo" style="text-align:center">
+                                            III - IV
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_3_riesgo">
+                                            (RIESGO ALTO)
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_3_fps_label" style="text-align:right">
+                                            FPS RECOMENDADO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_3_fps" style="text-align:center;font-weight:bold">
+                                            +65
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_fototipo_piel_4">
+                                        <td name="dermatologia_fototipo_piel_4_fototipo_label">
+                                            FOTOTIPO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_4_fototipo" style="text-align:center">
+                                            V - VI
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_4_riesgo">
+                                            (RIESGO MODERADO)
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_4_fps_label" style="text-align:right">
+                                            FPS RECOMENDADO
+                                        </td>
+                                        <td name="dermatologia_fototipo_piel_4_fps" style="text-align:center;font-weight:bold">
+                                            +50
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="dermatologia_fotoprotector_recomendado">
+                            <field name="dermatologia_fotoprotector_recomendado" string="Fotoprotector a usar"/>
+                        </group>
+                    </page>
+                    <page name="dermatologia_screen_dermatologico" string="Screen dermatológico" attrs="{'invisible': [('tipo_cita','!=','dermatologia')]}">
+                        <group name="dermatologia_screen_dermatologico_trabajador" string="Para el trabajador" col="1">
+                            <table name="dermatologia_screen_dermatologico_trabajador" style="width:100%">
+                                <thead name="dermatologia_screen_dermatologico_trabajador">
+                                    <tr name="dermatologia_screen_dermatologico_trabajador_header">
+                                        <th name="dermatologia_screen_dermatologico_trabajador_header_1" style="width:50%"/>
+                                        <th name="dermatologia_screen_dermatologico_trabajador_header_2" style="width:45%"/>
+                                        <th name="dermatologia_screen_dermatologico_trabajador_header_3" style="width:5%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="dermatologia_screen_dermatologico_trabajador">
+                                    <tr name="dermatologia_enfermedades_piel_cuestionario">
+                                        <td name="dermatologia_enfermedades_piel_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_enfermedades_piel_cuestionario_label" for="dermatologia_enfermedades_piel_cuestionario" string="¿Sufre Ud. enfermedades de la piel?"/>
+                                        </td>
+                                        <td name="dermatologia_enfermedades_piel_cuestionario">
+                                            <field name="dermatologia_enfermedades_piel_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_enfermedades_piel_diagnostico" attrs="{'invisible': [['dermatologia_enfermedades_piel_cuestionario','=',False]]}">
+                                        <td name="dermatologia_enfermedades_piel_diagnostico_label" class="o_td_label">
+                                            <label name="dermatologia_enfermedades_piel_diagnostico_label" for="dermatologia_enfermedades_piel_diagnostico" string="¿Qué diagnóstico le han dado de dichas enfermedades?"/>
+                                        </td>
+                                        <td name="dermatologia_enfermedades_piel_diagnostico" colspan="2">
+                                            <field name="dermatologia_enfermedades_piel_diagnostico"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_lesion_cuestionario">
+                                        <td name="dermatologia_lesion_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_lesion_cuestionario_label" for="dermatologia_lesion_cuestionario" string="¿Tiene alguna lesión?"/>
+                                        </td>
+                                        <td name="dermatologia_lesion_cuestionario">
+                                            <field name="dermatologia_lesion_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_lesion_localizacion" attrs="{'invisible': [['dermatologia_lesion_cuestionario','=',False]]}">
+                                        <td name="dermatologia_lesion_localizacion_label" class="o_td_label">
+                                            <label name="dermatologia_lesion_localizacion_label" for="dermatologia_lesion_localizacion" string="¿Dónde se localiza la lesión?"/>
+                                        </td>
+                                        <td name="dermatologia_lesion_localizacion" colspan="2">
+                                            <field name="dermatologia_lesion_localizacion"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_lesion_duracion" attrs="{'invisible': [['dermatologia_lesion_cuestionario','=',False]]}">
+                                        <td name="dermatologia_lesion_duracion_label" class="o_td_label">
+                                            <label name="dermatologia_lesion_duracion_label" for="dermatologia_lesion_duracion" string="¿Desde cuándo tiene la lesión?"/>
+                                        </td>
+                                        <td name="dermatologia_lesion_duracion" colspan="2">
+                                            <field name="dermatologia_lesion_duracion"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_cambio_coloracion_cuestionario">
+                                        <td name="dermatologia_cambio_coloracion_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_cambio_coloracion_cuestionario_label" for="dermatologia_cambio_coloracion_cuestionario" string="¿Presenta algún cambio de coloración en la piel?"/>
+                                        </td>
+                                        <td name="dermatologia_cambio_coloracion_cuestionario">
+                                            <field name="dermatologia_cambio_coloracion_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_lesion_frecuente_cuestionario">
+                                        <td name="dermatologia_lesion_frecuente_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_lesion_frecuente_cuestionario_label" for="dermatologia_lesion_frecuente_cuestionario" string="¿Estas lesiones se repiten varias veces al año?"/>
+                                        </td>
+                                        <td name="dermatologia_lesion_frecuente_cuestionario">
+                                            <field name="dermatologia_lesion_frecuente_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_enrojecimiento_cuestionario">
+                                        <td name="dermatologia_enrojecimiento_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_enrojecimiento_cuestionario_label" for="dermatologia_enrojecimiento_cuestionario" string="¿Ud. tiene enrojecimiento de alguna zona del cuerpo?"/>
+                                        </td>
+                                        <td name="dermatologia_enrojecimiento_cuestionario">
+                                            <field name="dermatologia_enrojecimiento_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_enrojecimiento_localizacion" attrs="{'invisible': [['dermatologia_enrojecimiento_cuestionario','=',False]]}">
+                                        <td name="dermatologia_enrojecimiento_localizacion_label" class="o_td_label">
+                                            <label name="dermatologia_enrojecimiento_localizacion_label" for="dermatologia_enrojecimiento_localizacion" string="¿Dónde se localiza el enrojecimiento?"/>
+                                        </td>
+                                        <td name="dermatologia_enrojecimiento_localizacion" colspan="2">
+                                            <field name="dermatologia_enrojecimiento_localizacion"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_comezon_cuestionario">
+                                        <td name="dermatologia_comezon_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_comezon_cuestionario_label" for="dermatologia_comezon_cuestionario" string="¿Tiene comezón?"/>
+                                        </td>
+                                        <td name="dermatologia_comezon_cuestionario">
+                                            <field name="dermatologia_comezon_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_comezon_localizacion" attrs="{'invisible': [['dermatologia_comezon_cuestionario','=',False]]}">
+                                        <td name="dermatologia_comezon_localizacion_label" class="o_td_label">
+                                            <label name="dermatologia_comezon_localizacion_label" for="dermatologia_comezon_localizacion" string="¿Dónde se localiza la comezón?"/>
+                                        </td>
+                                        <td name="dermatologia_comezon_localizacion" colspan="2">
+                                            <field name="dermatologia_comezon_localizacion"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_hinchazon_cuestionario">
+                                        <td name="dermatologia_hinchazon_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_hinchazon_cuestionario_label" for="dermatologia_hinchazon_cuestionario" string="¿Presenta hinchazón en parte de su cuerpo?"/>
+                                        </td>
+                                        <td name="dermatologia_hinchazon_cuestionario">
+                                            <field name="dermatologia_hinchazon_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_hinchazon_localizacion" attrs="{'invisible': [['dermatologia_hinchazon_cuestionario','=',False]]}">
+                                        <td name="dermatologia_hinchazon_localizacion_label" class="o_td_label">
+                                            <label name="dermatologia_hinchazon_localizacion_label" for="dermatologia_hinchazon_localizacion" string="¿Dónde se localiza la hinchazón?"/>
+                                        </td>
+                                        <td name="dermatologia_hinchazon_localizacion" colspan="2">
+                                            <field name="dermatologia_hinchazon_localizacion"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_rinitis_asma_cuestionario">
+                                        <td name="dermatologia_rinitis_asma_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_rinitis_asma_cuestionario_label" for="dermatologia_rinitis_asma_cuestionario" string="¿Sufre de rinitis alérgica o asma?"/>
+                                        </td>
+                                        <td name="dermatologia_rinitis_asma_cuestionario">
+                                            <field name="dermatologia_rinitis_asma_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_equipo_proteccion_personal_cuestionario">
+                                        <td name="dermatologia_equipo_proteccion_personal_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_equipo_proteccion_personal_cuestionario_label" for="dermatologia_equipo_proteccion_personal_cuestionario" string="¿Usa EPP (equipo de protección personal)?"/>
+                                        </td>
+                                        <td name="dermatologia_equipo_proteccion_personal_cuestionario">
+                                            <field name="dermatologia_equipo_proteccion_personal_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="dermatologia_equipo_proteccion_personal_especifico" attrs="{'invisible': [['dermatologia_equipo_proteccion_personal_cuestionario','=',False]]}">
+                                        <td name="dermatologia_equipo_proteccion_personal_especifico_label" class="o_td_label">
+                                            <label name="dermatologia_equipo_proteccion_personal_especifico_label" for="dermatologia_equipo_proteccion_personal_especifico" string="¿Qué tipo de EPP usa?"/>
+                                        </td>
+                                        <td name="dermatologia_equipo_proteccion_personal_especifico" colspan="2">
+                                            <field name="dermatologia_equipo_proteccion_personal_especifico"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_cambios_unas_cuestionario">
+                                        <td name="dermatologia_cambios_unas_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_cambios_unas_cuestionario_label" for="dermatologia_cambios_unas_cuestionario" string="¿Presenta cambios en las uñas?"/>
+                                        </td>
+                                        <td name="dermatologia_cambios_unas_cuestionario">
+                                            <field name="dermatologia_cambios_unas_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="dermatologia_medicacion_cuestionario">
+                                        <td name="dermatologia_medicacion_cuestionario_label" class="o_td_label" colspan="2">
+                                            <label name="dermatologia_medicacion_cuestionario_label" for="dermatologia_medicacion_cuestionario" string="¿Está tomando alguna medicación?"/>
+                                        </td>
+                                        <td name="dermatologia_medicacion_cuestionario">
+                                            <field name="dermatologia_medicacion_cuestionario"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="dermatologia_screen_dermatologico_comentarios" string="Comentarios">
+                            <field name="dermatologia_comentarios_cuestionario" nolabel="1"/>
+                        </group>
+                        <group name="dermatologia_screen_dermatologico_medico" string="Para el médico" col="1">
+                            <field name="dermatologia_dermatopatia_medico" string="Al examen físico, ¿presenta el paciente alguna lesión sugerente a dermatopatía?"/>
+                            <field name="dermatologia_mas_pruebas_medico" string="El paciente necesita ser evaluado por médico dermatologico para la realización de las siguientes pruebas: Pruebas de sensibilidad subcotánea, Luz de Wood y Maniobra de Nikolsky"/>
+                            <field name="dermatologia_interconsulta_medico" string="¿Necesita el paciente interconsulta con la especialidad de dermatología?"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>
