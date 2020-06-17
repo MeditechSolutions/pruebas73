@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='project_template_id']" position="after">
                     <field name="protocolo_id" attrs="{'invisible': ['|', ('type','!=','service'), ('service_tracking','!=','estarbien')], 'required': [('type','=','service'), ('service_tracking','=','estarbien')]}"/>
-                    <field name="subproducto_ids" attrs="{'invisible': ['|', ('type','!=','service'), ('service_tracking','!=','estarbien')]}"/>
+                    <field name="subproducto_ids" attrs="{'invisible': ['|', ('type','!=','service'), ('service_tracking','!=','estarbien')]}" options="{'no_create': True}"/>
                 </xpath>
             </field>
         </record>

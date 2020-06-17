@@ -5,95 +5,117 @@
             <field name="sequence">1</field>
             <field name="name">Triaje</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">triaje</field>
         </record>
         
         <record id="project_task_type_medicina" model="project.task.type">
             <field name="sequence">2</field>
             <field name="name">Medicina</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">medicina</field>
         </record>
         
         <record id="project_task_type_dermatologia" model="project.task.type">
             <field name="sequence">3</field>
             <field name="name">Dermatología</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">dermatologia</field>
         </record>
         
         <record id="project_task_type_grandes_alturas" model="project.task.type">
             <field name="sequence">4</field>
             <field name="name">Anexo N°16 A</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">grandes_alturas</field>
         </record>
         
         <record id="project_task_type_altura" model="project.task.type">
             <field name="sequence">5</field>
             <field name="name">Trabajo en Altura</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">altura</field>
         </record>
         
         <record id="project_task_type_confinados" model="project.task.type">
             <field name="sequence">6</field>
             <field name="name">Espacios confinados</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">confinados</field>
         </record>
         
         <record id="project_task_type_electrocardiograma" model="project.task.type">
             <field name="sequence">7</field>
             <field name="name">Electrocardiograma</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">electrocardiograma</field>
         </record>
         
         <record id="project_task_type_oftalmologia" model="project.task.type">
             <field name="sequence">8</field>
             <field name="name">Oftalmología</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">oftalmologia</field>
         </record>
         
         <record id="project_task_type_audiometria" model="project.task.type">
             <field name="sequence">9</field>
             <field name="name">Audiometría</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">audiometria</field>
         </record>
         
         <record id="project_task_type_psicologia" model="project.task.type">
             <field name="sequence">10</field>
             <field name="name">Psicología</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">psicologia</field>
         </record>
         
         <record id="project_task_type_odontograma" model="project.task.type">
             <field name="sequence">11</field>
             <field name="name">Odontograma</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">odontograma</field>
         </record>
         
         <record id="project_task_type_musculo_esqueletico" model="project.task.type">
             <field name="sequence">12</field>
             <field name="name">Músculo-esquelético</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">musculo_esqueletico</field>
         </record>
         
         <record id="project_task_type_radiologia" model="project.task.type">
             <field name="sequence">13</field>
             <field name="name">Radiología</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">radiologia</field>
         </record>
         
         <record id="project_task_type_espirometria" model="project.task.type">
             <field name="sequence">14</field>
             <field name="name">Espirometría</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">espirometria</field>
         </record>
         
         <record id="project_task_type_tsr" model="project.task.type">
             <field name="sequence">15</field>
             <field name="name">TSR</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">tsr</field>
         </record>
         
         <record id="project_task_type_laboratorio" model="project.task.type">
             <field name="sequence">16</field>
             <field name="name">Laboratorio</field>
+            <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">laboratorio</field>
+        </record>
+        
+        <record id="project_task_type_covid" model="project.task.type">
+            <field name="sequence">17</field>
+            <field name="name">COVID</field>
             <field name="estacion_estarbien" eval="True"/>
         </record>
     </data>

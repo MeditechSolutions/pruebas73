@@ -8,6 +8,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="paciente_id"/>
+                    <field name="cita_id" attrs="{'invisible': [('tipo_cita','=',False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="estacion_ids" widget="many2manytags" options="{'no_create': True}"/>
+                    <field name="tipo_cita" invisible="1"/>
                 </xpath>
             </field>
         </record>

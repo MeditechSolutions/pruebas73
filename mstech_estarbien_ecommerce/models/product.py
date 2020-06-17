@@ -34,6 +34,9 @@ class ProductTemplate(models.Model):
         if self.service_tracking == 'estarbien' :
             self.project_id = False
             self.project_template_id = False
+        else :
+            self.subproducto_ids = False
+            self.protocolo_id = False
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
@@ -44,3 +47,6 @@ class ProductProduct(models.Model):
         if self.service_tracking == 'estarbien' :
             self.project_id = False
             self.project_template_id = False
+        else :
+            self.subproducto_ids = False
+            self.protocolo_id = False
