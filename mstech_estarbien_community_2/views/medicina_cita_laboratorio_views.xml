@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_laboratorio" model="ir.ui.view">
+            <field name="name">medicina.cita.form.laboratorio</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="72"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="laboratorio" string="Laboratorio" attrs="{'invisible': [('tipo_cita','!=','laboratorio')]}">
+                        <group name="laboratorio_tests">
+                            <group name="laboratorio_tests_hematologia_diferencial_bioquimica" col="1">
+                                <table name="laboratorio_tests_hematologia_diferencial_bioquimica" style="width:100%">
+                                    <thead name="laboratorio_tests_hematologia_diferencial_bioquimica">
+                                        <tr name="laboratorio_tests_hematologia_diferencial_bioquimica_header">
+                                            <th name="laboratorio_tests_hematologia_diferencial_bioquimica_header_1" style="width:35%"/>
+                                            <th name="laboratorio_tests_hematologia_diferencial_bioquimica_header_2" style="width:15%"/>
+                                            <th name="laboratorio_tests_hematologia_diferencial_bioquimica_header_3" style="width:15%"/>
+                                            <th name="laboratorio_tests_hematologia_diferencial_bioquimica_header_4" style="width:35%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="laboratorio_tests_hematologia_diferencial_bioquimica">
+                                        <tr name="laboratorio_tests_hematologia_01">
+                                            <td name="laboratorio_tests_hematologia_01" style="text-align:center" colspan="4">
+                                                <h3 name="laboratorio_tests_hematologia_01">
+                                                    Hematología
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_02">
+                                            <td name="laboratorio_tests_hematologia_02_1"/>
+                                            <td name="laboratorio_tests_hematologia_02_2" style="text-align:center">
+                                                <h4 name="laboratorio_tests_hematologia_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_hematologia_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_hematologia_02_3">
+                                                    Unidad
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_hematologia_02_4" style="text-align:center">
+                                                <h4 name="laboratorio_tests_hematologia_02_4">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_03">
+                                            <td name="laboratorio_hematocrito_label" class="o_td_label">
+                                                <label name="laboratorio_hematocrito_label" for="laboratorio_hematocrito" string="Hematocrito"/>
+                                            </td>
+                                            <td name="laboratorio_hematocrito" style="text-align:center">
+                                                <field name="laboratorio_hematocrito"/>
+                                            </td>
+                                            <td name="laboratorio_hematocrito_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_hematocrito_reference" style="vertical-align:middle">
+                                                Varón: 38-46%
+                                                <br/>
+                                                Mujer: 34-43%
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_04">
+                                            <td name="laboratorio_hemoglobina_label" class="o_td_label">
+                                                <label name="laboratorio_hemoglobina_label" for="laboratorio_hemoglobina" string="Hemoglobina"/>
+                                            </td>
+                                            <td name="laboratorio_hemoglobina" style="text-align:center">
+                                                <field name="laboratorio_hemoglobina"/>
+                                            </td>
+                                            <td name="laboratorio_hemoglobina_unit" style="text-align:center">
+                                                g/dl
+                                            </td>
+                                            <td name="laboratorio_hemoglobina_reference" style="vertical-align:middle">
+                                                Varón: 13.5-18 g/dl
+                                                <br/>
+                                                Mujer: 12-14 g/dl
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_05">
+                                            <td name="laboratorio_eritrocitos_label" class="o_td_label">
+                                                <label name="laboratorio_eritrocitos_label" for="laboratorio_eritrocitos" string="Eritrocitos"/>
+                                            </td>
+                                            <td name="laboratorio_eritrocitos" style="text-align:center">
+                                                <field name="laboratorio_eritrocitos"/>
+                                            </td>
+                                            <td name="laboratorio_eritrocitos_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_eritrocitos_reference" style="vertical-align:middle">
+                                                4'000,000 - 6'000,000 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_06">
+                                            <td name="laboratorio_leucocitos_label" class="o_td_label">
+                                                <label name="laboratorio_leucocitos_label" for="laboratorio_leucocitos" string="Leucocitos"/>
+                                            </td>
+                                            <td name="laboratorio_leucocitos" style="text-align:center">
+                                                <field name="laboratorio_leucocitos"/>
+                                            </td>
+                                            <td name="laboratorio_leucocitos_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_leucocitos_reference" style="vertical-align:middle">
+                                                5,000 - 10,000 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_07">
+                                            <td name="laboratorio_vcm_label" class="o_td_label">
+                                                <label name="laboratorio_vcm_label" for="laboratorio_vcm" string="VCM"/>
+                                            </td>
+                                            <td name="laboratorio_vcm" style="text-align:center">
+                                                <field name="laboratorio_vcm"/>
+                                            </td>
+                                            <td name="laboratorio_vcm_unit" style="text-align:center">
+                                                um<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_vcm_reference" style="vertical-align:middle">
+                                                80-96 um<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_08">
+                                            <td name="laboratorio_hcm_label" class="o_td_label">
+                                                <label name="laboratorio_hcm_label" for="laboratorio_hcm" string="HCM"/>
+                                            </td>
+                                            <td name="laboratorio_hcm" style="text-align:center">
+                                                <field name="laboratorio_hcm"/>
+                                            </td>
+                                            <td name="laboratorio_hcm_unit" style="text-align:center">
+                                                pg
+                                            </td>
+                                            <td name="laboratorio_hcm_reference" style="vertical-align:middle">
+                                                27-36 pg
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_09">
+                                            <td name="laboratorio_ccmh_label" class="o_td_label">
+                                                <label name="laboratorio_ccmh_label" for="laboratorio_ccmh" string="CCMH"/>
+                                            </td>
+                                            <td name="laboratorio_ccmh" style="text-align:center">
+                                                <field name="laboratorio_ccmh"/>
+                                            </td>
+                                            <td name="laboratorio_ccmh_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_ccmh_reference" style="vertical-align:middle">
+                                                32-96 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_10">
+                                            <td name="laboratorio_recuento_plaquetas_label" class="o_td_label">
+                                                <label name="laboratorio_recuento_plaquetas_label" for="laboratorio_recuento_plaquetas" string="Recuento de plaquetas"/>
+                                            </td>
+                                            <td name="laboratorio_recuento_plaquetas" style="text-align:center">
+                                                <field name="laboratorio_recuento_plaquetas"/>
+                                            </td>
+                                            <td name="laboratorio_recuento_plaquetas_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_recuento_plaquetas_reference" style="vertical-align:middle">
+                                                150,000 - 450,000 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_hematologia_11">
+                                            <td name="laboratorio_eritrosedimentacion_label" class="o_td_label">
+                                                <label name="laboratorio_eritrosedimentacion_label" for="laboratorio_eritrosedimentacion" string="Eritrosedimentacion (VSG)"/>
+                                            </td>
+                                            <td name="laboratorio_eritrosedimentacion" style="text-align:center">
+                                                <field name="laboratorio_eritrosedimentacion"/>
+                                            </td>
+                                            <td name="laboratorio_eritrosedimentacion_unit" style="text-align:center">
+                                                mm/h
+                                            </td>
+                                            <td name="laboratorio_eritrosedimentacion_reference" style="vertical-align:middle">
+                                                Varón: hasta 12 mm/h
+                                                <br/>
+                                                Mujer: hasta 19 mm/h
+                                            </td>
+                                        </tr>
+                                        <!--
+                                    </tbody>
+                                </table>
+                                <table name="laboratorio_tests_formula_diferencial" style="width:100%">
+                                    <thead name="laboratorio_tests_formula_diferencial">
+                                        <tr name="laboratorio_tests_formula_diferencial_header">
+                                            <th name="laboratorio_tests_formula_diferencial_header_1" style="width:35%"/>
+                                            <th name="laboratorio_tests_formula_diferencial_header_2" style="width:15%"/>
+                                            <th name="laboratorio_tests_formula_diferencial_header_3" style="width:15%"/>
+                                            <th name="laboratorio_tests_formula_diferencial_header_4" style="width:35%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="laboratorio_tests_formula_diferencial">
+                                        -->
+                                        <tr name="laboratorio_tests_formula_diferencial_01">
+                                            <td name="laboratorio_tests_formula_diferencial_01" style="text-align:center" colspan="4">
+                                                <h3 name="laboratorio_tests_formula_diferencial_01">
+                                                    Fórmula diferencial
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_02">
+                                            <td name="laboratorio_tests_formula_diferencial_02_1"/>
+                                            <td name="laboratorio_tests_formula_diferencial_02_2" style="text-align:center">
+                                                <h4 name="laboratorio_tests_formula_diferencial_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_formula_diferencial_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_formula_diferencial_02_3">
+                                                    Unidad
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_formula_diferencial_02_4" style="text-align:center">
+                                                <h4 name="laboratorio_tests_formula_diferencial_02_4">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_03">
+                                            <td name="laboratorio_abastonados_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_abastonados_porcentaje_label" for="laboratorio_abastonados_porcentaje" string="Abastonados"/>
+                                            </td>
+                                            <td name="laboratorio_abastonados_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_abastonados_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_abastonados_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_abastonados_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                0-5 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_04">
+                                            <td name="laboratorio_segmentados_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_segmentados_porcentaje_label" for="laboratorio_segmentados_porcentaje" string="Segmentados"/>
+                                            </td>
+                                            <td name="laboratorio_segmentados_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_segmentados_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_segmentados_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_segmentados_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                45-65 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_05">
+                                            <td name="laboratorio_eosinofilos_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_eosinofilos_porcentaje_label" for="laboratorio_eosinofilos_porcentaje" string="Eosinófilos"/>
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_eosinofilos_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                0-4 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_06">
+                                            <td name="laboratorio_basofilos_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_basofilos_porcentaje_label" for="laboratorio_basofilos_porcentaje" string="Basófilos"/>
+                                            </td>
+                                            <td name="laboratorio_basofilos_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_basofilos_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_basofilos_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_basofilos_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                0-1 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_07">
+                                            <td name="laboratorio_monocitos_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_monocitos_porcentaje_label" for="laboratorio_monocitos_porcentaje" string="Monocitos"/>
+                                            </td>
+                                            <td name="laboratorio_monocitos_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_monocitos_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_monocitos_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_monocitos_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                2-8 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_08">
+                                            <td name="laboratorio_linfocitos_porcentaje_label" class="o_td_label">
+                                                <label name="laboratorio_linfocitos_porcentaje_label" for="laboratorio_linfocitos_porcentaje" string="Linfocitos"/>
+                                            </td>
+                                            <td name="laboratorio_linfocitos_porcentaje" style="text-align:center">
+                                                <field name="laboratorio_linfocitos_porcentaje"/>
+                                            </td>
+                                            <td name="laboratorio_linfocitos_porcentaje_unit" style="text-align:center">
+                                                %
+                                            </td>
+                                            <td name="laboratorio_linfocitos_porcentaje_reference" style="vertical-align:middle;text-align:center">
+                                                25-45 %
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_09">
+                                            <td name="laboratorio_abastonados_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_abastonados_mm3_label" for="laboratorio_abastonados_mm3" string="Abastonados"/>
+                                            </td>
+                                            <td name="laboratorio_abastonados_mm3" style="text-align:center">
+                                                <field name="laboratorio_abastonados_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_abastonados_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_abastonados_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                0-700 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_10">
+                                            <td name="laboratorio_segmentados_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_segmentados_mm3_label" for="laboratorio_segmentados_mm3" string="Segmentados"/>
+                                            </td>
+                                            <td name="laboratorio_segmentados_mm3" style="text-align:center">
+                                                <field name="laboratorio_segmentados_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_segmentados_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_segmentados_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                1,800-7,000 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_11">
+                                            <td name="laboratorio_eosinofilos_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_eosinofilos_mm3_label" for="laboratorio_eosinofilos_mm3" string="Eosinófilos"/>
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_mm3" style="text-align:center">
+                                                <field name="laboratorio_eosinofilos_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_eosinofilos_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                0-550 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_12">
+                                            <td name="laboratorio_basofilos_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_basofilos_mm3_label" for="laboratorio_basofilos_mm3" string="Basófilos"/>
+                                            </td>
+                                            <td name="laboratorio_basofilos_mm3" style="text-align:center">
+                                                <field name="laboratorio_basofilos_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_basofilos_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_basofilos_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                0-200 mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_13">
+                                            <td name="laboratorio_monocitos_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_monocitos_mm3_label" for="laboratorio_monocitos_mm3" string="Monocitos"/>
+                                            </td>
+                                            <td name="laboratorio_monocitos_mm3" style="text-align:center">
+                                                <field name="laboratorio_monocitos_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_monocitos_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_monocitos_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                0-1,200 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_14">
+                                            <td name="laboratorio_linfocitos_mm3_label" class="o_td_label">
+                                                <label name="laboratorio_linfocitos_mm3_label" for="laboratorio_linfocitos_mm3" string="Linfocitos"/>
+                                            </td>
+                                            <td name="laboratorio_linfocitos_mm3" style="text-align:center">
+                                                <field name="laboratorio_linfocitos_mm3"/>
+                                            </td>
+                                            <td name="laboratorio_linfocitos_mm3_unit" style="text-align:center">
+                                                mm<sup>3</sup>
+                                            </td>
+                                            <td name="laboratorio_linfocitos_mm3_reference" style="vertical-align:middle;text-align:center">
+                                                1,000-4,800 / mm<sup>3</sup>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_15">
+                                            <td name="laboratorio_celulas_inmaduras_label" class="o_td_label">
+                                                <label name="laboratorio_celulas_inmaduras_label" for="laboratorio_celulas_inmaduras" string="Células inmaduras"/>
+                                            </td>
+                                            <td name="laboratorio_celulas_inmaduras" style="text-align:center">
+                                                <field name="laboratorio_celulas_inmaduras"/>
+                                            </td>
+                                            <td name="laboratorio_celulas_inmaduras_unit"/>
+                                            <td name="laboratorio_celulas_inmaduras_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                        <tr name="laboratorio_tests_formula_diferencial_16">
+                                            <td name="laboratorio_grupo_factor_label" style="font-weight:bold">
+                                                Grupo y factor
+                                            </td>
+                                            <td name="laboratorio_grupo_sanguineo" style="text-align:right">
+                                                <field name="laboratorio_grupo_sanguineo"/>
+                                            </td>
+                                            <td name="laboratorio_factor_rh" style="text-align:left" colspan="2">
+                                                <field name="laboratorio_factor_rh"/>
+                                            </td>
+                                        </tr>
+                                        <!--
+                                    </tbody>
+                                </table>
+                                <separator/>
+                                <table name="laboratorio_tests_bioquimica" style="width:100%">
+                                    <thead name="laboratorio_tests_bioquimica">
+                                        <tr name="laboratorio_tests_bioquimica_header">
+                                            <th name="laboratorio_tests_bioquimica_header_1" style="width:35%"/>
+                                            <th name="laboratorio_tests_bioquimica_header_2" style="width:15%"/>
+                                            <th name="laboratorio_tests_bioquimica_header_3" style="width:15%"/>
+                                            <th name="laboratorio_tests_bioquimica_header_4" style="width:35%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="laboratorio_tests_bioquimica">
+                                        -->
+                                        <separator/>
+                                        <tr name="laboratorio_tests_bioquimica_01">
+                                            <td name="laboratorio_bioquimica" style="text-align:right" colspan="2">
+                                                <field name="laboratorio_bioquimica"/>
+                                            </td>
+                                            <td name="laboratorio_bioquimica_label" class="o_td_label" style="text-align:left" colspan="2">
+                                                <label name="laboratorio_bioquimica_label" for="laboratorio_bioquimica" string="Bioquímica"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_bioquimica_02">
+                                            <td name="laboratorio_glucosa_label" class="o_td_label">
+                                                <label name="laboratorio_glucosa_label" for="laboratorio_glucosa" string="Glucosa"/>
+                                            </td>
+                                            <td name="laboratorio_glucosa" style="text-align:center">
+                                                <field name="laboratorio_glucosa"/>
+                                            </td>
+                                            <td name="laboratorio_glucosa_unit" style="text-align:center">
+                                                mg/dl
+                                            </td>
+                                            <td name="laboratorio_glucosa_reference" style="vertical-align:middle;text-align:center">
+                                                70-110 mg/dl
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_bioquimica_03">
+                                            <td name="laboratorio_colesterol_total_label" class="o_td_label">
+                                                <label name="laboratorio_colesterol_total_label" for="laboratorio_colesterol_total" string="Colesterol total"/>
+                                            </td>
+                                            <td name="laboratorio_colesterol_total" style="text-align:center">
+                                                <field name="laboratorio_colesterol_total"/>
+                                            </td>
+                                            <td name="laboratorio_colesterol_total_unit" style="text-align:center">
+                                                mg/dl
+                                            </td>
+                                            <td name="laboratorio_colesterol_total_reference" style="vertical-align:middle;text-align:center">
+                                                (70 - 200) (Deseable)
+                                                <br/>
+                                                (200 - 240) (Límite Alto)
+                                                <br/>
+                                                (Sup. 240) (Alto)
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_bioquimica_04">
+                                            <td name="laboratorio_trigliceridos_label" class="o_td_label">
+                                                <label name="laboratorio_trigliceridos_label" for="laboratorio_trigliceridos" string="Triglicéridos"/>
+                                            </td>
+                                            <td name="laboratorio_trigliceridos" style="text-align:center">
+                                                <field name="laboratorio_trigliceridos"/>
+                                            </td>
+                                            <td name="laboratorio_trigliceridos_unit" style="text-align:center">
+                                                mg/dl
+                                            </td>
+                                            <td name="laboratorio_trigliceridos_reference" style="vertical-align:middle;text-align:center">
+                                                (30 - 150) Normal
+                                                <br/>
+                                                (200 - 500) Alto
+                                                <br/>
+                                                (Sup. 500) Muy alto
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_bioquimica_05">
+                                            <td name="laboratorio_resultados_glicemia_label" class="o_td_label">
+                                                <label name="laboratorio_resultados_glicemia_label" for="laboratorio_resultados_glicemia" string="Resultados de glicemia"/>
+                                            </td>
+                                            <td name="laboratorio_resultados_glicemia" colspan="3">
+                                                <field name="laboratorio_resultados_glicemia"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_bioquimica_06">
+                                            <td name="laboratorio_resultados_perfil_lipidico_label" class="o_td_label">
+                                                <label name="laboratorio_resultados_perfil_lipidico_label" for="laboratorio_resultados_perfil_lipidico" string="Resultados de perfil lipídico"/>
+                                            </td>
+                                            <td name="laboratorio_resultados_perfil_lipidico" colspan="3">
+                                                <field name="laboratorio_resultados_perfil_lipidico"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                            <group name="laboratorio_tests_examen_completo_orina" col="1">
+                                <table name="laboratorio_tests_examen_completo_orina" style="width:100%">
+                                    <thead name="laboratorio_tests_examen_completo_orina">
+                                        <tr name="laboratorio_tests_examen_completo_orina_header">
+                                            <th name="laboratorio_tests_examen_completo_orina_header_1" style="width:35%"/>
+                                            <th name="laboratorio_tests_examen_completo_orina_header_2" style="width:15%"/>
+                                            <th name="laboratorio_tests_examen_completo_orina_header_3" style="width:15%"/>
+                                            <th name="laboratorio_tests_examen_completo_orina_header_4" style="width:35%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="laboratorio_tests_examen_completo_orina">
+                                        <tr name="laboratorio_tests_examen_completo_orina">
+                                            <td name="laboratorio_orina_examen_completo_label" class="o_td_label" style="text-align:right" colspan="2">
+                                                <label name="laboratorio_orina_examen_completo_label" for="laboratorio_orina_examen_completo" string="Examen completo de orina"/>
+                                            </td>
+                                            <td name="laboratorio_orina_examen_completo" style="text-align:center">
+                                                <field name="laboratorio_orina_examen_completo"/>
+                                            </td>
+                                            <td name="laboratorio_orina_examen_completo_resultado">
+                                                <field name="laboratorio_orina_examen_completo_resultado" widget="radio" options="{'horizontal':True}"/>
+                                            </td>
+                                        </tr>
+                                        <separator/>
+                                        <tr name="laboratorio_tests_eco_fisico_01">
+                                            <td name="laboratorio_tests_eco_fisico_01">
+                                                <h3 name="laboratorio_tests_eco_fisico_01">
+                                                    Examen físico
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_fisico_02">
+                                            <td name="laboratorio_tests_eco_fisico_02_1"/>
+                                            <td name="laboratorio_tests_eco_fisico_02_2" style="text-align:center" colspan="2">
+                                                <h4 name="laboratorio_tests_eco_fisico_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_eco_fisico_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_eco_fisico_02_3">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_fisico_03">
+                                            <td name="laboratorio_orina_color_label" class="o_td_label">
+                                                <label name="laboratorio_orina_color_label" for="laboratorio_orina_color" string="Color"/>
+                                            </td>
+                                            <td name="laboratorio_orina_color" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_orina_color"/>
+                                            </td>
+                                            <td name="laboratorio_orina_color_reference" style="vertical-align:middle;text-align:center">
+                                                AMARILLO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_fisico_04">
+                                            <td name="laboratorio_orina_aspecto_label" class="o_td_label">
+                                                <label name="laboratorio_orina_aspecto_label" for="laboratorio_orina_aspecto" string="Aspecto"/>
+                                            </td>
+                                            <td name="laboratorio_orina_aspecto" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_orina_aspecto"/>
+                                            </td>
+                                            <td name="laboratorio_orina_aspecto_reference" style="vertical-align:middle;text-align:center">
+                                                TRANSPARENTE
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_fisico_05">
+                                            <td name="laboratorio_orina_densidad_label" class="o_td_label">
+                                                <label name="laboratorio_orina_densidad_label" for="laboratorio_orina_densidad" string="Densidad"/>
+                                            </td>
+                                            <td name="laboratorio_orina_densidad" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_orina_densidad"/>
+                                            </td>
+                                            <td name="laboratorio_orina_densidad_reference" style="vertical-align:middle;text-align:center">
+                                                1.005 - 1.030
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_01">
+                                            <td name="laboratorio_tests_eco_sedimento_01">
+                                                <h3 name="laboratorio_tests_eco_sedimento_01">
+                                                    Sedimento
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_02">
+                                            <td name="laboratorio_tests_eco_sedimento_02_1"/>
+                                            <td name="laboratorio_tests_eco_sedimento_02_2" style="text-align:center" colspan="2">
+                                                <h4 name="laboratorio_tests_eco_sedimento_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_eco_sedimento_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_eco_sedimento_02_3">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_03">
+                                            <td name="laboratorio_sedimento_leucocitos_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_leucocitos_label" for="laboratorio_sedimento_leucocitos" string="Leucocitos"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_leucocitos" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_leucocitos"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_leucocitos_reference" style="vertical-align:middle;text-align:center">
+                                                &lt; 4xc
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_04">
+                                            <td name="laboratorio_sedimento_hematies_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_hematies_label" for="laboratorio_sedimento_hematies" string="Hematíes"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_hematies" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_hematies"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_hematies_reference" style="vertical-align:middle;text-align:center">
+                                                &lt; 3xc
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_05">
+                                            <td name="laboratorio_sedimento_celulas_epiteliales_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_celulas_epiteliales_label" for="laboratorio_sedimento_celulas_epiteliales" string="Células epiteliales"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_celulas_epiteliales" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_celulas_epiteliales"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_celulas_epiteliales_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_06">
+                                            <td name="laboratorio_sedimento_bacterias_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_bacterias_label" for="laboratorio_sedimento_bacterias" string="Bacterias"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_bacterias" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_bacterias"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_bacterias_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_07">
+                                            <td name="laboratorio_sedimento_cilindros_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_cilindros_label" for="laboratorio_sedimento_cilindros" string="Cilindros"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_cilindros" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_cilindros"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_cilindros_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_sedimento_08">
+                                            <td name="laboratorio_sedimento_cristales_label" class="o_td_label">
+                                                <label name="laboratorio_sedimento_cristales_label" for="laboratorio_sedimento_cristales" string="Cristales"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_cristales" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_sedimento_cristales"/>
+                                            </td>
+                                            <td name="laboratorio_sedimento_cristales_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                        <separator/>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_01">
+                                            <td name="laboratorio_tests_eco_examen_quimico_01">
+                                                <h3 name="laboratorio_tests_eco_examen_quimico_01">
+                                                    Examen químico
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_02">
+                                            <td name="laboratorio_tests_eco_examen_quimico_02_1"/>
+                                            <td name="laboratorio_tests_eco_examen_quimico_02_2" style="text-align:center" colspan="2">
+                                                <h4 name="laboratorio_tests_eco_examen_quimico_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_eco_examen_quimico_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_eco_examen_quimico_02_3">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_03">
+                                            <td name="laboratorio_examen_quimico_ph_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_ph_label" for="laboratorio_examen_quimico_ph" string="pH"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_ph" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_ph"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_ph_reference" style="vertical-align:middle;text-align:center">
+                                                5
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_04">
+                                            <td name="laboratorio_examen_quimico_sangre_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_sangre_label" for="laboratorio_examen_quimico_sangre" string="Sangre"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_sangre" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_sangre"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_sangre_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_05">
+                                            <td name="laboratorio_examen_quimico_nitritos_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_nitritos_label" for="laboratorio_examen_quimico_nitritos" string="Nitritos"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_nitritos" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_nitritos"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_nitritos_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_06">
+                                            <td name="laboratorio_examen_quimico_urobilinogeno_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_urobilinogeno_label" for="laboratorio_examen_quimico_urobilinogeno" string="Urobilinógeno"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_urobilinogeno" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_urobilinogeno"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_urobilinogeno_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_07">
+                                            <td name="laboratorio_examen_quimico_bilirrubinas_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_bilirrubinas_label" for="laboratorio_examen_quimico_bilirrubinas" string="Bilirrubinas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_bilirrubinas" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_bilirrubinas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_bilirrubinas_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_08">
+                                            <td name="laboratorio_examen_quimico_proteinas_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_proteinas_label" for="laboratorio_examen_quimico_proteinas" string="Proteínas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_proteinas" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_proteinas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_proteinas_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_09">
+                                            <td name="laboratorio_examen_quimico_cetonas_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_cetonas_label" for="laboratorio_examen_quimico_cetonas" string="Cetonas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_cetonas" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_cetonas"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_cetonas_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_examen_quimico_10">
+                                            <td name="laboratorio_examen_quimico_acido_ascorbico_label" class="o_td_label">
+                                                <label name="laboratorio_examen_quimico_acido_ascorbico_label" for="laboratorio_examen_quimico_acido_ascorbico" string="Ácido ascórbico"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_acido_ascorbico" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_examen_quimico_acido_ascorbico"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_acido_ascorbico_reference" style="vertical-align:middle;text-align:center">
+                                                NEGATIVO
+                                            </td>
+                                        </tr>
+                                        <separator/>
+                                        <tr name="laboratorio_tests_eco_otros_01">
+                                            <td name="laboratorio_tests_eco_otros_01">
+                                                <h3 name="laboratorio_tests_eco_otros_01">
+                                                    Otros
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_otros_02">
+                                            <td name="laboratorio_tests_eco_otros_02_1"/>
+                                            <td name="laboratorio_tests_eco_otros_02_2" style="text-align:center" colspan="2">
+                                                <h4 name="laboratorio_tests_eco_otros_02_2">
+                                                    Resultado
+                                                </h4>
+                                            </td>
+                                            <td name="laboratorio_tests_eco_otros_02_3" style="text-align:center">
+                                                <h4 name="laboratorio_tests_eco_otros_02_3">
+                                                    Valor de referencia
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                        <tr name="laboratorio_tests_eco_otros_03">
+                                            <td name="laboratorio_filamentos_mucosos_label" class="o_td_label">
+                                                <label name="laboratorio_filamentos_mucosos_label" for="laboratorio_filamentos_mucosos" string="Filamentos mucosos"/>
+                                            </td>
+                                            <td name="laboratorio_filamentos_mucosos" style="text-align:center" colspan="2">
+                                                <field name="laboratorio_filamentos_mucosos"/>
+                                            </td>
+                                            <td name="laboratorio_examen_quimico_ph_reference" style="vertical-align:middle;text-align:center"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                        <group name="laboratorio_comentarios" col="1">
+                            <label name="laboratorio_comentarios_label" for="laboratorio_comentarios" string="Comentarios"/>
+                            <field name="laboratorio_comentarios" nolabel="1"/>
+                        </group>
+                        <group name="laboratorio_adjuntos">
+                            <field filename="archivo_adjunto_laboratorio_1_filename" name="archivo_adjunto_laboratorio_1" string="Archivo"/>
+                            <field invisible="1" name="archivo_adjunto_laboratorio_1_filename"/>
+                            <field filename="archivo_adjunto_laboratorio_2_filename" name="archivo_adjunto_laboratorio_2" string="Archivo"/>
+                            <field invisible="1" name="archivo_adjunto_laboratorio_2_filename"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

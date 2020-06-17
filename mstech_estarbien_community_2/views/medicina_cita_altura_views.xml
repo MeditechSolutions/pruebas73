@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_altura" model="ir.ui.view">
+            <field name="name">medicina.cita.form.altura</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="46"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="altura_certificacion" string="Certificación para altura" attrs="{'invisible': [('tipo_cita','!=','altura')]}">
+                        <group name="altura_certificacion_antecedentes_medicos" string="Antecedentes (del registro médico)">
+                            <group name="altura_certificacion_antecedentes_medicos_left" col="1">
+                                <field name="altura_acrofobia" string="Acrofobia (temor a las alturas)"/>
+                                <field name="altura_epilepsia_convulsiones_otros" string="Pérdida de conciencia (epilepsia, convulsiones, otros)"/>
+                                <field name="altura_alcoholismo_adiccion" string="Alcoholismo o abuso de sustancias (adicción)"/>
+                                <field name="altura_enfermedad_psiquiatrica" string="Portador de enfermedad psiquiátrica"/>
+                                <field name="altura_diabetes_hipoglicemia" string="Diabetes mellitus o hipoglicemia no controlada"/>
+                                <field name="altura_migrana" string="Migraña"/>
+                            </group>
+                            <group name="altura_certificacion_antecedentes_medicos_right" col="1">
+                                <field name="altura_enfermedades_corazon" string="Insuficiencia cardiaca, enfermedad coronaria, arritmias, marcapasos, prótesis valvular"/>
+                                <field name="altura_crisis_asmatica" string="Crisis asmática"/>
+                                <field name="altura_hipertension_arterial" string="Hipertensión arterial no controlada"/>
+                                <field name="altura_hipoacusia_severa" string="Hipoacusia severa"/>
+                                <field name="altura_estereopsis_agudeza_visual" string="Alteración de la agudeza visual (de lejos) y/o estereopsia"/>
+                                <field name="altura_inapto_labor_altura_previo" string="INAPTO para labor de altura (según resultados previos)"/>
+                            </group>
+                            <label name="altura_antecedentes_medicos_comentario_label" for="altura_antecedentes_medicos_comentario" style="font-weight:bold" string="Comentario/Detalle"/>
+                            <field name="altura_antecedentes_medicos_comentario" nolabel="1"/>
+                        </group>
+                        <group name="altura_certificacion_antecedentes_entrevista" string="Antecedentes (entrevista con el paciente)">
+                            <group name="altura_certificacion_antecedentes_entrevista_left" col="1">
+                                <field name="altura_resfrio_cuadro_respiratorio" string="Resfrío / Cuadro respiratorio"/>
+                                <field name="altura_vertigo_mareo" string="Vértigo / Mareos recientes"/>
+                            </group>
+                            <group name="altura_certificacion_antecedentes_entrevista_right" col="1">
+                                <field name="altura_licor_24_horas" string="Consumió licor en las últimas 24 horas"/>
+                                <field name="altura_cefalea_frecuencia" string="Frecuencia de cefaleas"/>
+                            </group>
+                            <label name="altura_antecedentes_entrevista_medicinas_label" for="altura_antecedentes_entrevista_medicinas" style="font-weight:bold" string="Medicinas que está tomando"/>
+                            <field name="altura_antecedentes_entrevista_medicinas" nolabel="1"/>
+                        </group>
+                        <group name="altura_certificacion_examen_fisico_signos" string="Examen físico (actual)">
+                            <table name="altura_certificacion_examen_fisico_signos" style="width:100%">
+                                <thead name="altura_certificacion_examen_fisico_signos">
+                                    <tr name="altura_certificacion_examen_fisico_signos_header">
+                                        <th name="altura_certificacion_examen_fisico_signos_header_1" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_2" style="width:8%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_3" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_4" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_5" style="width:8%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_6" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_7" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_8" style="width:10%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_9" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_10" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_11" style="width:8%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_12" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_13" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_14" style="width:8%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_15" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_16" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_17" style="width:8%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_18" style="width:1%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_19" style="width:5%"/>
+                                        <th name="altura_certificacion_examen_fisico_signos_header_20" style="width:9%"/>
+                                    </tr>
+                                    <tr name="altura_certificacion_examen_fisico_signos_vitales">
+                                        <th name="altura_certificacion_examen_fisico_signos_vitales" colspan="20">
+                                            Signos vitales
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="altura_certificacion_examen_fisico_signos">
+                                    <tr name="altura_certificacion_examen_fisico_signos">
+                                        <td name="altura_frecuencia_cardiaca_label" class="o_td_label">
+                                            <label name="altura_frecuencia_cardiaca_label" for="altura_frecuencia_cardiaca" string="F.C."/>
+                                        </td>
+                                        <td name="altura_frecuencia_cardiaca">
+                                            <div name="altura_frecuencia_cardiaca" class="o_row">
+                                                <field name="altura_frecuencia_cardiaca"/> X'
+                                            </div>
+                                        </td>
+                                        <td name="altura_frecuencia_cardiaca_frecuencia_respiratoria"/>
+                                        <td name="altura_frecuencia_respiratoria_label" class="o_td_label">
+                                            <label name="altura_frecuencia_respiratoria_label" for="altura_frecuencia_respiratoria" string="F.R."/>
+                                        </td>
+                                        <td name="altura_frecuencia_respiratoria">
+                                            <div name="altura_frecuencia_respiratoria" class="o_row">
+                                                <field name="altura_frecuencia_respiratoria"/> X'
+                                            </div>
+                                        </td>
+                                        <td name="altura_frecuencia_respiratoria_presion_arterial"/>
+                                        <td name="altura_presion_arterial_label" class="o_td_label">
+                                            <label name="altura_presion_arterial_label" for="altura_presion_arterial" string="P.A."/>
+                                        </td>
+                                        <td name="altura_presion_arterial">
+                                            <div name="altura_presion_arterial" class="o_row">
+                                                <field name="altura_presion_arterial"/> mm/Hg
+                                            </div>
+                                        </td>
+                                        <td name="altura_presion_arterial_saturacion_oxigeno"/>
+                                        <td name="altura_saturacion_oxigeno_label" class="o_td_label">
+                                            <label name="altura_saturacion_oxigeno_label" for="altura_saturacion_oxigeno" string="SatO2"/>
+                                        </td>
+                                        <td name="altura_saturacion_oxigeno">
+                                            <div name="altura_saturacion_oxigeno" class="o_row">
+                                                <field name="altura_saturacion_oxigeno"/> %
+                                            </div>
+                                        </td>
+                                        <td name="altura_saturacion_oxigeno_talla"/>
+                                        <td name="altura_talla_label" class="o_td_label">
+                                            <label name="altura_talla" for="altura_talla" string="Talla"/>
+                                        </td>
+                                        <td name="altura_talla">
+                                            <div name="altura_talla" class="o_row">
+                                                <field name="altura_talla"/> mt
+                                            </div>
+                                        </td>
+                                        <td name="altura_talla_peso"/>
+                                        <td name="altura_peso_label" class="o_td_label">
+                                            <label name="altura_peso_label" for="altura_peso" string="Peso"/>
+                                        </td>
+                                        <td name="altura_peso">
+                                            <div name="altura_peso" class="o_row">
+                                                <field name="altura_peso"/> Kg
+                                            </div>
+                                        </td>
+                                        <td name="altura_peso_indice_masa_corporal"/>
+                                        <td name="altura_indice_masa_corporal_label" class="o_td_label">
+                                            <label name="altura_indice_masa_corporal_label" for="altura_indice_masa_corporal" string="I.M.C."/>
+                                        </td>
+                                        <td name="altura_indice_masa_corporal">
+                                            <field name="altura_indice_masa_corporal"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="altura_certificacion_examen_fisico">
+                            <group name="altura_certificacion_examen_fisico_left" col="1">
+                                <field name="altura_limitacion_extremidades_fuerza_movilidad" string="Limitación en fuerza y/o movilidad de extremidades"/>
+                                <field name="altura_equilibrio_alteracion" string="Alteración del equilibrio"/>
+                                <field name="altura_marcha_anormalidades" string="Anormalidades en la marcha"/>
+                                <field name="altura_anormalidades_fuerza_miembros" string="Anormalidades en la fuerza de miembros"/>
+                                <field name="altura_lenguaje_anormal" string="Lenguaje anormal"/>
+                            </group>
+                            <group name="altura_certificacion_examen_fisico_right" col="1">
+                                <field name="altura_alteracion_coordinacion" string="Alteración de la coordinación presente"/>
+                                <field name="altura_nistagmus" string="Nistagmus"/>
+                                <field name="altura_anormalidades_movimiento_ocular" string="Anormalidades en movimiento ocular"/>
+                                <field name="altura_pupilas_cirla" string="Pupilas CIRLA"/>
+                                <field name="altura_asimetria_facial" string="Asimetría facial"/>
+                            </group>
+                            <label name="altura_examen_fisico_detalles_label" for="altura_examen_fisico_detalles" style="font-weight:bold" string="Detalles del examen físico"/>
+                            <field name="altura_examen_fisico_detalles" nolabel="1"/>
+                        </group>
+                        <group name="altura_certificacion_aptitud" col="1">
+                            <field name="altura_certificacion_aptitud" string="Aptitud para laborar por encima de 1.8 metros sobre el suelo" widget="radio" options="{'horizontal':True}"/>
+                        </group>
+                        <group name="altura_certificacion_restricciones" col="2">
+                            <group name="altura_certificacion_restricciones_left" col="1">
+                                <field name="altura_certificacion_lentes" string="Uso permanente de lentes correctores"/>
+                            </group>
+                            <group name="altura_certificacion_restricciones_right" col="1">
+                                <field name="altura_certificacion_protectores" string="Uso permanente de protectores auditivos"/>
+                            </group>
+                            <group name="altura_certificacion_otras_restricciones" colspan="2">
+                                <field name="altura_certificacion_otras_restricciones" string="Otras restricciones"/>
+                            </group>
+                        </group>
+                        <group name="altura_certificacion_observaciones" col="1">
+                            <label name="altura_certificacion_observaciones_label" for="altura_certificacion_observaciones" style="font-weight:bold" string="Observaciones / Recomendaciones"/>
+                            <field name="altura_certificacion_observaciones" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

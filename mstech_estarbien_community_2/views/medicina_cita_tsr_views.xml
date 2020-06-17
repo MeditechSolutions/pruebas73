@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_tsr" model="ir.ui.view">
+            <field name="name">medicina.cita.form.tsr</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="68"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="test_sintomatico_respiratorio" string="Test de Sintomático Respiratorio" attrs="{'invisible': [('tipo_cita','!=','tsr')]}">
+                        <group name="test_sintomatico_respiratorio_help">
+                            <div name="test_sintomatico_respiratorio_help" style="font-weight:bold" class="o_row">
+                                Nota: Proporcionar información falsa al empleador está tipificada como falta grave, según lo dispuesto en el inciso D del artículo 25 del TUO de la Ley de Productividad y Competitividad Laboral.
+                                <br/>
+                                Estimado Postulante:
+                                <br/>
+                                <br/>
+                                Con el fin de poder recabar los antecedentes médicos más importantes en usted, le solicitamos leer detenidamente y responder las siguientes preguntas:
+                            </div>
+                        </group>
+                        <group name="test_sintomatico_respiratorio_cuestionario">
+                            <group name="test_sintomatico_respiratorio_cuestionario_left" col="1">
+                                <field name="test_sr_tuberculosis" string="Tuberculosis"/>
+                                <field name="test_sr_tos_mas_15_dias" string="Tos por más de 15 días"/>
+                                <field name="test_sr_baja_peso_inexplicable" string="Baja de peso inexplicable"/>
+                                <field name="test_sr_sudoracion_nocturna_importante" string="Sudoración nocturna importante"/>
+                                <field name="test_sr_tos_sangre" string="Expectoración (tos) con sangre"/>
+                                <field name="test_sr_familiares_amigos_tuberculosis" string="Familiares o amigos con tuberculosis"/>
+                                <field name="test_sr_sospecha_tuberculosis" string="Sospecha de tuberculosis"/>
+                            </group>
+                        </group>
+                        <group name="test_sintomatico_respiratorio">
+                            <group name="test_sintomatico_respiratorio_left"/>
+                            <label name="test_sr_observaciones_label" for="test_sr_observaciones" style="font-weight:bold" string="Observaciones"/>
+                            <field name="test_sr_observaciones" nolabel="1"/>
+                            <label name="test_sr_resultado_bk_esputo_1_label" for="test_sr_resultado_bk_esputo_1" style="font-weight:bold" string="Resultado de Bk de Esputo 1°"/>
+                            <field name="test_sr_resultado_bk_esputo_1" nolabel="1"/>
+                            <label name="test_sr_resultado_radiografia_torax_label" for="test_sr_resultado_radiografia_torax" style="font-weight:bold" string="Resultado de radiografía de tórax"/>
+                            <field name="test_sr_resultado_radiografia_torax" nolabel="1"/>
+                            <label name="test_sr_conclusion_label" for="test_sr_conclusion" style="font-weight:bold" string="Conclusión: El/La paciente es sintomático respiratorio"/>
+                            <field name="test_sr_conclusion" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

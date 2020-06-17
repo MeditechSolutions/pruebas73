@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_audiometria" model="ir.ui.view">
+            <field name="name">medicina.cita.form.audiometria</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="54"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="ficha_audiologica" string="Ficha audiológica" attrs="{'invisible': [('tipo_cita','!=','audiometria')]}">
+                        <group name="ficha_audiologica_protectores_ruido">
+                            <table name="ficha_audiologica_protectores_ruido" style="width:100%">
+                                <thead name="ficha_audiologica_protectores_ruido">
+                                    <tr name="ficha_audiologica_protectores_ruido">
+                                        <th name="ficha_audiologica_protectores_ruido_1" style="width:20%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_2" style="width:7%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_3" style="width:3%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_4" style="width:7%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_5" style="width:3%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_6" style="width:15%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_7" style="width:12%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_8" style="width:3%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_9" style="width:12%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_10" style="width:3%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_11" style="width:12%"/>
+                                        <th name="ficha_audiologica_protectores_ruido_12" style="width:3%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="ficha_audiologica_protectores_ruido">
+                                    <tr name="ficha_audiologica_protectores_ruido_1">
+                                        <td name="ficha_audiologica_protectores_ruido_1_label_left">
+                                            <h4 name="ficha_audiologica_protectores_ruido_1_label_left">
+                                                Uso de protectores auditivos
+                                            </h4>
+                                        </td>
+                                        <td name="audiometria_tapones_label" class="o_td_label">
+                                            <label name="audiometria_tapones_label" for="audiometria_tapones" string="Tapones"/>
+                                        </td>
+                                        <td name="audiometria_tapones">
+                                            <field name="audiometria_tapones"/>
+                                        </td>
+                                        <td name="audiometria_orejeras_label" class="o_td_label">
+                                            <label name="audiometria_orejeras_label" for="audiometria_orejeras" string="Orejeras"/>
+                                        </td>
+                                        <td name="audiometria_orejeras">
+                                            <field name="audiometria_orejeras"/>
+                                        </td>
+                                        <td name="ficha_audiologica_protectores_ruido_1_label_right">
+                                            <h4 name="ficha_audiologica_protectores_ruido_1_label_right">
+                                                Apreciación del ruido
+                                            </h4>
+                                        </td>
+                                        <td name="audiometria_ruido_muy_intenso_label" class="o_td_label">
+                                            <label name="audiometria_ruido_muy_intenso_label" for="audiometria_ruido_muy_intenso" string="Ruido muy intenso"/>
+                                        </td>
+                                        <td name="audiometria_ruido_muy_intenso">
+                                            <field name="audiometria_ruido_muy_intenso"/>
+                                        </td>
+                                        <td name="audiometria_ruido_moderado_label" class="o_td_label">
+                                            <label name="audiometria_ruido_moderado_label" for="audiometria_ruido_moderado" string="Ruido moderado"/>
+                                        </td>
+                                        <td name="audiometria_ruido_moderado">
+                                            <field name="audiometria_ruido_moderado"/>
+                                        </td>
+                                        <td name="audiometria_ruido_no_molesto_label" class="o_td_label">
+                                            <label name="audiometria_ruido_no_molesto_label" for="audiometria_ruido_no_molesto" string="Ruido no molesto"/>
+                                        </td>
+                                        <td name="audiometria_ruido_no_molesto">
+                                            <field name="audiometria_ruido_no_molesto"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="ficha_audiologica_otitis" string="Otoscopia">
+                            <group name="ficha_audiologica_otitis_derecho">
+                                <field name="audiometria_otoscopia_derecho" string="Oído derecho"/>
+                            </group>
+                            <group name="ficha_audiologica_otitis_izquierdo">
+                                <field name="audiometria_otoscopia_izquierdo" string="Oído izquierdo"/>
+                            </group>
+                        </group>
+                        <group name="ficha_audiologica_antecedentes_sintomas">
+                            <group name="ficha_audiologica_antecedentes_sintomas_left" col="1">
+                                <field name="audiometria_antecedentes_consumo_tabaco" string="Tabaco"/>
+                                <field name="audiometria_antecedentes_servicio_militar" string="Servicio militar"/>
+                                <field name="audiometria_antecedentes_hobbies_ruido" string="Hobbies con exposición al ruido: tiro, discotecas, ..."/>
+                                <field name="audiometria_antecedentes_laboral_quimico" string="Exposición laboral a químicos"/>
+                                <field name="audiometria_antecedentes_infeccion_oido" string="Infección de oído: OMA, otitis crónica"/>
+                                <field name="audiometria_antecedentes_ototoxicos" string="Uso de ototóxicos"/>
+                                <field name="audiometria_antecedentes_meningitis_traumatismo" string="Traumatismo encéfalo-craneano o meningitis"/>
+                                <field name="audiometria_antecedentes_trauma_acustico" string="Trauma acústico"/>
+                            </group>
+                            <group name="ficha_audiologica_antecedentes_sintomas_right" col="1">
+                                <field name="audiometria_sintomas_disminucion_audicion" string="Disminución de la audición"/>
+                                <field name="audiometria_sintomas_dolor_oidos" string="Dolor de oídos"/>
+                                <field name="audiometria_sintomas_zumbidos" string="Zumbidos"/>
+                                <field name="audiometria_sintomas_mareos" string="Mareos"/>
+                                <field name="audiometria_sintomas_infeccion_oido" string="Infección de oído"/>
+                                <field name="audiometria_sintomas_exposicion_ruido_18_horas" string="Exposición a ruidos en las últimas 18 horas"/>
+                                <field name="audiometria_sintomas_otros_hay" string="¿Otros síntomas?"/>
+                                <field name="audiometria_sintomas_otros" string="¿Desde cuándo?" attrs="{'invisible': [['audiometria_sintomas_otros_hay','!=',True]]}"/>
+                            </group>
+                        </group>
+                        <group name="ficha_audiologica_adjuntos">
+                            <group name="ficha_audiologica_adjuntos_left">
+                                <field filename="archivo_adjunto_audiometria_1_filename" name="archivo_adjunto_audiometria_1" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_audiometria_2_filename"/>
+                                <field filename="archivo_adjunto_audiometria_2_filename" name="archivo_adjunto_audiometria_2" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_audiometria_3_filename"/>
+                                <field filename="archivo_adjunto_audiometria_3_filename" name="archivo_adjunto_audiometria_3" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_audiometria_4_filename"/>
+                                <field filename="archivo_adjunto_audiometria_4_filename" name="archivo_adjunto_audiometria_4" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_audiometria_1_filename"/>
+                            </group>
+                        </group>
+                        <group name="ficha_audiologica_audiometria" string="Audiometría">
+                            <table name="ficha_audiologica_audiometria_derecho" style="width:100%;text-align:center;vertical-align:center">
+                                <thead name="ficha_audiologica_audiometria_derecho_header">
+                                    <tr name="ficha_audiologica_audiometria_derecho_header" attrs="{'invisible': True}">
+                                        <th name="ficha_audiologica_audiometria_derecho_header_1" style="width:19%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_3" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_4" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_5" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_6" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_7" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_8" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_9" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_10" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_11" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_12" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_13" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_14" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_15" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_16" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_17" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_18" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_19" style="width:4%"/>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_header_1">
+                                        <th name="ficha_audiologica_audiometria_derecho_header_1" colspan="19">
+                                            Oído derecho: Aérea - o | Ósea - &lt;
+                                        </th>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_header_2">
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_1"/>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_2" colspan="2">
+                                            125
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_3" colspan="2">
+                                            250
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_4" colspan="2">
+                                            500
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_5" colspan="2">
+                                            1000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_6" colspan="2">
+                                            2000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_7" colspan="2">
+                                            3000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_8" colspan="2">
+                                            4000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_9" colspan="2">
+                                            6000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_derecho_header_2_10" colspan="2">
+                                            8000
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="ficha_audiologica_audiometria_derecho">
+                                    <tr name="ficha_audiologica_audiometria_derecho_aerea_up">
+                                        <td name="ficha_audiologica_audiometria_derecho_aerea" rowspan="2">
+                                            Aérea
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_125_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_250_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_500_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_1000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_2000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_3000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_4000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_6000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_8000_valor" colspan="2">
+                                            <field name="audiometria_derecho_aerea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_aerea_down">
+                                        <td name="audiometria_derecho_aerea_125_nr_label">
+                                            <label name="audiometria_derecho_aerea_125_nr_label" for="audiometria_derecho_aerea_125_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_125_nr">
+                                            <field name="audiometria_derecho_aerea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_250_nr_label">
+                                            <label name="audiometria_derecho_aerea_250_nr_label" for="audiometria_derecho_aerea_250_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_250_nr">
+                                            <field name="audiometria_derecho_aerea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_500_nr_label">
+                                            <label name="audiometria_derecho_aerea_500_nr_label" for="audiometria_derecho_aerea_500_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_500_nr">
+                                            <field name="audiometria_derecho_aerea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_1000_nr_label">
+                                            <label name="audiometria_derecho_aerea_1000_nr_label" for="audiometria_derecho_aerea_1000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_1000_nr">
+                                            <field name="audiometria_derecho_aerea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_2000_nr_label">
+                                            <label name="audiometria_derecho_aerea_2000_nr_label" for="audiometria_derecho_aerea_2000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_2000_nr">
+                                            <field name="audiometria_derecho_aerea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_3000_nr_label">
+                                            <label name="audiometria_derecho_aerea_3000_nr_label" for="audiometria_derecho_aerea_3000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_3000_nr">
+                                            <field name="audiometria_derecho_aerea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_4000_nr_label">
+                                            <label name="audiometria_derecho_aerea_4000_nr_label" for="audiometria_derecho_aerea_4000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_4000_nr">
+                                            <field name="audiometria_derecho_aerea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_6000_nr_label">
+                                            <label name="audiometria_derecho_aerea_6000_nr_label" for="audiometria_derecho_aerea_6000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_6000_nr">
+                                            <field name="audiometria_derecho_aerea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_8000_nr_label">
+                                            <label name="audiometria_derecho_aerea_8000_nr_label" for="audiometria_derecho_aerea_8000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_aerea_8000_nr">
+                                            <field name="audiometria_derecho_aerea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_osea_up">
+                                        <td name="ficha_audiologica_audiometria_derecho_osea" rowspan="2">
+                                            Ósea
+                                        </td>
+                                        <td name="audiometria_derecho_osea_125_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_250_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_500_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_1000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_2000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_3000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_4000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_6000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_8000_valor" colspan="2">
+                                            <field name="audiometria_derecho_osea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_osea_down">
+                                        <td name="audiometria_derecho_osea_125_nr_label">
+                                            <label name="audiometria_derecho_osea_125_nr_label" for="audiometria_derecho_osea_125_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_125_nr">
+                                            <field name="audiometria_derecho_osea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_250_nr_label">
+                                            <label name="audiometria_derecho_osea_250_nr_label" for="audiometria_derecho_osea_250_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_250_nr">
+                                            <field name="audiometria_derecho_osea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_500_nr_label">
+                                            <label name="audiometria_derecho_osea_500_nr_label" for="audiometria_derecho_osea_500_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_500_nr">
+                                            <field name="audiometria_derecho_osea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_1000_nr_label">
+                                            <label name="audiometria_derecho_osea_1000_nr_label" for="audiometria_derecho_osea_1000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_1000_nr">
+                                            <field name="audiometria_derecho_osea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_2000_nr_label">
+                                            <label name="audiometria_derecho_osea_2000_nr_label" for="audiometria_derecho_osea_2000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_2000_nr">
+                                            <field name="audiometria_derecho_osea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_3000_nr_label">
+                                            <label name="audiometria_derecho_osea_3000_nr_label" for="audiometria_derecho_osea_3000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_3000_nr">
+                                            <field name="audiometria_derecho_osea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_4000_nr_label">
+                                            <label name="audiometria_derecho_osea_4000_nr_label" for="audiometria_derecho_osea_4000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_4000_nr">
+                                            <field name="audiometria_derecho_osea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_6000_nr_label">
+                                            <label name="audiometria_derecho_osea_6000_nr_label" for="audiometria_derecho_osea_6000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_6000_nr">
+                                            <field name="audiometria_derecho_osea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_8000_nr_label">
+                                            <label name="audiometria_derecho_osea_8000_nr_label" for="audiometria_derecho_osea_8000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_osea_8000_nr">
+                                            <field name="audiometria_derecho_osea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_enmasc_aerea_up">
+                                        <td name="ficha_audiologica_audiometria_derecho_enmasc_aerea" rowspan="2">
+                                            Enmasc. Aérea
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_125_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_250_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_500_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_1000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_2000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_3000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_4000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_6000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_8000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_aerea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_enmasc_aerea_down">
+                                        <td name="audiometria_derecho_enmasc_aerea_125_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_125_nr_label" for="audiometria_derecho_enmasc_aerea_125_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_125_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_250_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_250_nr_label" for="audiometria_derecho_enmasc_aerea_250_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_250_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_500_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_500_nr_label" for="audiometria_derecho_enmasc_aerea_500_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_500_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_1000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_1000_nr_label" for="audiometria_derecho_enmasc_aerea_1000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_1000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_2000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_2000_nr_label" for="audiometria_derecho_enmasc_aerea_2000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_2000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_3000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_3000_nr_label" for="audiometria_derecho_enmasc_aerea_3000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_3000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_4000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_4000_nr_label" for="audiometria_derecho_enmasc_aerea_4000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_4000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_6000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_6000_nr_label" for="audiometria_derecho_enmasc_aerea_6000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_6000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_8000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_aerea_8000_nr_label" for="audiometria_derecho_enmasc_aerea_8000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_aerea_8000_nr">
+                                            <field name="audiometria_derecho_enmasc_aerea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_enmasc_osea_up">
+                                        <td name="ficha_audiologica_audiometria_derecho_enmasc_osea" rowspan="2">
+                                            Enmasc. Ósea
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_125_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_250_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_500_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_1000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_2000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_3000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_4000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_6000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_8000_valor" colspan="2">
+                                            <field name="audiometria_derecho_enmasc_osea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_derecho_enmasc_osea_down">
+                                        <td name="audiometria_derecho_enmasc_osea_125_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_125_nr_label" for="audiometria_derecho_enmasc_osea_125_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_125_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_250_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_250_nr_label" for="audiometria_derecho_enmasc_osea_250_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_250_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_500_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_500_nr_label" for="audiometria_derecho_enmasc_osea_500_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_500_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_1000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_1000_nr_label" for="audiometria_derecho_enmasc_osea_1000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_1000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_2000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_2000_nr_label" for="audiometria_derecho_enmasc_osea_2000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_2000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_3000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_3000_nr_label" for="audiometria_derecho_enmasc_osea_3000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_3000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_4000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_4000_nr_label" for="audiometria_derecho_enmasc_osea_4000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_4000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_6000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_6000_nr_label" for="audiometria_derecho_enmasc_osea_6000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_6000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_8000_nr_label">
+                                            <label name="audiometria_derecho_enmasc_osea_8000_nr_label" for="audiometria_derecho_enmasc_osea_8000_nr" style="color:red;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_derecho_enmasc_osea_8000_nr">
+                                            <field name="audiometria_derecho_enmasc_osea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table name="ficha_audiologica_audiometria_izquierdo" style="width:100%;text-align:center;vertical-align:center">
+                                <thead name="ficha_audiologica_audiometria_izquierdo_header">
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_header" attrs="{'invisible': True}">
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_1" style="width:19%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_3" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_4" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_5" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_6" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_7" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_8" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_9" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_10" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_11" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_12" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_13" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_14" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_15" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_16" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_17" style="width:4%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_18" style="width:5%"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_19" style="width:4%"/>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_header_1">
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_1" colspan="19">
+                                            Oído izquierdo: Aérea - o | Ósea - &lt;
+                                        </th>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_header_2">
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_1"/>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_2" colspan="2">
+                                            125
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_3" colspan="2">
+                                            250
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_4" colspan="2">
+                                            500
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_5" colspan="2">
+                                            1000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_6" colspan="2">
+                                            2000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_7" colspan="2">
+                                            3000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_8" colspan="2">
+                                            4000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_9" colspan="2">
+                                            6000
+                                        </th>
+                                        <th name="ficha_audiologica_audiometria_izquierdo_header_2_10" colspan="2">
+                                            8000
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="ficha_audiologica_audiometria_izquierdo">
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_aerea_up">
+                                        <td name="ficha_audiologica_audiometria_izquierdo_aerea" rowspan="2">
+                                            Aérea
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_125_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_250_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_500_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_1000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_2000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_3000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_4000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_6000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_8000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_aerea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_aerea_down">
+                                        <td name="audiometria_izquierdo_aerea_125_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_125_nr_label" for="audiometria_izquierdo_aerea_125_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_125_nr">
+                                            <field name="audiometria_izquierdo_aerea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_250_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_250_nr_label" for="audiometria_izquierdo_aerea_250_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_250_nr">
+                                            <field name="audiometria_izquierdo_aerea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_500_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_500_nr_label" for="audiometria_izquierdo_aerea_500_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_500_nr">
+                                            <field name="audiometria_izquierdo_aerea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_1000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_1000_nr_label" for="audiometria_izquierdo_aerea_1000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_1000_nr">
+                                            <field name="audiometria_izquierdo_aerea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_2000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_2000_nr_label" for="audiometria_izquierdo_aerea_2000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_2000_nr">
+                                            <field name="audiometria_izquierdo_aerea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_3000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_3000_nr_label" for="audiometria_izquierdo_aerea_3000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_3000_nr">
+                                            <field name="audiometria_izquierdo_aerea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_4000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_4000_nr_label" for="audiometria_izquierdo_aerea_4000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_4000_nr">
+                                            <field name="audiometria_izquierdo_aerea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_6000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_6000_nr_label" for="audiometria_izquierdo_aerea_6000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_6000_nr">
+                                            <field name="audiometria_izquierdo_aerea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_8000_nr_label">
+                                            <label name="audiometria_izquierdo_aerea_8000_nr_label" for="audiometria_izquierdo_aerea_8000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_aerea_8000_nr">
+                                            <field name="audiometria_izquierdo_aerea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_osea_up">
+                                        <td name="ficha_audiologica_audiometria_izquierdo_osea" rowspan="2">
+                                            Ósea
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_125_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_250_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_500_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_1000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_2000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_3000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_4000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_6000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_8000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_osea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_osea_down">
+                                        <td name="audiometria_izquierdo_osea_125_nr_label">
+                                            <label name="audiometria_izquierdo_osea_125_nr_label" for="audiometria_izquierdo_osea_125_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_125_nr">
+                                            <field name="audiometria_izquierdo_osea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_250_nr_label">
+                                            <label name="audiometria_izquierdo_osea_250_nr_label" for="audiometria_izquierdo_osea_250_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_250_nr">
+                                            <field name="audiometria_izquierdo_osea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_500_nr_label">
+                                            <label name="audiometria_izquierdo_osea_500_nr_label" for="audiometria_izquierdo_osea_500_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_500_nr">
+                                            <field name="audiometria_izquierdo_osea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_1000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_1000_nr_label" for="audiometria_izquierdo_osea_1000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_1000_nr">
+                                            <field name="audiometria_izquierdo_osea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_2000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_2000_nr_label" for="audiometria_izquierdo_osea_2000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_2000_nr">
+                                            <field name="audiometria_izquierdo_osea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_3000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_3000_nr_label" for="audiometria_izquierdo_osea_3000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_3000_nr">
+                                            <field name="audiometria_izquierdo_osea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_4000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_4000_nr_label" for="audiometria_izquierdo_osea_4000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_4000_nr">
+                                            <field name="audiometria_izquierdo_osea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_6000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_6000_nr_label" for="audiometria_izquierdo_osea_6000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_6000_nr">
+                                            <field name="audiometria_izquierdo_osea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_8000_nr_label">
+                                            <label name="audiometria_izquierdo_osea_8000_nr_label" for="audiometria_izquierdo_osea_8000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_osea_8000_nr">
+                                            <field name="audiometria_izquierdo_osea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_enmasc_aerea_up">
+                                        <td name="ficha_audiologica_audiometria_izquierdo_enmasc_aerea" rowspan="2">
+                                            Enmasc. Aérea
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_125_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_250_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_500_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_1000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_2000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_3000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_4000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_6000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_8000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_enmasc_aerea_down">
+                                        <td name="audiometria_izquierdo_enmasc_aerea_125_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_125_nr_label" for="audiometria_izquierdo_enmasc_aerea_125_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_125_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_250_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_250_nr_label" for="audiometria_izquierdo_enmasc_aerea_250_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_250_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_500_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_500_nr_label" for="audiometria_izquierdo_enmasc_aerea_500_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_500_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_1000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_1000_nr_label" for="audiometria_izquierdo_enmasc_aerea_1000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_1000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_2000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_2000_nr_label" for="audiometria_izquierdo_enmasc_aerea_2000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_2000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_3000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_3000_nr_label" for="audiometria_izquierdo_enmasc_aerea_3000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_3000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_4000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_4000_nr_label" for="audiometria_izquierdo_enmasc_aerea_4000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_4000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_6000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_6000_nr_label" for="audiometria_izquierdo_enmasc_aerea_6000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_6000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_8000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_aerea_8000_nr_label" for="audiometria_izquierdo_enmasc_aerea_8000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_aerea_8000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_aerea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_enmasc_osea_up">
+                                        <td name="ficha_audiologica_audiometria_izquierdo_enmasc_osea" rowspan="2">
+                                            Enmasc. Ósea
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_125_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_125_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_250_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_250_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_500_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_500_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_1000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_1000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_2000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_2000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_3000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_3000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_4000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_4000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_6000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_6000_valor"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_8000_valor" colspan="2">
+                                            <field name="audiometria_izquierdo_enmasc_osea_8000_valor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_audiometria_izquierdo_enmasc_osea_down">
+                                        <td name="audiometria_izquierdo_enmasc_osea_125_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_125_nr_label" for="audiometria_izquierdo_enmasc_osea_125_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_125_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_125_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_250_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_250_nr_label" for="audiometria_izquierdo_enmasc_osea_250_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_250_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_250_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_500_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_500_nr_label" for="audiometria_izquierdo_enmasc_osea_500_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_500_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_500_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_1000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_1000_nr_label" for="audiometria_izquierdo_enmasc_osea_1000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_1000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_1000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_2000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_2000_nr_label" for="audiometria_izquierdo_enmasc_osea_2000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_2000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_2000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_3000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_3000_nr_label" for="audiometria_izquierdo_enmasc_osea_3000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_3000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_3000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_4000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_4000_nr_label" for="audiometria_izquierdo_enmasc_osea_4000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_4000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_4000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_6000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_6000_nr_label" for="audiometria_izquierdo_enmasc_osea_6000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_6000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_6000_nr"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_8000_nr_label">
+                                            <label name="audiometria_izquierdo_enmasc_osea_8000_nr_label" for="audiometria_izquierdo_enmasc_osea_8000_nr" style="color:blue;font-weight:bold" string="NR"/>
+                                        </td>
+                                        <td name="audiometria_izquierdo_enmasc_osea_8000_nr">
+                                            <field name="audiometria_izquierdo_enmasc_osea_8000_nr"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- TODO: Javascript charts (tablas) -->
+                        </group>
+                        <group name="ficha_audiologica_bilateral">
+                            <group name="ficha_audiologica_bilateral">
+                                <field name="audiometria_bilateral" string="Bilateral"/>
+                            </group>
+                        </group>
+                        <group name="ficha_audiologica_cie_10">
+                            <table name="ficha_audiologica_cie_10" style="width:100%">
+                                <thead name="ficha_audiologica_cie_10">
+                                    <tr name="ficha_audiologica_cie_10_header">
+                                        <th name="ficha_audiologica_cie_10_header_left" style="width:30%"/>
+                                        <th name="ficha_audiologica_cie_10_header_right" style="width:70%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="ficha_audiologica_cie_10">
+                                    <tr name="ficha_audiologica_cie_10_bilateral_header" attrs="{'invisible': [['audiometria_bilateral','!=',True]]}">
+                                        <td name="ficha_audiologica_cie_10_bilateral_header" col="2">
+                                            <h4 name="ficha_audiologica_cie_10_bilateral_header">DIAGNÓSTICO OÍDO</h4>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_bilateral" attrs="{'invisible': [['audiometria_bilateral','!=',True]]}">
+                                        <td name="cie_10_audiometria_codigo_bilateral">
+                                            <field name="cie_10_audiometria_codigo_bilateral"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_descripcion_bilateral">
+                                            <field name="cie_10_audiometria_descripcion_bilateral"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_recomendaciones_bilateral" attrs="{'invisible': [['audiometria_bilateral','!=',True]]}">
+                                        <td name="cie_10_audiometria_recomendaciones_bilateral_label" class="o_td_label">
+                                            <label name="cie_10_audiometria_recomendaciones_bilateral_label" for="cie_10_audiometria_recomendaciones_bilateral" string="Recomendaciones"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_recomendaciones_bilateral">
+                                            <field name="cie_10_audiometria_recomendaciones_bilateral"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_derecho_header" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="ficha_audiologica_cie_10_derecho_header" col="2">
+                                            <h4 name="ficha_audiologica_cie_10_derecho_header">DIAGNÓSTICO OÍDO DERECHO</h4>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_derecho" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="cie_10_audiometria_codigo_derecho">
+                                            <field name="cie_10_audiometria_codigo_derecho"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_descripcion_derecho">
+                                            <field name="cie_10_audiometria_descripcion_derecho"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_recomendaciones_derecho" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="cie_10_audiometria_recomendaciones_derecho_label" class="o_td_label">
+                                            <label name="cie_10_audiometria_recomendaciones_derecho_label" for="cie_10_audiometria_recomendaciones_derecho" string="Recomendaciones"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_recomendaciones_derecho">
+                                            <field name="cie_10_audiometria_recomendaciones_derecho"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_izquierdo_header" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="ficha_audiologica_cie_10_izquierdo_header" col="2">
+                                            <h4 name="ficha_audiologica_cie_10_izquierdo_header">DIAGNÓSTICO OÍDO IZQUIERDO</h4>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_izquierdo" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="cie_10_audiometria_codigo_izquierdo">
+                                            <field name="cie_10_audiometria_codigo_izquierdo"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_descripcion_izquierdo">
+                                            <field name="cie_10_audiometria_descripcion_izquierdo"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="ficha_audiologica_cie_10_recomendaciones_izquierdo" attrs="{'invisible': [['audiometria_bilateral','!=',False]]}">
+                                        <td name="cie_10_audiometria_recomendaciones_izquierdo_label" class="o_td_label">
+                                            <label name="cie_10_audiometria_recomendaciones_izquierdo_label" for="cie_10_audiometria_recomendaciones_izquierdo" string="Recomendaciones"/>
+                                        </td>
+                                        <td name="cie_10_audiometria_recomendaciones_izquierdo">
+                                            <field name="cie_10_audiometria_recomendaciones_izquierdo"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="ficha_audiologica_diagnostico">
+                            <table name="ficha_audiologica_diagnostico" style="width:100%">
+                                <thead name="ficha_audiologica_diagnostico">
+                                    <tr name="ficha_audiologica_diagnostico_header">
+                                        <th name="ficha_audiologica_diagnostico_header_left" style="width:35%"/>
+                                        <th name="ficha_audiologica_diagnostico_header_center_left" style="width:15%"/>
+                                        <th name="ficha_audiologica_diagnostico_header_center_right" style="width:15%"/>
+                                        <th name="ficha_audiologica_diagnostico_header_right" style="width:35%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="ficha_audiologica_diagnostico">
+                                    <tr name="ficha_audiologica_diagnostico_1">
+                                        <td name="ficha_audiologica_diagnostico_1_left"/>
+                                        <td name="ficha_audiologica_diagnostico_1_center" style="font-weight:bold;text-align:center" colspan="2">
+                                            <field name="audiometria_diagnostico" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                        <td name="ficha_audiologica_diagnostico_1_center"/>
+                                    </tr>
+                                    <tr name="ficha_audiologica_diagnostico_2">
+                                        <td name="ficha_audiologica_diagnostico_2_left" style="font-weight:bold">
+                                            SDU (Suma de decibeles de umbral auditivo)
+                                        </td>
+                                        <td name="ficha_audiologica_diagnostico_2_center_left">
+                                            <div name="audiometria_suma_decibeles_umbral_auditivo_valor" class="o_row">
+                                                SDU <field name="audiometria_suma_decibeles_umbral_auditivo_valor"/>
+                                            </div>
+                                        </td>
+                                        <td name="ficha_audiologica_diagnostico_2_center_right">
+                                            <div name="audiometria_suma_decibeles_umbral_auditivo_porcentaje" class="o_row">
+                                                % <field name="audiometria_suma_decibeles_umbral_auditivo_porcentaje"/>
+                                            </div>
+                                        </td>
+                                        <td name="ficha_audiologica_diagnostico_2_center"/>
+                                    </tr>
+                                    <tr name="ficha_audiologica_diagnostico_3">
+                                        <td name="ficha_audiologica_diagnostico_3_left"/>
+                                        <td name="ficha_audiologica_diagnostico_3_center" style="font-weight:bold;text-align:center" colspan="2">
+                                            <field name="audiometria_suma_decibeles_umbral_auditivo_resultado" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                        <td name="ficha_audiologica_diagnostico_3_center"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

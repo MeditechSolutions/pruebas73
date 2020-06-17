@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_psicologia" model="ir.ui.view">
+            <field name="name">medicina.cita.form.psicologia</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="56"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="informe_psicologico" string="Psicología" attrs="{'invisible': [('tipo_cita','!=','psicologia')]}">
+                        <group name="informe_psicologico_tecnicas_instrumentos" string="Técnicas e instrumentos utilizados" col="3">
+                            <group name="informe_psicologico_tecnicas_instrumentos_left" col="1">
+                                <field name="psicologico_observacion" string="Observación"/>
+                                <field name="psicologico_entrevista" string="Entrevista"/>
+                                <field name="psicologico_clima_laboral" string="Clima laboral"/>
+                                <field name="psicologico_wais" string="WAIS"/>
+                                <field name="psicologico_mips" string="MIPS"/>
+                            </group>
+                            <group name="informe_psicologico_tecnicas_instrumentos_center" col="1">
+                                <field name="psicologico_test_bender" string="Test de Bender"/>
+                                <field name="psicologico_test_benton" string="Test de Benton"/>
+                                <field name="psicologico_bateria_conductores" string="Batería de conductores"/>
+                                <field name="psicologico_escala_memoria_wechsler" string="Escala de memoria de Weschler"/>
+                                <field name="psicologico_motivaciones_psicosociales" string="Escala MPS"/>
+                            </group>
+                            <group name="informe_psicologico_tecnicas_instrumentos_right" col="1">
+                                <field name="psicologico_escala_apreciacion_estres" string="Escala de apreciación del estrés (EAE)"/>
+                                <field name="psicologico_mbi" string="Inventario de burnout de Maslach"/>
+                                <field name="psicologico_inventario_ansiedad_zung" string="Inventario de la ansiedad de Zung"/>
+                                <field name="psicologico_inventario_depresion_zung" string="Inventario de la depresión de Zung"/>
+                                <field name="psicologico_bateria_dna_luria" string="Batería Luria - DNA"/>
+                            </group>
+                            <group name="informe_psicologico_tecnicas_instrumentos_right" colspan="3">
+                                <field name="psicologico_otras_tecnicas_instrumentos" string="Otros"/>
+                            </group>
+                        </group>
+                        <group name="informe_psicologico_motivo_evaluacion" string="Motivo de evaluación" col="1">
+                            <field name="psicologico_motivo_evaluacion" nolabel="1"/>
+                        </group>
+                        <group name="informe_psicologico_observaciones_conducta" string="Observaciones de conducta">
+                            <table name="informe_psicologico_observaciones_conducta" style="width:100%">
+                                <thead name="informe_psicologico_observaciones_conducta">
+                                    <tr name="informe_psicologico_observaciones_conducta_header">
+                                        <th name="informe_psicologico_observaciones_conducta_header_1" style="width:15%"/>
+                                        <th name="informe_psicologico_observaciones_conducta_header_2" style="width:15%"/>
+                                        <th name="informe_psicologico_observaciones_conducta_header_3" style="width:70%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="informe_psicologico_observaciones_conducta">
+                                    <tr name="informe_psicologico_observaciones_conducta_presentacion">
+                                        <td name="informe_psicologico_observaciones_conducta_presentacion_label" class="o_td_label" colspan="2">
+                                            <label name="psicologico_conducta_presentacion_label" for="psicologico_conducta_presentacion" string="Presentación"/>
+                                        </td>
+                                        <td name="psicologico_conducta_presentacion">
+                                            <field name="psicologico_conducta_presentacion" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_postura">
+                                        <td name="informe_psicologico_observaciones_conducta_postura_label" class="o_td_label" colspan="2">
+                                            <label name="psicologico_conducta_postura_label" for="psicologico_conducta_postura" string="Postura"/>
+                                        </td>
+                                        <td name="psicologico_conducta_postura">
+                                            <field name="psicologico_conducta_postura" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_discurso_ritmo">
+                                        <td name="informe_psicologico_observaciones_conducta_discurso_label" style="font-weight:bold" rowspan="3">
+                                            Discurso
+                                        </td>
+                                        <td name="informe_psicologico_observaciones_conducta_discurso_ritmo_label" class="o_td_label">
+                                            <label name="psicologico_conducta_discurso_ritmo_label" for="psicologico_conducta_discurso_ritmo" string="Ritmo"/>
+                                        </td>
+                                        <td name="psicologico_conducta_discurso_ritmo">
+                                            <field name="psicologico_conducta_discurso_ritmo" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_discurso_tono">
+                                        <td name="informe_psicologico_observaciones_conducta_discurso_tono_label" class="o_td_label">
+                                            <label name="psicologico_conducta_discurso_tono_label" for="psicologico_conducta_discurso_tono" string="Tono"/>
+                                        </td>
+                                        <td name="psicologico_conducta_discurso_tono">
+                                            <field name="psicologico_conducta_discurso_tono" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_discurso_articulacion">
+                                        <td name="informe_psicologico_observaciones_conducta_discurso_articulacion_label" class="o_td_label">
+                                            <label name="psicologico_conducta_discurso_articulacion_label" for="psicologico_conducta_discurso_articulacion" string="Articulación"/>
+                                        </td>
+                                        <td name="psicologico_conducta_discurso_articulacion">
+                                            <field name="psicologico_conducta_discurso_articulacion" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_orientacion_tiempo">
+                                        <td name="informe_psicologico_observaciones_conducta_discurso_label" style="font-weight:bold" rowspan="3">
+                                            Orientación
+                                        </td>
+                                        <td name="informe_psicologico_observaciones_conducta_orientacion_tiempo_label" class="o_td_label">
+                                            <label name="psicologico_conducta_orientacion_tiempo_label" for="psicologico_conducta_orientacion_tiempo" string="Tiempo"/>
+                                        </td>
+                                        <td name="psicologico_conducta_orientacion_tiempo">
+                                            <field name="psicologico_conducta_orientacion_tiempo" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_orientacion_espacio">
+                                        <td name="informe_psicologico_observaciones_conducta_orientacion_espacio_label" class="o_td_label">
+                                            <label name="psicologico_conducta_orientacion_espacio_label" for="psicologico_conducta_orientacion_espacio" string="Espacio"/>
+                                        </td>
+                                        <td name="psicologico_conducta_orientacion_espacio">
+                                            <field name="psicologico_conducta_orientacion_espacio" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_observaciones_conducta_orientacion_persona">
+                                        <td name="informe_psicologico_observaciones_conducta_orientacion_persona_label" class="o_td_label">
+                                            <label name="psicologico_conducta_orientacion_persona_label" for="psicologico_conducta_orientacion_persona" string="Persona"/>
+                                        </td>
+                                        <td name="psicologico_conducta_orientacion_persona">
+                                            <field name="psicologico_conducta_orientacion_persona" widget="radio" options="{'horizontal':True}"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="informe_psicologico_resultados_evaluacion_observaciones" string="Resultados de evaluación">
+                            <table name="informe_psicologico_resultados_evaluacion_observaciones" style="width:100%">
+                                <thead name="informe_psicologico_resultados_evaluacion_observaciones">
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_header">
+                                        <th name="informe_psicologico_resultados_evaluacion_observaciones_header_1" style="width:25%"/>
+                                        <th name="informe_psicologico_resultados_evaluacion_observaciones_header_2" style="width:75%">
+                                            Observaciones
+                                        </th>
+                                    </tr>
+                                    <separator/>
+                                </thead>
+                                <tbody name="informe_psicologico_resultados_evaluacion_observaciones">
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_1">
+                                        <td name="psicologico_nivel_intelectual_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_nivel_intelectual_observaciones_label" for="psicologico_nivel_intelectual_observaciones" string="Nivel intelectual"/>
+                                        </td>
+                                        <td name="psicologico_nivel_intelectual_observaciones">
+                                            <field name="psicologico_nivel_intelectual_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_2">
+                                        <td name="psicologico_coordinacion_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_coordinacion_observaciones_label" for="psicologico_coordinacion_observaciones" string="Coordinación visomotriz"/>
+                                        </td>
+                                        <td name="psicologico_coordinacion_observaciones">
+                                            <field name="psicologico_coordinacion_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_3">
+                                        <td name="psicologico_nivel_memoria_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_nivel_memoria_observaciones_label" for="psicologico_nivel_memoria_observaciones" string="Nivel de memoria"/>
+                                        </td>
+                                        <td name="psicologico_nivel_memoria_observaciones">
+                                            <field name="psicologico_nivel_memoria_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_4">
+                                        <td name="psicologico_afectividad_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_afectividad_observaciones_label" for="psicologico_afectividad_observaciones" string="Afectividad"/>
+                                        </td>
+                                        <td name="psicologico_afectividad_observaciones">
+                                            <field name="psicologico_afectividad_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_5">
+                                        <td name="psicologico_estres_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_estres_observaciones_label" for="psicologico_estres_observaciones" string="Estrés"/>
+                                        </td>
+                                        <td name="psicologico_estres_observaciones">
+                                            <field name="psicologico_estres_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_observaciones_6">
+                                        <td name="psicologico_fobia_observaciones_label" class="o_td_label">
+                                            <label name="psicologico_fobia_observaciones_label" for="psicologico_fobia_observaciones" string="Fobia"/>
+                                        </td>
+                                        <td name="psicologico_fobia_observaciones">
+                                            <field name="psicologico_fobia_observaciones"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="informe_psicologico_resultados_evaluacion">
+                            <table name="informe_psicologico_resultados_evaluacion" style="width:100%">
+                                <thead name="informe_psicologico_resultados_evaluacion">
+                                    <tr name="informe_psicologico_resultados_evaluacion_header">
+                                        <th name="informe_psicologico_resultados_evaluacion_header_1" style="width:20%"/>
+                                        <th name="informe_psicologico_resultados_evaluacion_header_2" style="width:25%;font-weight:bold;text-align:center">
+                                            Sin datos relevantes
+                                        </th>
+                                        <th name="informe_psicologico_resultados_evaluacion_header_3" style="width:30%;font-weight:bold;text-align:center">
+                                            Rasgos
+                                        </th>
+                                        <th name="informe_psicologico_resultados_evaluacion_header_4" style="width:25%;font-weight:bold;text-align:center">
+                                            Transtorno
+                                        </th>
+                                    </tr>
+                                    <separator/>
+                                </thead>
+                                <tbody name="informe_psicologico_resultados_evaluacion">
+                                    <tr name="informe_psicologico_resultados_evaluacion_1">
+                                        <td name="informe_psicologico_resultados_evaluacion_1_label" style="font-weight:bold">
+                                            Área personalidad
+                                        </td>
+                                        <td name="psicologico_area_personalidad_sin_datos_relevantes" style="padding:10px;text-align:center">
+                                            <field name="psicologico_area_personalidad_sin_datos_relevantes"/>
+                                        </td>
+                                        <td name="psicologico_area_personalidad_rasgos" style="padding:10px;text-align:center">
+                                            <field name="psicologico_area_personalidad_rasgos"/>
+                                        </td>
+                                        <td name="psicologico_area_personalidad_transtorno" style="padding:10px;text-align:center">
+                                            <field name="psicologico_area_personalidad_transtorno"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_2">
+                                        <td name="informe_psicologico_resultados_evaluacion_2_label" style="font-weight:bold">
+                                            Afectividad
+                                        </td>
+                                        <td name="psicologico_afectividad_sin_datos_relevantes" style="padding:10px;text-align:center">
+                                            <field name="psicologico_afectividad_sin_datos_relevantes"/>
+                                        </td>
+                                        <td name="psicologico_afectividad_rasgos" style="padding:10px;text-align:center">
+                                            <field name="psicologico_afectividad_rasgos"/>
+                                        </td>
+                                        <td name="psicologico_afectividad_transtorno" style="padding:10px;text-align:center">
+                                            <field name="psicologico_afectividad_transtorno"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_3">
+                                        <td name="psicologico_emocional_label" class="o_td_label">
+                                            <label name="psicologico_emocional_label" for="psicologico_emocional" string="Emocional"/>
+                                        </td>
+                                        <td name="psicologico_emocional" colspan="3">
+                                            <field name="psicologico_emocional"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="informe_psicologico_resultados_evaluacion_4">
+                                        <td name="psicologico_somnolencia_diurna_label" class="o_td_label">
+                                            <label name="psicologico_somnolencia_diurna_label" for="psicologico_somnolencia_diurna" string="Somnolencia diurna"/>
+                                        </td>
+                                        <td name="psicologico_somnolencia_diurna">
+                                            <field name="psicologico_somnolencia_diurna" widget="radio"/>
+                                        </td>
+                                        <td name="psicologico_fatiga_laboral_label" class="o_td_label">
+                                                <label name="psicologico_fatiga_laboral" for="psicologico_fatiga_laboral" string="Fatiga laboral"/>
+                                        </td>
+                                        <td name="psicologico_fatiga_laboral">
+                                            <field name="psicologico_fatiga_laboral" widget="radio"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="informe_psicologico_resultado_aptitud" col="1">
+                            <field name="psicologico_resultado_diagnostico" nolabel="1" widget="radio" options="{'horizontal':True}"/>
+                        </group>
+                        <group name="informe_psicologico_conclusiones" string="Conclusiones" col="1">
+                            <field name="psicologico_conclusiones" nolabel="1"/>
+                            <field name="psicologico_diagnostico" nolabel="1" widget="radio" options="{'horizontal':True}"/>
+                        </group>
+                        <group name="informe_psicologico_recomendaciones" string="Recomendaciones">
+                            <field name="psicologico_recomendaciones" nolabel="1"/>
+                        </group>
+                        <group name="informe_psicologico_adjunto">
+                            <group name="informe_psicologico_adjunto_left">
+                                <field filename="archivo_adjunto_psicologico_1_filename" name="archivo_adjunto_psicologico_1" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_psicologico_2_filename"/>
+                                <field filename="archivo_adjunto_psicologico_2_filename" name="archivo_adjunto_psicologico_2" string="Archivo"/>
+                                <field invisible="1" name="archivo_adjunto_psicologico_1_filename"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

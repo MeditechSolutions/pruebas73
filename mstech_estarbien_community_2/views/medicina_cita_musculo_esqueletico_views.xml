@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_musculo_esqueletico" model="ir.ui.view">
+            <field name="name">medicina.cita.form.musculo_esqueletico</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="60"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="musculo_esqueletico" string="Evaluación músculo-esquelética" attrs="{'invisible': [('tipo_cita','!=','musculo_esqueletico')]}">
+                        <group name="musculo_esqueletico" string="Aptitud de espalda">
+                        <!--<group name="musculo_esqueletico_flexibilidad_fuerza">-->
+                            <table name="musculo_esqueletico_flexibilidad_fuerza" style="width:100%">
+                                <thead name="musculo_esqueletico_flexibilidad_fuerza">
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_header">
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_1" style="width:13%;font-weight:bold;text-align:center">
+                                            Flexibilidad / Fuerza
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_2" style="width:16%;font-weight:bold;text-align:center">
+                                            Excelente: 1
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_3" style="width:16%;font-weight:bold;text-align:center">
+                                            Promedio: 2
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_4" style="width:16%;font-weight:bold;text-align:center">
+                                            Regular: 3
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_5" style="width:16%;font-weight:bold;text-align:center">
+                                            Pobre: 4
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_6" style="width:7%;font-weight:bold;text-align:center">
+                                            Ptos*
+                                        </th>
+                                        <th name="musculo_esqueletico_flexibilidad_fuerza_header_7" style="width:16%;font-weight:bold;text-align:center">
+                                            Observaciones**
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="musculo_esqueletico_flexibilidad_fuerza">
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_1">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_1_label" style="vertical-align:center;text-align:center">
+                                            ABDOMEN
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_puntos','!=','1'],['musculo_esqueletico_abdomen_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_abdomen_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_puntos','!=','2'],['musculo_esqueletico_abdomen_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_abdomen_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_puntos','!=','3'],['musculo_esqueletico_abdomen_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_abdomen_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_4" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_puntos','!=','4'],['musculo_esqueletico_abdomen_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_4" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_puntos','=','4']]}">
+                                            <field name="musculo_esqueletico_abdomen_4" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_puntos">
+                                            <field name="musculo_esqueletico_abdomen_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_observaciones">
+                                            <field name="musculo_esqueletico_abdomen_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_2">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_2_label" style="vertical-align:center;text-align:center">
+                                            CADERA
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_cadera_puntos','!=','1'],['musculo_esqueletico_cadera_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_cadera_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_cadera_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_cadera_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_cadera_puntos','!=','2'],['musculo_esqueletico_cadera_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_cadera_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_cadera_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_cadera_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_cadera_puntos','!=','3'],['musculo_esqueletico_cadera_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_cadera_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_cadera_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_cadera_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_4" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_cadera_puntos','!=','4'],['musculo_esqueletico_cadera_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_cadera_4" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_cadera_puntos','=','4']]}">
+                                            <field name="musculo_esqueletico_cadera_4" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_puntos">
+                                            <field name="musculo_esqueletico_cadera_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cadera_observaciones">
+                                            <field name="musculo_esqueletico_cadera_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_3">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_3_label" style="vertical-align:center;text-align:center">
+                                            MUSLO
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_muslo_puntos','!=','1'],['musculo_esqueletico_muslo_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_muslo_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_muslo_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_muslo_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_muslo_puntos','!=','2'],['musculo_esqueletico_muslo_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_muslo_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_muslo_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_muslo_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_muslo_puntos','!=','3'],['musculo_esqueletico_muslo_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_muslo_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_muslo_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_muslo_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_4" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_muslo_puntos','!=','4'],['musculo_esqueletico_muslo_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_muslo_4" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_muslo_puntos','=','4']]}">
+                                            <field name="musculo_esqueletico_muslo_4" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_puntos">
+                                            <field name="musculo_esqueletico_muslo_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muslo_observaciones">
+                                            <field name="musculo_esqueletico_muslo_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_4">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_4_label" style="vertical-align:center;text-align:center">
+                                            ABDOMEN LATERAL
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_lateral_puntos','!=','1'],['musculo_esqueletico_abdomen_lateral_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_lateral_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_lateral_puntos','!=','2'],['musculo_esqueletico_abdomen_lateral_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_lateral_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_lateral_puntos','!=','3'],['musculo_esqueletico_abdomen_lateral_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_lateral_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_4" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abdomen_lateral_puntos','!=','4'],['musculo_esqueletico_abdomen_lateral_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_4" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abdomen_lateral_puntos','=','4']]}">
+                                            <field name="musculo_esqueletico_abdomen_lateral_4" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_puntos">
+                                            <field name="musculo_esqueletico_abdomen_lateral_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abdomen_lateral_observaciones">
+                                            <field name="musculo_esqueletico_abdomen_lateral_observaciones"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_5">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_total_label" style="text-align:right;padding:1px" colspan="5">
+                                            <label name="musculo_esqueletico_flexibilidad_fuerza_total_label" for="musculo_esqueletico_flexibilidad_fuerza_total" string="Total"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_total" colspan="2">
+                                            <field name="musculo_esqueletico_flexibilidad_fuerza_total"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_6">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_6_label" style="text-align:center;font-weight:bold" colspan="7">
+                                            *En ptos. colocar el grado que corresponde a la capacidad del paciente.
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_flexibilidad_fuerza_7">
+                                        <td name="musculo_esqueletico_flexibilidad_fuerza_7_label" style="text-align:center;font-weight:bold" colspan="7">
+                                            **Repetir cada movimiento contra resistencia leve a moderada y evaluar fortaleza y presencia de dolor.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="musculo_esqueletico_rangos_articulares">
+                            <table name="musculo_esqueletico_rangos_articulares" style="width:100%">
+                                <thead name="musculo_esqueletico_rangos_articulares">
+                                    <tr name="musculo_esqueletico_rangos_articulares_header">
+                                        <th name="musculo_esqueletico_rangos_articulares_header_1" style="width:20%;font-weight:bold;text-align:center">
+                                            Rangos articulares
+                                        </th>
+                                        <th name="musculo_esqueletico_rangos_articulares_header_2" style="width:20%;font-weight:bold;text-align:center">
+                                            Óptimo: 1
+                                        </th>
+                                        <th name="musculo_esqueletico_rangos_articulares_header_3" style="width:20%;font-weight:bold;text-align:center">
+                                            Limitado: 2
+                                        </th>
+                                        <th name="musculo_esqueletico_rangos_articulares_header_4" style="width:20%;font-weight:bold;text-align:center">
+                                            Muy limitado: 3
+                                        </th>
+                                        <th name="musculo_esqueletico_rangos_articulares_header_5" style="width:10%;font-weight:bold;text-align:center">
+                                            Ptos*
+                                        </th>
+                                        <th name="musculo_esqueletico_rangos_articulares_header_6" style="width:10%;font-weight:bold;text-align:center">
+                                            Dolor contra resistencia**
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody name="musculo_esqueletico_rangos_articulares">
+                                    <tr name="musculo_esqueletico_rangos_articulares_1">
+                                        <td name="musculo_esqueletico_rangos_articulares_1_label" style="vertical-align:center;text-align:center">
+                                            Abducación de hombro (0° - 180°)
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_180_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_180_puntos','!=','1'],['musculo_esqueletico_abducacion_0_180_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_180_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_180_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_180_puntos','!=','2'],['musculo_esqueletico_abducacion_0_180_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_180_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_180_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_180_puntos','!=','3'],['musculo_esqueletico_abducacion_0_180_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_180_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_180_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_180_puntos">
+                                            <field name="musculo_esqueletico_abducacion_0_180_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_180_dolor" style="text-align:center">
+                                            <field name="musculo_esqueletico_abducacion_0_180_dolor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_2">
+                                        <td name="musculo_esqueletico_rangos_articulares_2_label" style="vertical-align:center;text-align:center">
+                                            Abducación de hombro (0° - 60°)
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_60_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_60_puntos','!=','1'],['musculo_esqueletico_abducacion_0_60_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_60_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_60_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_60_puntos','!=','2'],['musculo_esqueletico_abducacion_0_60_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_60_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_60_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_abducacion_0_60_puntos','!=','3'],['musculo_esqueletico_abducacion_0_60_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_abducacion_0_60_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_abducacion_0_60_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_60_puntos">
+                                            <field name="musculo_esqueletico_abducacion_0_60_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_abducacion_0_60_dolor" style="text-align:center">
+                                            <field name="musculo_esqueletico_abducacion_0_60_dolor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_3">
+                                        <td name="musculo_esqueletico_rangos_articulares_3_label" style="vertical-align:center;text-align:center">
+                                            Rotación externa de hombro (0° - 90°)
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_0_90_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_0_90_puntos','!=','1'],['musculo_esqueletico_rotacion_0_90_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_0_90_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_0_90_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_0_90_puntos','!=','2'],['musculo_esqueletico_rotacion_0_90_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_0_90_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_0_90_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_0_90_puntos','!=','3'],['musculo_esqueletico_rotacion_0_90_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_0_90_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_rotacion_0_90_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_0_90_puntos">
+                                            <field name="musculo_esqueletico_rotacion_0_90_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_0_90_dolor" style="text-align:center">
+                                            <field name="musculo_esqueletico_rotacion_0_90_dolor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_4">
+                                        <td name="musculo_esqueletico_rangos_articulares_4_label" style="vertical-align:center;text-align:center">
+                                            Rotación interna del hombro
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_interna_1" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_interna_puntos','!=','1'],['musculo_esqueletico_rotacion_interna_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_1" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_interna_puntos','=','1']]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_1" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_interna_2" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_interna_puntos','!=','2'],['musculo_esqueletico_rotacion_interna_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_2" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_interna_puntos','=','2']]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_2" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_interna_3" style="text-align:center;border:2px solid red" attrs="{'invisible': ['|',['musculo_esqueletico_rotacion_interna_puntos','!=','3'],['musculo_esqueletico_rotacion_interna_puntos','=',False]]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_3" widget="image"/>
+                                        </td>
+                                        <td style="text-align:center" attrs="{'invisible': [['musculo_esqueletico_rotacion_interna_puntos','=','3']]}">
+                                            <field name="musculo_esqueletico_rotacion_interna_3" widget="image"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_interna_puntos">
+                                            <field name="musculo_esqueletico_rotacion_interna_puntos"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rotacion_interna_dolor" style="text-align:center">
+                                            <field name="musculo_esqueletico_rotacion_interna_dolor"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_5">
+                                        <td name="musculo_esqueletico_rangos_articulares_total_label" style="text-align:right" colspan="4">
+                                            <label name="musculo_esqueletico_rangos_articulares_total_label" for="musculo_esqueletico_rangos_articulares_total" string="Total"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_rangos_articulares_total" colspan="2">
+                                            <field name="musculo_esqueletico_rangos_articulares_total"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_6">
+                                        <td name="musculo_esqueletico_rangos_articulares_6_label" style="text-align:center;font-weight:bold" colspan="6">
+                                            *En ptos. colocar el grado que corresponde a la capacidad del paciente.
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_rangos_articulares_7">
+                                        <td name="musculo_esqueletico_rangos_articulares_7_label" style="text-align:center;font-weight:bold" colspan="6">
+                                            **Repetir cada movimiento contra resistencia leve a moderada y evaluar fortaleza y presencia de dolor.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <separator/>
+                        <group name="musculo_esqueletico_adjunto">
+                            <field filename="archivo_adjunto_musculo_esqueletico_1_filename" name="archivo_adjunto_musculo_esqueletico_1" string="Archivo"/>
+                            <field invisible="1" name="archivo_adjunto_musculo_esqueletico_2_filename"/>
+                            <field filename="archivo_adjunto_musculo_esqueletico_2_filename" name="archivo_adjunto_musculo_esqueletico_2" string="Archivo"/>
+                            <field invisible="1" name="archivo_adjunto_musculo_esqueletico_1_filename"/>
+                        </group>
+                        <group name="musculo_esqueletico_exploracion_funcional" string="Test de exploración funcional">
+                            <table name="musculo_esqueletico_exploracion_funcional" style="width:100%">
+                                <thead name="musculo_esqueletico_exploracion_funcional">
+                                    <tr name="musculo_esqueletico_exploracion_funcional_header">
+                                        <th name="musculo_esqueletico_exploracion_funcional_header_1" style="width:30%"/>
+                                        <th name="musculo_esqueletico_exploracion_funcional_header_2" style="width:20%"/>
+                                        <th name="musculo_esqueletico_exploracion_funcional_header_3" style="width:30%"/>
+                                        <th name="musculo_esqueletico_exploracion_funcional_header_4" style="width:20%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="musculo_esqueletico_exploracion_funcional">
+                                    <tr name="musculo_esqueletico_exploracion_funcional_1">
+                                        <td name="musculo_esqueletico_epicondilitis_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_epicondilitis_label" for="musculo_esqueletico_epicondilitis" string="Epicondilitis"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_epicondilitis" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_epicondilitis"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_maniobra_phalen_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_maniobra_phalen_label" for="musculo_esqueletico_maniobra_phalen" string="Maniobra Phalen"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_maniobra_phalen" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_maniobra_phalen"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_2">
+                                        <td name="musculo_esqueletico_epicondilitis_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) Dolor a desviación y a la extensión contra resistencia muñeca
+                                        </td>
+                                        <td name="musculo_esqueletico_maniobra_phalen_help" style="text-align:justify;text-justify:inter-word">
+                                            Normal: no parestesia<br/>(+) posible afcetación túnel carpal<br/>Nota: Valora estado Túnel carpal y N.Mediano
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_3">
+                                        <td name="musculo_esqueletico_maniobra_finkelstein_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_maniobra_finkelstein_label" for="musculo_esqueletico_maniobra_finkelstein" string="Maniobra Finkelstein"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_maniobra_finkelstein" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_maniobra_finkelstein"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_epitrocleitis_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_epitrocleitis_label" for="musculo_esqueletico_epitrocleitis" string="Epitrocleitis"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_epitrocleitis" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_epitrocleitis"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_4">
+                                        <td name="musculo_esqueletico_maniobra_finkelstein_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) Dolor a desviaviación cubital con pulgar dentro del puño<br/>Valora Tendinitis de Quevan
+                                        </td>
+                                        <td name="musculo_esqueletico_epitrocleitis_help" style="text-align:justify;text-justify:inter-word">
+                                            (*) Dolor a la palpación en Epitróclea y con la flexión resistida en la muñeca
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_5">
+                                        <td name="musculo_esqueletico_test_jobe_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_test_jobe_label" for="musculo_esqueletico_test_jobe" string="Test de Jobe"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_test_jobe" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_test_jobe"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_test_patte_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_test_patte_label" for="musculo_esqueletico_test_patte" string="Test de Patte"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_test_patte" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_test_patte"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_6">
+                                        <td name="musculo_esqueletico_test_jobe_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) aparece dolor que limita el movimiento<br/>(-) no hay limitación en movimiento<br/>Valora el estado de Subescapular
+                                        </td>
+                                        <td name="musculo_esqueletico_test_patte_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) aparece un dolor que limita el movimiento<br/>(-) no hay limitación en el movimiento<br/>Valora el estado de Infraespinoso
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_7">
+                                        <td name="musculo_esqueletico_test_gerber_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_test_gerber_label" for="musculo_esqueletico_test_gerber" string="Test de Gerber"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_test_gerber" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_test_gerber"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_palm_up_test_label" class="o_td_label" style="text-align:center">
+                                            <label name="musculo_esqueletico_palm_up_test_label" for="musculo_esqueletico_test_patte" string="Palm-up test"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_palm_up_test" rowspan="2" style="text-align:center;vertical-align:center">
+                                            <field name="musculo_esqueletico_palm_up_test"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_exploracion_funcional_8">
+                                        <td name="musculo_esqueletico_test_gerber_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) aparece dolor que limita el movimiento<br/>(-) no hay limitación en movimiento<br/>Valora el estado de Subescapular
+                                        </td>
+                                        <td name="musculo_esqueletico_palm_up_test_help" style="text-align:justify;text-justify:inter-word">
+                                            (+) aparece un dolor que limita el movimiento<br/>(-) no hay limitación en el movimiento<br/>Valora el estado de Subescapular
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="musculo_esqueletico_evaluacion_flexibilidad" string="Evaluación de la flexibilidad (goniómetro opcional)">
+                            <table name="musculo_esqueletico_evaluacion_flexibilidad" style="width:100%">
+                                <thead name="musculo_esqueletico_evaluacion_flexibilidad">
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_header">
+                                        <th name="musculo_esqueletico_evaluacion_flexibilidad_header_1" style="width:20%"/>
+                                        <th name="musculo_esqueletico_evaluacion_flexibilidad_header_2" style="width:30%"/>
+                                        <th name="musculo_esqueletico_evaluacion_flexibilidad_header_3" style="width:20%;font-weight:bold;text-align:center">
+                                            Normal
+                                        </th>
+                                        <th name="musculo_esqueletico_evaluacion_flexibilidad_header_4" style="width:30%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="musculo_esqueletico_evaluacion_flexibilidad">
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_cervical_flexion">
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_cervical_label" style="font-weight:bold;text-align:center;vertical-align:top" rowspan="4">
+                                            Cervical
+                                        </td>
+                                        <td name="musculo_esqueletico_cervical_flexion_label">
+                                            <label name="musculo_esqueletico_cervical_flexion_label" for="musculo_esqueletico_cervical_flexion" string="Flexión (40 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cervical_flexion" style="text-align:center">
+                                            <field name="musculo_esqueletico_cervical_flexion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_cervical_flexion"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_cervical_extension">
+                                        <td name="musculo_esqueletico_cervical_extension_label">
+                                            <label name="musculo_esqueletico_cervical_extension_label" for="musculo_esqueletico_cervical_extension" string="Extensión (75 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cervical_extension" style="text-align:center">
+                                            <field name="musculo_esqueletico_cervical_extension"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_cervical_extension"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_cervical_rotacion">
+                                        <td name="musculo_esqueletico_cervical_rotacion_label">
+                                            <label name="musculo_esqueletico_cervical_rotacion_label" for="musculo_esqueletico_cervical_rotacion" string="Rotación (50 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cervical_rotacion" style="text-align:center">
+                                            <field name="musculo_esqueletico_cervical_rotacion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_cervical_rotacion"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_cervical_lateralidad">
+                                        <td name="musculo_esqueletico_cervical_lateralidad_label">
+                                            <label name="musculo_esqueletico_cervical_lateralidad_label" for="musculo_esqueletico_cervical_lateralidad" string="Lateralidad (30-45 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_cervical_lateralidad" style="text-align:center">
+                                            <field name="musculo_esqueletico_cervical_lateralidad"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_cervical_lateralidad"/>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_hombro_flexion">
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_label" style="font-weight:bold;text-align:center;vertical-align:top" rowspan="5">
+                                            Hombro
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_flexion_label">
+                                            <label name="musculo_esqueletico_hombro_flexion_label" for="musculo_esqueletico_hombro_flexion" string="Flexión y retropulsión (180 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_flexion" style="text-align:center">
+                                            <field name="musculo_esqueletico_hombro_flexion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_flexion"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_hombro_extension">
+                                        <td name="musculo_esqueletico_hombro_extension_label">
+                                            <label name="musculo_esqueletico_hombro_extension_label" for="musculo_esqueletico_hombro_extension" string="Extensión o antepulsión (180 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_extension" style="text-align:center">
+                                            <field name="musculo_esqueletico_hombro_extension"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_extension"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_hombro_abduccion">
+                                        <td name="musculo_esqueletico_hombro_abduccion_label">
+                                            <label name="musculo_esqueletico_hombro_abduccion_label" for="musculo_esqueletico_hombro_abduccion" string="Abducción (180 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_abduccion" style="text-align:center">
+                                            <field name="musculo_esqueletico_hombro_abduccion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_abduccion"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_hombro_rotacion_interna">
+                                        <td name="musculo_esqueletico_hombro_rotacion_interna_label">
+                                            <label name="musculo_esqueletico_hombro_rotacion_interna_label" for="musculo_esqueletico_hombro_rotacion_interna" string="Rotación interna (60 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_rotacion_interna" style="text-align:center">
+                                            <field name="musculo_esqueletico_hombro_rotacion_interna"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_rotacion_interna"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_hombro_rotacion_externa">
+                                        <td name="musculo_esqueletico_hombro_rotacion_externa_label">
+                                            <label name="musculo_esqueletico_hombro_rotacion_externa_label" for="musculo_esqueletico_hombro_rotacion_externa" string="Rotación externa (90 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_hombro_rotacion_externa" style="text-align:center">
+                                            <field name="musculo_esqueletico_hombro_rotacion_externa"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_hombro_rotacion_externa"/>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_codo_flexion">
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_codo_label" style="font-weight:bold;text-align:center;vertical-align:top" rowspan="4">
+                                            Codo
+                                        </td>
+                                        <td name="musculo_esqueletico_codo_flexion_label">
+                                            <label name="musculo_esqueletico_codo_flexion_label" for="musculo_esqueletico_codo_flexion" string="Flexión (160 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_codo_flexion" style="text-align:center">
+                                            <field name="musculo_esqueletico_codo_flexion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_codo_extension"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_codo_extension">
+                                        <td name="musculo_esqueletico_codo_extension_label">
+                                            <label name="musculo_esqueletico_codo_extension_label" for="musculo_esqueletico_codo_extension" string="Extensión (160 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_codo_extension" style="text-align:center">
+                                            <field name="musculo_esqueletico_codo_extension"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_codo_extension"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_codo_supinacion">
+                                        <td name="musculo_esqueletico_codo_supinacion_label">
+                                            <label name="musculo_esqueletico_codo_supinacion_label" for="musculo_esqueletico_codo_supinacion" string="Supinación (90 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_codo_supinacion" style="text-align:center">
+                                            <field name="musculo_esqueletico_codo_supinacion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_codo_supinacion"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_codo_pronosupinacion">
+                                        <td name="musculo_esqueletico_codo_pronosupinacion_label">
+                                            <label name="musculo_esqueletico_codo_pronosupinacion_label" for="musculo_esqueletico_codo_pronosupinacion" string="Pronosupinación (90 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_codo_pronosupinacion" style="text-align:center">
+                                            <field name="musculo_esqueletico_codo_pronosupinacion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_codo_pronosupinacion"/>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_muneca_flexion">
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_muneca_label" style="font-weight:bold;text-align:center;vertical-align:top" rowspan="2">
+                                            Muñeca
+                                        </td>
+                                        <td name="musculo_esqueletico_muneca_flexion_label">
+                                            <label name="musculo_esqueletico_muneca_flexion_label" for="musculo_esqueletico_muneca_flexion" string="Flexión (90 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muneca_flexion" style="text-align:center">
+                                            <field name="musculo_esqueletico_muneca_flexion"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_muneca_extension"/>
+                                    </tr>
+                                    <tr name="musculo_esqueletico_evaluacion_flexibilidad_muneca_extension">
+                                        <td name="musculo_esqueletico_muneca_extension_label">
+                                            <label name="musculo_esqueletico_muneca_extension_label" for="musculo_esqueletico_muneca_extension" string="Extensión (70 grados)"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_muneca_extension" style="text-align:center">
+                                            <field name="musculo_esqueletico_muneca_extension"/>
+                                        </td>
+                                        <td name="musculo_esqueletico_evaluacion_flexibilidad_muneca_extension"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

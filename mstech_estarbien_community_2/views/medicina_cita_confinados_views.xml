@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_confinados" model="ir.ui.view">
+            <field name="name">medicina.cita.form.confinados</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="48"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="espacios_confinados" string="Trabajo en espacios confinados" attrs="{'invisible': [('tipo_cita','!=','confinados')]}">
+                        <group name="espacios_confinados_anamnesis">
+                            <group name="espacios_confinados_anamnesis_left" col="1">
+                                <field name="confinados_enfermedades_alteracion_consciencia" string="Todas las enfermedades que produzcan alteración de la consciencia sin importar su causa e independencia de su tratamiento"/>
+                                <field name="confinados_alcoholismo_cronico" string="Alcoholismo crónico y en general todas aquellas enfermedades que produzcan incapacidad de efectuar movimientos voluntarios y/o que limiten la capacidad de trabajo como conducción, manejo o control físico de un vehículo motorizado, subir y bajar escaleras, etc."/>
+                                <field name="confinados_enfermedades_movimientos_involuntarios" string="Todas aquellas enfermedades que se caractericen por movimientos involuntarios y que interfieran seriamente su capacidad de trabajar, independiente de su tratamiento farmacológico"/>
+                                <field name="confinados_perdida_recurrente_consciencia" string="Pérdida recurrente de la consciencia, independiente de su tratamiento, tales como narcolepsia, epilepsia, etc."/>
+                                <field name="confinados_anemia" string="Anemia de cualquier grado, según criterios OMS 2011"/>
+                            </group>
+                            <group name="espacios_confinados_anamnesis_right" col="1">
+                                <field name="confinados_consume_estupefacientes" string="Personas que consumen sustancias estupefacientes o psicotrópicas en niveles que alteren su capacidad de trabajar como controlar un vehículo"/>
+                                <field name="confinados_consume_estupefacientes_tratamiento" string="Personas que consumen sustancias estupefacientes o psicotrópicas en niveles que alteren su capacidad de trabajar, pero que se encuentren sin tratamiento o en tratamiento sin prescripción médica"/>
+                                <field name="confinados_tratamiento_efectos_secundarios" string="Personas que como consecuencia de una enfermedad o su tratamiento, sufran uno o varios de los siguientes efectos; alteración del estado de la consciencia, alteración del equilibrio, en la percepción, en la habilidad motriz, en la estabilidad emocional y en el juicio"/>
+                                <field name="confinados_apnea" string="Síndrome Apnea Obstructiva del sueño sospecha o confirmada (ficha SAS)"/>
+                                <field name="confinados_obesidad" string="Obesidad (IMC > o igual a 30)"/>
+                            </group>
+                            <label name="confinados_comentarios_anamnesis_label" for="confinados_comentarios_anamnesis" style="font-weight:bold" string="Comentarios/Detalles"/>
+                            <field name="confinados_comentarios_anamnesis" nolabel="1"/>
+                        </group>
+                        <group name="espacios_confinados_exploracion_fisica" string="Exploración física - Evaluación de capacidades funcionales" col="1">
+                            <table name="grandes_alturas_funciones_vitales" style="width:100%">
+                                <thead name="grandes_alturas_funciones_vitales">
+                                    <tr name="grandes_alturas_funciones_vitales_header">
+                                        <th name="grandes_alturas_funciones_vitales_header_1" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_2" style="width:10%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_3" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_4" style="width:10%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_5" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_6" style="width:12%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_7" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_8" style="width:10%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_9" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_10" style="width:10%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_11" style="width:6%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_12" style="width:12%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="grandes_alturas_funciones_vitales">
+                                    <tr name="grandes_alturas_funciones_vitales">
+                                        <td name="confinados_frecuencia_cardiaca_label" class="o_td_label">
+                                            <label name="confinados_frecuencia_cardiaca_label" for="confinados_frecuencia_cardiaca" string="F.C."/>
+                                        </td>
+                                        <td name="confinados_frecuencia_cardiaca" style="padding:10px">
+                                            <div name="confinados_frecuencia_cardiaca" class="o_row">
+                                                <field name="confinados_frecuencia_cardiaca"/> x min
+                                            </div>
+                                        </td>
+                                        <td name="confinados_frecuencia_respiratoria_label" class="o_td_label">
+                                            <label name="confinados_frecuencia_respiratoria_label" for="confinados_frecuencia_respiratoria" string="F.R."/>
+                                        </td>
+                                        <td name="confinados_frecuencia_respiratoria" style="padding:10px">
+                                            <div name="confinados_frecuencia_respiratoria" class="o_row">
+                                                <field name="confinados_frecuencia_respiratoria"/> x min
+                                            </div>
+                                        </td>
+                                        <td name="confinados_presion_arterial_label" class="o_td_label">
+                                            <label name="confinados_presion_arterial_label" for="confinados_presion_arterial" string="P.A."/>
+                                        </td>
+                                        <td name="confinados_presion_arterial" style="padding:10px">
+                                            <div name="confinados_presion_arterial" class="o_row">
+                                                <field name="confinados_presion_arterial"/> mmHg
+                                            </div>
+                                        </td>
+                                        <td name="confinados_talla_label" class="o_td_label">
+                                            <label name="confinados_talla_label" for="confinados_talla" string="Talla"/>
+                                        </td>
+                                        <td name="confinados_talla" style="padding:10px">
+                                            <div name="confinados_talla" class="o_row">
+                                                <field name="confinados_talla"/> cm
+                                            </div>
+                                        </td>
+                                        <td name="confinados_peso_label" class="o_td_label">
+                                            <label name="confinados_peso_label" for="confinados_peso" string="Peso"/>
+                                        </td>
+                                        <td name="confinados_peso" style="padding:10px">
+                                            <div name="confinados_peso" class="o_row">
+                                                <field name="confinados_peso"/> kg
+                                            </div>
+                                        </td>
+                                        <td name="confinados_indice_masa_corporal_label" class="o_td_label">
+                                            <label name="confinados_indice_masa_corporal_label" for="confinados_indice_masa_corporal" string="I.M.C."/>
+                                        </td>
+                                        <td name="confinados_indice_masa_corporal">
+                                            <field name="confinados_indice_masa_corporal"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="espacios_confinados_exploracion_preguntas">
+                            <group name="espacios_confinados_exploracion_preguntas_left" col="1">
+                                <field name="confinados_limitacion_extremidades" string="Limitación en fuerza y/o movilidad de extremidades (Mayor a 2kg/fuerza cada mano)"/>
+                                <field name="confinados_alteracion_equilibrio" string="Alteración presente del equilibrio (Roemeberg)"/>
+                                <field name="confinados_anormalidad_marcha" string="Anormalidad en la marcha con los ojos cerrados y/o abiertos"/>
+                                <field name="confinados_alteracion_coordinacion" string="Alteración de la coordinación presente (dedo, nariz)"/>
+                            </group>
+                            <group name="espacios_confinados_exploracion_preguntas_right" col="1">
+                                <field name="confinados_nisfagmus" string="Presencia de nisfagmus de cualquier tipo"/>
+                                <field name="confinados_lassegue_positivo" string="Lassegue positivo"/>
+                                <field name="confinados_anormalidad_musculo_esqueletico" string="Anormalidad en la evaluación musculo esquelética"/>
+                                <field name="confinados_arritmia_soplos" string="Presencia de arritmia cardiaca o soplos"/>
+                            </group>
+                            <label name="confinados_detalle_examen_fisico_label" for="confinados_detalle_examen_fisico" style="font-weight:bold" string="Detalle de la información"/>
+                            <field name="confinados_detalle_examen_fisico" nolabel="1"/>
+                        </group>
+                        <group name="espacios_confinados_otros_datos" col="1" string="Otros datos de relevancia">
+                            <label name="confinados_detalle_medicinas_label" for="confinados_detalle_medicinas" style="font-weight:bold" string="Detalle las medicinas que está tomando"/>
+                            <field name="confinados_detalle_medicinas" nolabel="1"/>
+                            <label name="confinados_otros_datos_label" for="confinados_otros_datos" style="font-weight:bold" string="Otros"/>
+                            <field name="confinados_otros_datos" nolabel="1"/>
+                        </group>
+                        <group name="espacios_confinados_pruebas_auxiliares">
+                            <group name="espacios_confinados_pruebas_auxiliares_left" col="1">
+                                <field name="confinados_hipoacusia" string="Hipoacusia con compromiso de frecuencia conversacionales con promedio mayor de 40 db uni o bilateral incluso con audífonos"/>
+                                <field name="confinados_alteracion_agudeza_visual" string="Alteración de la agudeza visual (de lejos diferente a 20/40 en cada ojo) y/o de la visión de profundidad incluso con lentes correctores"/>
+                                <field name="confinados_campimetria_anormal" string="Campimetría anormal (Test de confrontación alterada)"/>
+                            </group>
+                            <group name="espacios_confinados_pruebas_auxiliares_right" col="1">
+                                <field name="confinados_claustrofobia" string="Evaluación psicológica anormal (claustrofobia)"/>
+                                <field name="confinados_vision_profundidad_alterada" string="Prueba de visión de profundidad alterada"/>
+                            </group>
+                        </group>
+                        <group name="espacios_confinados_conclusion" string="Conclusión de la evaluación funcional">
+                            <group name="confinados_aptitud_trabajo" colspan="2">
+                                <div name="confinados_aptitud_trabajo" class="o_row">
+                                    <label name="confinados_aptitud_trabajo_label" for="confinados_aptitud_trabajo" style="font-weight:bold" string="Aptitud para trabajar en espacios confinados:"/> <field name="confinados_aptitud_trabajo" widget="radio" options="{'horizontal': True}"/>
+                                </div>
+                                <!--<field name="confinados_aptitud_trabajo" widget="radio" options="{'horizontal': True}" string="Aptitud para trabajar en espacios confinados" colspan="2"/>-->
+                            </group>
+                            <group name="confinados_validez">
+                                <field name="confinados_validez_inicio" string="Desde"/>
+                                <field name="confinados_validez_fin" string="Hasta"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

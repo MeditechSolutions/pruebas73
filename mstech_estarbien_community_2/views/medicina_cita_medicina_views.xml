@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_medicina" model="ir.ui.view">
+            <field name="name">medicina.cita.form.medicina</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="40"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="medicina_general" string="Examen físico" attrs="{'invisible': [('tipo_cita','!=','medicina')]}">
+                        <group name="medicina_examen_fisico_1">
+                            <group name="medicina_examen_fisico_1_left">
+                                <table name="medicina_examen_fisico_1_left" style="width:100%">
+                                    <thead name="medicina_examen_fisico_1_left">
+                                        <tr name="medicina_examen_fisico_1_left">
+                                            <th name="medicina_examen_fisico_1_left_1" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_1_left_2" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_1_left_3" style="width:34%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_1_left">
+                                        <tr name="medicina_boca">
+                                            <td name="medicina_boca_label" class="o_td_label">
+                                                <label name="medicina_boca_label" for="medicina_boca" string="Boca"/>
+                                            </td>
+                                            <td name="medicina_boca">
+                                                <field name="medicina_boca"/>
+                                            </td>
+                                            <td name="medicina_boca_razon">
+                                                <field name="medicina_boca_razon" attrs="{'invisible': [['medicina_boca','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_faringe">
+                                            <td name="medicina_faringe_label" class="o_td_label">
+                                                <label name="medicina_faringe_label" for="medicina_faringe" string="Faringe"/>
+                                            </td>
+                                            <td name="medicina_faringe">
+                                                <field name="medicina_faringe"/>
+                                            </td>
+                                            <td name="medicina_faringe_razon">
+                                                <field name="medicina_faringe_razon" attrs="{'invisible': [['medicina_faringe','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_nariz">
+                                            <td name="medicina_nariz_label" class="o_td_label">
+                                                <label name="medicina_nariz_label" for="medicina_nariz" string="Nariz"/>
+                                            </td>
+                                            <td name="medicina_nariz">
+                                                <field name="medicina_nariz"/>
+                                            </td>
+                                            <td name="medicina_nariz_razon">
+                                                <field name="medicina_nariz_razon" attrs="{'invisible': [['medicina_nariz','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_cuello_garganta">
+                                            <td name="medicina_cuello_garganta_label" class="o_td_label">
+                                                <label name="medicina_cuello_garganta_label" for="medicina_cuello_garganta" string="Cuello y garganta"/>
+                                            </td>
+                                            <td name="medicina_cuello_garganta">
+                                                <field name="medicina_cuello_garganta"/>
+                                            </td>
+                                            <td name="medicina_cuello_garganta_razon">
+                                                <field name="medicina_cuello_garganta_razon" attrs="{'invisible': [['medicina_cuello_garganta','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_cabeza_cabello">
+                                            <td name="medicina_cabeza_cabello_label" class="o_td_label">
+                                                <label name="medicina_cabeza_cabello_label" for="medicina_cabeza_cabello" string="Cabeza y cabello"/>
+                                            </td>
+                                            <td name="medicina_cabeza_cabello">
+                                                <field name="medicina_cabeza_cabello"/>
+                                            </td>
+                                            <td name="medicina_cabeza_cabello_razon">
+                                                <field name="medicina_cabeza_cabello_razon" attrs="{'invisible': [['medicina_cabeza_cabello','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_columna">
+                                            <td name="medicina_columna_label" class="o_td_label">
+                                                <label name="medicina_columna_label" for="medicina_columna" string="Columna"/>
+                                            </td>
+                                            <td name="medicina_columna">
+                                                <field name="medicina_columna"/>
+                                            </td>
+                                            <td name="medicina_columna_razon">
+                                                <field name="medicina_columna_razon" attrs="{'invisible': [['medicina_columna','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                            <group name="medicina_examen_fisico_1_right">
+                                <table name="medicina_examen_fisico_1_right" style="width:100%">
+                                    <thead name="medicina_examen_fisico_1_right">
+                                        <tr name="medicina_examen_fisico_1_right">
+                                            <th name="medicina_examen_fisico_1_right_1" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_1_right_2" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_1_right_3" style="width:34%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_1_right">
+                                        <tr name="medicina_abdomen">
+                                            <td name="medicina_abdomen_label" class="o_td_label">
+                                                <label name="medicina_abdomen_label" for="medicina_abdomen" string="Abdomen"/>
+                                            </td>
+                                            <td name="medicina_abdomen">
+                                                <field name="medicina_abdomen"/>
+                                            </td>
+                                            <td name="medicina_abdomen_razon">
+                                                <field name="medicina_abdomen_razon" attrs="{'invisible': [['medicina_abdomen','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_anillos_inguinales">
+                                            <td name="medicina_anillos_inguinales_label" class="o_td_label">
+                                                <label name="medicina_anillos_inguinales_label" for="medicina_anillos_inguinales" string="Anillos inguinales"/>
+                                            </td>
+                                            <td name="medicina_anillos_inguinales">
+                                                <field name="medicina_anillos_inguinales"/>
+                                            </td>
+                                            <td name="medicina_anillos_inguinales_razon">
+                                                <field name="medicina_anillos_inguinales_razon" attrs="{'invisible': [['medicina_anillos_inguinales','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_hernias">
+                                            <td name="medicina_hernias_label" class="o_td_label">
+                                                <label name="medicina_hernias_label" for="medicina_hernias" string="Hernias"/>
+                                            </td>
+                                            <td name="medicina_hernias">
+                                                <field name="medicina_hernias"/>
+                                            </td>
+                                            <td name="medicina_hernias_razon">
+                                                <field name="medicina_hernias_razon" attrs="{'invisible': [['medicina_hernias','=',False]]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_genitales">
+                                            <td name="medicina_genitales_label" class="o_td_label">
+                                                <label name="medicina_genitales_label" for="medicina_genitales" string="Genitales"/>
+                                            </td>
+                                            <td name="medicina_genitales">
+                                                <field name="medicina_genitales"/>
+                                            </td>
+                                            <td name="medicina_genitales_razon">
+                                                <field name="medicina_genitales_razon" attrs="{'invisible': [['medicina_genitales','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_sistema_linfatico">
+                                            <td name="medicina_sistema_linfatico_label" class="o_td_label">
+                                                <label name="medicina_sistema_linfatico_label" for="medicina_sistema_linfatico" string="Sistema linfático"/>
+                                            </td>
+                                            <td name="medicina_sistema_linfatico">
+                                                <field name="medicina_sistema_linfatico"/>
+                                            </td>
+                                            <td name="medicina_sistema_linfatico_razon">
+                                                <field name="medicina_sistema_linfatico_razon" attrs="{'invisible': [['medicina_sistema_linfatico','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_sistema_nervioso">
+                                            <td name="medicina_sistema_nervioso_label" class="o_td_label">
+                                                <label name="medicina_sistema_nervioso_label" for="medicina_sistema_nervioso" string="Sistema nervioso"/>
+                                            </td>
+                                            <td name="medicina_sistema_nervioso">
+                                                <field name="medicina_sistema_nervioso"/>
+                                            </td>
+                                            <td name="medicina_sistema_nervioso_razon">
+                                                <field name="medicina_sistema_nervioso_razon" attrs="{'invisible': [['medicina_sistema_nervioso','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                        <group name="medicina_examen_fisico_2">
+                            <group name="medicina_examen_fisico_2_left" string="Genito-Urinario">
+                                <table name="medicina_examen_fisico_2_left" style="width:100%">
+                                    <thead name="medicina_examen_fisico_2_left">
+                                        <tr name="medicina_examen_fisico_2_left">
+                                            <th name="medicina_examen_fisico_2_left_1" style="width:40%"/>
+                                            <th name="medicina_examen_fisico_2_left_2" style="width:60%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_2_left">
+                                        <tr name="medicina_genito_urinario">
+                                            <td name="medicina_genito_urinario">
+                                                <field name="medicina_genito_urinario"/>
+                                            </td>
+                                            <td name="medicina_genito_urinario_razon">
+                                                <field name="medicina_genito_urinario_razon" attrs="{'invisible': [['medicina_genito_urinario','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                            <group name="medicina_examen_fisico_2_right" string="Examen Físico Regional">
+                                <table name="medicina_examen_fisico_regional" style="width:100%">
+                                    <thead name="medicina_examen_fisico_regional">
+                                        <tr name="medicina_examen_fisico_regional_header">
+                                            <th name="medicina_examen_fisico_regional_header_1" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_2" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_3" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_4" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_5" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_6" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_7" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_8" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_9" style="width:10%"/>
+                                            <th name="medicina_examen_fisico_regional_header_10" style="width:10%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_regional">
+                                        <tr name="medicina_examen_fisico_regional">
+                                            <td name="medicina_examen_fisico_regional_left"/>
+                                            <td name="medicina_abeg_label" class="o_td_label" style="text-align:center">
+                                                <label name="medicina_abeg_label" for="medicina_abeg" string="ABEG"/>
+                                            </td>
+                                            <td name="medicina_abeg">
+                                                <field name="medicina_abeg"/>
+                                            </td>
+                                            <td name="medicina_abeh_label" class="o_td_label" style="text-align:center">
+                                                <label name="medicina_abeh_label" for="medicina_abeh" string="ABEH"/>
+                                            </td>
+                                            <td name="medicina_abeh">
+                                                <field name="medicina_abeh"/>
+                                            </td>
+                                            <td name="medicina_aben_label" class="o_td_label" style="text-align:center">
+                                                <label name="medicina_aben_label" for="medicina_aben" string="ABEN"/>
+                                            </td>
+                                            <td name="medicina_aben">
+                                                <field name="medicina_aben"/>
+                                            </td>
+                                            <td name="medicina_lotep_label" class="o_td_label" style="text-align:center">
+                                                <label name="medicina_lotep_label" for="medicina_lotep" string="LOTEP"/>
+                                            </td>
+                                            <td name="medicina_lotep">
+                                                <field name="medicina_lotep"/>
+                                            </td>
+                                            <td name="medicina_examen_fisico_regional_right"/>
+                                        </tr>
+                                        <tr name="medicina_anormalidades_regional">
+                                            <td name="medicina_anormalidades_regional_label" class="o_td_label" colspan="2">
+                                                <label name="medicina_anormalidades_regional_label" for="medicina_anormalidades_regional" string="Anormalidades"/>
+                                            </td>
+                                            <td name="medicina_anormalidades_regional" colspan="8">
+                                                <field name="medicina_anormalidades_regional"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                        <group name="medicina_examen_fisico_3">
+                            <group name="medicina_examen_fisico_3_left">
+                                <table name="medicina_examen_fisico_3_left" style="width:100%">
+                                    <thead name="medicina_examen_fisico_3_left">
+                                        <tr name="medicina_examen_fisico_3_left">
+                                            <th name="medicina_examen_fisico_3_left_1" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_3_left_2" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_3_left_3" style="width:34%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_3_left">
+                                        <tr name="medicina_anamnesis">
+                                            <td name="medicina_anamnesis_label" class="o_td_label">
+                                                <label name="medicina_anamnesis_label" for="medicina_anamnesis" string="Anamnesis"/>
+                                            </td>
+                                            <td name="medicina_anamnesis" colspan="2">
+                                                <field name="medicina_anamnesis"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_piel_faneras">
+                                            <td name="medicina_piel_faneras_label" class="o_td_label">
+                                                <label name="medicina_piel_faneras_label" for="medicina_piel_faneras" string="Piel y faneras"/>
+                                            </td>
+                                            <td name="medicina_piel_faneras" colspan="2">
+                                                <field name="medicina_piel_faneras"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_piel_faneras_razon">
+                                            <td name="medicina_piel_faneras_razon_label" class="o_td_label"/>
+                                            <td name="medicina_piel_faneras_razon" colspan="2">
+                                                <field name="medicina_piel_faneras_razon"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_ectoscopia">
+                                            <td name="medicina_ectoscopia_label" class="o_td_label">
+                                                <label name="medicina_ectoscopia_label" for="medicina_ectoscopia" string="Ectoscopía"/>
+                                            </td>
+                                            <td name="medicina_ectoscopia">
+                                                <field name="medicina_ectoscopia"/>
+                                            </td>
+                                            <td name="medicina_ectoscopia_razon">
+                                                <field name="medicina_ectoscopia_razon" attrs="{'invisible': [['medicina_ectoscopia','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_corazon">
+                                            <td name="medicina_corazon_label" class="o_td_label">
+                                                <label name="medicina_corazon_label" for="medicina_corazon" string="Corazón"/>
+                                            </td>
+                                            <td name="medicina_corazon">
+                                                <field name="medicina_corazon"/>
+                                            </td>
+                                            <td name="medicina_corazon_razon">
+                                                <field name="medicina_corazon_razon" attrs="{'invisible': [['medicina_corazon','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_pulmones">
+                                            <td name="medicina_pulmones_label" class="o_td_label">
+                                                <label name="medicina_pulmones_label" for="medicina_pulmones" string="Pulmones"/>
+                                            </td>
+                                            <td name="medicina_pulmones">
+                                                <field name="medicina_pulmones"/>
+                                            </td>
+                                            <td name="medicina_pulmones_razon">
+                                                <field name="medicina_pulmones_razon" attrs="{'invisible': [['medicina_pulmones','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_mama_derecha">
+                                            <td name="medicina_mama_derecha_label" class="o_td_label">
+                                                <label name="medicina_mama_derecha_label" for="medicina_mama_derecha" string="Mama derecha"/>
+                                            </td>
+                                            <td name="medicina_mama_derecha">
+                                                <field name="medicina_mama_derecha"/>
+                                            </td>
+                                            <td name="medicina_mama_derecha_razon">
+                                                <field name="medicina_mama_derecha_razon" attrs="{'invisible': [['medicina_mama_derecha','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_mama_izquierda">
+                                            <td name="medicina_mama_izquierda_label" class="o_td_label">
+                                                <label name="medicina_mama_izquierda_label" for="medicina_mama_izquierda" string="Mama izquierda"/>
+                                            </td>
+                                            <td name="medicina_mama_izquierda">
+                                                <field name="medicina_mama_izquierda"/>
+                                            </td>
+                                            <td name="medicina_mama_izquierda_razon">
+                                                <field name="medicina_mama_izquierda_razon" attrs="{'invisible': [['medicina_mama_izquierda','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                            <group name="medicina_examen_fisico_3_right" string="Sistema Mio-osteo muscular">
+                                <table name="medicina_examen_fisico_3_right" style="width:100%">
+                                    <thead name="medicina_examen_fisico_3_right">
+                                        <tr name="medicina_examen_fisico_3_right">
+                                            <th name="medicina_examen_fisico_3_right_1" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_3_right_2" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_3_right_3" style="width:34%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_3_right">
+                                        <tr name="medicina_miembro_superior_derecho">
+                                            <td name="medicina_miembro_superior_derecho_label" class="o_td_label">
+                                                <label name="medicina_miembro_superior_derecho_label" for="medicina_miembro_superior_derecho" string="Miembro superior derecho"/>
+                                            </td>
+                                            <td name="medicina_miembro_superior_derecho">
+                                                <field name="medicina_miembro_superior_derecho"/>
+                                            </td>
+                                            <td name="medicina_miembro_superior_derecho_razon">
+                                                <field name="medicina_miembro_superior_derecho_razon" attrs="{'invisible': [['medicina_miembro_superior_derecho','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_miembro_superior_izquierdo">
+                                            <td name="medicina_miembro_superior_izquierdo_label" class="o_td_label">
+                                                <label name="medicina_miembro_superior_izquierdo_label" for="medicina_miembro_superior_izquierdo" string="Miembro superior izquierdo"/>
+                                            </td>
+                                            <td name="medicina_miembro_superior_izquierdo">
+                                                <field name="medicina_miembro_superior_izquierdo"/>
+                                            </td>
+                                            <td name="medicina_miembro_superior_izquierdo_razon">
+                                                <field name="medicina_miembro_superior_izquierdo_razon" attrs="{'invisible': [['medicina_miembro_superior_izquierdo','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_miembro_inferior_derecho">
+                                            <td name="medicina_miembro_inferior_derecho_label" class="o_td_label">
+                                                <label name="medicina_miembro_inferior_derecho_label" for="medicina_miembro_inferior_derecho" string="Miembro inferior derecho"/>
+                                            </td>
+                                            <td name="medicina_miembro_inferior_derecho">
+                                                <field name="medicina_miembro_inferior_derecho"/>
+                                            </td>
+                                            <td name="medicina_miembro_inferior_derecho_razon">
+                                                <field name="medicina_miembro_inferior_derecho_razon" attrs="{'invisible': [['medicina_miembro_inferior_derecho','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_miembro_inferior_izquierdo">
+                                            <td name="medicina_miembro_inferior_izquierdo_label" class="o_td_label">
+                                                <label name="medicina_miembro_inferior_izquierdo_label" for="medicina_miembro_inferior_izquierdo" string="Miembro inferior izquierdo"/>
+                                            </td>
+                                            <td name="medicina_miembro_inferior_izquierdo">
+                                                <field name="medicina_miembro_inferior_izquierdo"/>
+                                            </td>
+                                            <td name="medicina_miembro_inferior_izquierdo_razon">
+                                                <field name="medicina_miembro_inferior_izquierdo_razon" attrs="{'invisible': [['medicina_miembro_inferior_izquierdo','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                        <group name="medicina_examen_fisico_4">
+                            <group name="medicina_examen_fisico_4_left">
+                                <table name="medicina_examen_fisico_4_left" style="width:100%">
+                                    <thead name="medicina_examen_fisico_4_left">
+                                        <tr name="medicina_examen_fisico_4_left">
+                                            <th name="medicina_examen_fisico_4_left_1" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_4_left_2" style="width:33%"/>
+                                            <th name="medicina_examen_fisico_4_left_3" style="width:34%"/>
+                                        </tr>
+                                    </thead>
+                                    <tbody name="medicina_examen_fisico_4_left">
+                                        <tr name="medicina_ap_locomotor">
+                                            <td name="medicina_ap_locomotor_label" class="o_td_label">
+                                                <label name="medicina_ap_locomotor_label" for="medicina_ap_locomotor" string="Ap. locomotor"/>
+                                            </td>
+                                            <td name="medicina_ap_locomotor">
+                                                <field name="medicina_ap_locomotor"/>
+                                            </td>
+                                            <td name="medicina_ap_locomotor_razon">
+                                                <field name="medicina_ap_locomotor_razon" attrs="{'invisible': [['medicina_ap_locomotor','!=','disminuido']]}"/>
+                                            </td>
+                                        </tr>
+                                        <tr name="medicina_marcha_tandem">
+                                            <td name="medicina_marcha_tandem_label" class="o_td_label">
+                                                <label name="medicina_marcha_tandem_label" for="medicina_marcha_tandem" string="Marcha tandem"/>
+                                            </td>
+                                            <td name="medicina_marcha_tandem">
+                                                <field name="medicina_marcha_tandem"/>
+                                            </td>
+                                            <td name="medicina_marcha_tandem_razon">
+                                                <field name="medicina_marcha_tandem_razon" attrs="{'invisible': [['medicina_marcha_tandem','!=','anormal']]}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

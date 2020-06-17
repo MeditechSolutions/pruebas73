@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	    <record id="view_medicina_cita_form_grandes_alturas" model="ir.ui.view">
+            <field name="name">medicina.cita.form.grandes_alturas</field>
+            <field name="model">medicina.cita</field>
+            <field name="inherit_id" ref="view_medicina_cita_form"/>
+            <field name="priority" eval="44"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[@name='medicina_ocupacional']" position="inside">
+                    <page name="grandes_alturas" string="Evaluación anexo N°16 A" attrs="{'invisible': [('tipo_cita','!=','grandes_alturas')]}">
+                        <group name="grandes_alturas_funciones_vitales" string="Funciones vitales" col="1">
+                            <table name="grandes_alturas_funciones_vitales" style="width:100%">
+                                <thead name="grandes_alturas_funciones_vitales">
+                                    <tr name="grandes_alturas_funciones_vitales_header">
+                                        <th name="grandes_alturas_funciones_vitales_header_1" style="width:7%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_2" style="width:13%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_3" style="width:7%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_4" style="width:13%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_5" style="width:7%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_6" style="width:13%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_7" style="width:7%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_8" style="width:13%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_9" style="width:7%"/>
+                                        <th name="grandes_alturas_funciones_vitales_header_10" style="width:13%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="grandes_alturas_funciones_vitales">
+                                    <tr name="grandes_alturas_funciones_vitales">
+                                        <td name="grandes_alturas_frecuencia_cardiaca_label" class="o_td_label">
+                                            <label name="grandes_alturas_frecuencia_cardiaca_label" for="grandes_alturas_frecuencia_cardiaca" string="F.C."/>
+                                        </td>
+                                        <td name="grandes_alturas_frecuencia_cardiaca" style="padding:10px">
+                                            <div name="grandes_alturas_frecuencia_cardiaca" class="o_row">
+                                                <field name="grandes_alturas_frecuencia_cardiaca"/> x min
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_presion_arterial_label" class="o_td_label">
+                                            <label name="grandes_alturas_presion_arterial_label" for="grandes_alturas_presion_arterial" string="P.A."/>
+                                        </td>
+                                        <td name="grandes_alturas_presion_arterial" style="padding:10px">
+                                            <div name="grandes_alturas_presion_arterial" class="o_row">
+                                                <field name="grandes_alturas_presion_arterial"/> mmHg
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_frecuencia_respiratoria_label" class="o_td_label">
+                                            <label name="grandes_alturas_frecuencia_respiratoria_label" for="grandes_alturas_frecuencia_respiratoria" string="F.R."/>
+                                        </td>
+                                        <td name="grandes_alturas_frecuencia_respiratoria" style="padding:10px">
+                                            <div name="grandes_alturas_frecuencia_respiratoria" class="o_row">
+                                                <field name="grandes_alturas_frecuencia_respiratoria"/> x min
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_indice_masa_corporal_label" class="o_td_label">
+                                            <label name="grandes_alturas_indice_masa_corporal_label" for="grandes_alturas_indice_masa_corporal" string="I.M.C."/>
+                                        </td>
+                                        <td name="grandes_alturas_indice_masa_corporal" style="padding:10px">
+                                            <div name="grandes_alturas_indice_masa_corporal" class="o_row">
+                                                <field name="grandes_alturas_indice_masa_corporal"/> kg/m<sup>2</sup>
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_saturacion_oxigeno_label" class="o_td_label">
+                                            <label name="grandes_alturas_saturacion_oxigeno_label" for="grandes_alturas_saturacion_oxigeno" string="Sat. O2"/>
+                                        </td>
+                                        <td name="grandes_alturas_saturacion_oxigeno" style="padding:10px">
+                                            <div name="grandes_alturas_saturacion_oxigeno" class="o_row">
+                                                <field name="grandes_alturas_saturacion_oxigeno"/> %
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="grandes_alturas_antecedentes_resultados" string="Antecedentes" col="1">
+                            <table name="grandes_alturas_antecedentes_resultados" style="width:100%">
+                                <thead name="grandes_alturas_antecedentes_resultados">
+                                    <tr name="grandes_alturas_antecedentes_resultados_header">
+                                        <th name="grandes_alturas_antecedentes_resultados_header_1" style="width:95%"/>
+                                        <th name="grandes_alturas_antecedentes_resultados_header_2" style="width:5%"/>
+                                    </tr>
+                                </thead>
+                                <tbody name="grandes_alturas_antecedentes_resultados">
+                                    <tr name="grandes_alturas_cirugia_mayor_reciente">
+                                        <td name="grandes_alturas_cirugia_mayor_reciente_label" class="o_td_label">
+                                            <label name="grandes_alturas_cirugia_mayor_reciente_label" for="grandes_alturas_cirugia_mayor_reciente" string="Cirugía mayor reciente"/>
+                                        </td>
+                                        <td name="grandes_alturas_cirugia_mayor_reciente">
+                                            <field name="grandes_alturas_cirugia_mayor_reciente"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_desordenes_coagulacion">
+                                        <td name="grandes_alturas_desordenes_coagulacion_label" class="o_td_label">
+                                            <label name="grandes_alturas_desordenes_coagulacion_label" for="grandes_alturas_desordenes_coagulacion" string="Desórdenes de la coagulación: trombosis, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_desordenes_coagulacion">
+                                            <field name="grandes_alturas_desordenes_coagulacion"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_diabetes_mellitus">
+                                        <td name="grandes_alturas_diabetes_mellitus_label" class="o_td_label">
+                                            <label name="grandes_alturas_diabetes_mellitus_label" for="grandes_alturas_diabetes_mellitus" string="Diabetes mellitus"/>
+                                        </td>
+                                        <td name="grandes_alturas_diabetes_mellitus">
+                                            <field name="grandes_alturas_diabetes_mellitus"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_hipertension_arterial">
+                                        <td name="grandes_alturas_hipertension_arterial_label" class="o_td_label">
+                                            <label name="grandes_alturas_hipertension_arterial_label" for="grandes_alturas_hipertension_arterial" string="Hipertensión arterial"/>
+                                        </td>
+                                        <td name="grandes_alturas_hipertension_arterial">
+                                            <field name="grandes_alturas_hipertension_arterial"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_embarazo">
+                                        <td name="grandes_alturas_embarazo_label" class="o_td_label">
+                                            <label name="grandes_alturas_embarazo_label" for="grandes_alturas_embarazo" string="Embarazo"/>
+                                        </td>
+                                        <td name="grandes_alturas_embarazo">
+                                            <field name="grandes_alturas_embarazo"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_problemas_neurologicos">
+                                        <td name="grandes_alturas_problemas_neurologicos_label" class="o_td_label">
+                                            <label name="grandes_alturas_problemas_neurologicos_label" for="grandes_alturas_problemas_neurologicos" string="Problemas neurológicos: epilepsia, vértigos, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_problemas_neurologicos">
+                                            <field name="grandes_alturas_problemas_neurologicos"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_infecciones_recientes">
+                                        <td name="grandes_alturas_infecciones_recientes_label" class="o_td_label">
+                                            <label name="grandes_alturas_infecciones_recientes_label" for="grandes_alturas_infecciones_recientes" string="Infecciones recientes (de moderadas a severas)"/>
+                                        </td>
+                                        <td name="grandes_alturas_infecciones_recientes">
+                                            <field name="grandes_alturas_infecciones_recientes"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_obesidad">
+                                        <td name="grandes_alturas_obesidad_label" class="o_td_label">
+                                            <label name="grandes_alturas_obesidad_label" for="grandes_alturas_obesidad" string="Obesidad"/>
+                                        </td>
+                                        <td name="grandes_alturas_obesidad">
+                                            <field name="grandes_alturas_obesidad"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_problemas_cardiacos">
+                                        <td name="grandes_alturas_problemas_cardiacos_label" class="o_td_label">
+                                            <label name="grandes_alturas_problemas_cardiacos_label" for="grandes_alturas_problemas_cardiacos" string="Problemas cardiacos: marcapasos, coronariopatía, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_problemas_cardiacos">
+                                            <field name="grandes_alturas_problemas_cardiacos"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_problemas_respiratorios">
+                                        <td name="grandes_alturas_problemas_respiratorios_label" class="o_td_label">
+                                            <label name="grandes_alturas_problemas_respiratorios_label" for="grandes_alturas_problemas_respiratorios" string="Problemas respiratorios: asma, EPOC, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_problemas_respiratorios">
+                                            <field name="grandes_alturas_problemas_respiratorios"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_problemas_oftalmologicos">
+                                        <td name="grandes_alturas_problemas_oftalmologicos_label" class="o_td_label">
+                                            <label name="grandes_alturas_problemas_oftalmologicos_label" for="grandes_alturas_problemas_oftalmologicos" string="Problemas oftalmológicos: retinopatía, glaucoma, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_problemas_oftalmologicos">
+                                            <field name="grandes_alturas_problemas_oftalmologicos"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_problemas_digestivos">
+                                        <td name="grandes_alturas_problemas_digestivos_label" class="o_td_label">
+                                            <label name="grandes_alturas_problemas_digestivos_label" for="grandes_alturas_problemas_digestivos" string="Problemas digestivos: sangrado digestivo, hepatitis, cirrosis hepática, otros"/>
+                                        </td>
+                                        <td name="grandes_alturas_problemas_digestivos">
+                                            <field name="grandes_alturas_problemas_digestivos"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_apnea_sueno">
+                                        <td name="grandes_alturas_apnea_sueno_label" class="o_td_label">
+                                            <label name="grandes_alturas_apnea_sueno_label" for="grandes_alturas_apnea_sueno" string="Apnea del sueño"/>
+                                        </td>
+                                        <td name="grandes_alturas_apnea_sueno">
+                                            <field name="grandes_alturas_apnea_sueno"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_alergias">
+                                        <td name="grandes_alturas_alergias_label" style="padding-right:10px">
+                                            <div name="grandes_alturas_alergias_label" class="o_row">
+                                                <label name="grandes_alturas_alergias_label" for="grandes_alturas_alergias" style="font-weight:bold" string="Alergias"/> <field name="grandes_alturas_alergias_descripcion" attrs="{'invisible': [['grandes_alturas_alergias','=',False]]}"/>
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_alergias">
+                                            <field name="grandes_alturas_alergias"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_otra_contraindicacion">
+                                        <td name="grandes_alturas_otra_contraindicacion_label" style="padding-right:10px">
+                                            <div name="grandes_alturas_otra_contraindicacion_label" class="o_row">
+                                                <label name="grandes_alturas_otra_contraindicacion_label" for="grandes_alturas_otra_contraindicacion" style="font-weight:bold" string="Otra contraindicación médica"/> <field name="grandes_alturas_otra_contraindicacion_descripcion" attrs="{'invisible': [['grandes_alturas_otra_contraindicacion','=',False]]}"/>
+                                            </div>
+                                        </td>
+                                        <td name="grandes_alturas_otra_contraindicacion">
+                                            <field name="grandes_alturas_otra_contraindicacion"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_medicacion_actual">
+                                        <td name="grandes_alturas_medicacion_actual_label" class="o_td_label">
+                                            <label name="grandes_alturas_medicacion_actual_label" for="grandes_alturas_medicacion_actual" string="Uso de medicación actual"/>
+                                        </td>
+                                        <td name="grandes_alturas_medicacion_actual">
+                                            <field name="grandes_alturas_medicacion_actual"/>
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_medicacion_actual_descripcion">
+                                        <td name="grandes_alturas_medicacion_actual_descripcion" colspan="2">
+                                            <field name="grandes_alturas_medicacion_actual_descripcion"/>
+                                        </td>
+                                    </tr>
+                                    <separator/>
+                                    <tr name="grandes_alturas_resultados_1">
+                                        <td name="grandes_alturas_resultados_1" style="text-align:center" colspan="2">
+                                            Declaro que las respuestas dadas en el presente documento son verdaderas y estoy consciente que el ocultar o falsear información me puede causar daño por lo que asumo total responsabilidad de ello.
+                                        </td>
+                                    </tr>
+                                    <tr name="grandes_alturas_resultados_2">
+                                        <td name="grandes_alturas_resultados_1" style="text-align:center" colspan="2">
+                                            Conforme a la declaración del / de la paciente certifico que se encuentra <field name="grandes_alturas_aptitud_trabajo"/> para ascender a grandes altitudes (mayor a 2,500 m.s.n.m.) sin embargo, no aseguramos el desempeño durante el ascenso ni durante su permanencia.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group name="grandes_alturas_observaciones" string="Observaciones">
+                            <field name="grandes_alturas_observaciones" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</odoo>
