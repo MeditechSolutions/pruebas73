@@ -24,7 +24,7 @@ class ProjectTask(models.Model) :
                     valor.append((0, 0, {'res_model': 'project.task', 'res_id': self.id, 'partner_id': values.get('paciente_id')}))
                 if valor :
                     values.update({'message_follower_ids': valor})
-                if self.subtask_count == 0 :
+                if self.subtask_count == 0 and self.sale_line_id.product_id.protocolo_id.estacion_ids and 'covid' not in self.sale_line_id.product_id.protocolo_id.estacion_ids.mapped('codigo_estarbien') :
                     valor = self.sale_line_id._timesheet_create_task_prepare_values(self.project_id)
                     valor.update({'parent_id': self.id})
                     del valor['sale_line_id']

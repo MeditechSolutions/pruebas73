@@ -117,6 +117,7 @@
             <field name="sequence">17</field>
             <field name="name">COVID</field>
             <field name="estacion_estarbien" eval="True"/>
+            <field name="codigo_estarbien">covid</field>
         </record>
     </data>
 </odoo>
