@@ -37,13 +37,23 @@ class SaleOrderLine(models.Model) :
             if not project :
                 if not so_line.project_id :
                     project = so_line._timesheet_create_project()
-                    project.sudo().write({'user_id': usuario.id, 'sale_line_id': False, 'sale_order_id': False, 'name': so_line.order_id.partner_id.display_name})
+                    #values = self._timesheet_create_project_prepare_values()
+                    #project = self.env['project.project'].create(values)
+                    #etapa = self.env['project.task.type'].search([('estacion_estarbien','=',True), ('codigo_estarbien','=','triaje')])
+                    
+                    values = {'user_id': usuario.id,
+                              'sale_line_id': False,
+                              'sale_order_id': False,
+                              'name': so_line.order_id.partner_id.display_name}
+                    project.sudo().write(values)
                 else :
                     project = so_line.project_id
             elif (not so_line.project_id) or so_line.project_id != project :
                 so_line.project_id = project
             if not so_line.task_id :
                 so_line._timesheet_create_task(project=project)
+            if not so_line.task_id.stage_id :
+                so_line.task_id.stage_id = self.env['project.task.type'].search([('estacion_estarbien','=',True), ('codigo_estarbien','=','triaje')], limit=1)
             # Portal for the client
             if so_line.order_id.partner_id not in so_line.task_id.message_follower_ids.partner_id :
                 so_line.task_id.write({'message_follower_ids': [(0, 0, {'res_id':so_line.task_id.id,'res_model':'project.task', 'partner_id':so_line.order_id.partner_id.id})]})
